@@ -1,0 +1,97 @@
+<div class="whiteLink"><form method="post" action="<!--*ScriptName*-->" id=form2 name=form2>
+<input type="hidden" name="action" value="users">
+<input type="hidden" name="sub" value="submit">
+<input type="hidden" name="uid" value="0">
+<table width="100%" border="1" bordercolor="black" cellpadding="0" cellspacing="0" bgcolor="#000000">
+	<tr>
+		<td width="100%" height="20" bgcolor="#4682b4">&nbsp;<font face="arial,helvetica" color="white"><b>Add a User</b></font></td>
+	</tr>
+</table>
+<table width="100%" border="1" bordercolor="black" cellpadding="4" cellspacing="0" bgcolor="#4682b4">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="100%" height="20"><font face="arial,helvetica" size="2" color="white">Fill out the following fields and click Submit. &nbsp;Click on any of the labels for help.</font><br>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgUsername');" style="text-decoration:none;">Username:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="username" value="" maxlength="16" tabindex="1"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgFirstName');" style="text-decoration:none;">First Name:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="fname" value="" tabindex="2"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgLastName');" style="text-decoration:none;">Last Name:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="lname" value="" tabindex="3"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgPassword');" style="text-decoration:none;">Password:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="password" size="40" name="password" value="" maxlength="12" tabindex="4"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgLastName');" style="text-decoration:none;">Confirm Password:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="password" size="40" name="confirmpw" value="" maxlength="12" tabindex="5"></td>
+				</tr>											
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgEmailAddress');" style="text-decoration:none;">Email Address:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="email" value="" tabindex="6"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="Checkbox" name="hideemail" value="True" checked tabindex="7"><font face="arial,helvetica" size="2" color="white">Hide this user's email address from other members.</font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgICQ');" style="text-decoration:none;">ICQ Number:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="icq" value="" tabindex="8"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgHomepage');" style="text-decoration:none;">Homepage:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="homepage" value="" tabindex="9"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgSignature');" style="text-decoration:none;">Signature:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<textarea cols="30" rows="5" name="signature" wrap="virtual" tabindex="10"></textarea></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="Checkbox" name="includesig" value="True" tabindex="11"><font face="arial,helvetica" size="2" color="white">Include this user's signature on all posts.</font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="Checkbox" name="notifydefault" value="True" checked tabindex="12"><font face="arial,helvetica" size="2" color="white">Notify this user of all replies to his or her posts.</font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgSkin');" style="text-decoration:none;">Skin:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<select name="skin" tabindex="13"><!--*SkinList*--></select></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="Checkbox" name="newuseremail" value="True" checked tabindex="14"><font face="arial,helvetica" size="2" color="white">Send this user the New Register Welcome Email.</font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20"><br>&nbsp;<input type="submit" name="submit" style="color:white;background-color:#4682b4" value="Submit" tabindex="15"><br>&nbsp;</td>
+				</tr>			
+			</table>
+		</td>
+	</tr>
+</table>
+</form>
+</div>

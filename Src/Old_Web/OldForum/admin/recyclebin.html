@@ -1,0 +1,46 @@
+<table width="100%" border="1" bordercolor="black" cellpadding="0" cellspacing="0" bgcolor="#000000">
+	<tr>
+		<td width="100%" height="20" bgcolor="#4682b4">&nbsp;<font face="arial,helvetica" color="white"><b>Recycle Bin</b></font></td>
+	</tr>
+</table>
+<table width="100%" border="1" bordercolor="black" cellpadding="4" cellspacing="0" bgcolor="#4682b4">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="100%" height="20"><font face="arial,helvetica" size="2" color="white">Check any items below and then click Restore or Destroy.</font><br>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="100%">
+						<form action="<!--*ScriptName*-->" method="POST">
+						<input type="hidden" name="action" value="recyclebin">
+						<input type="hidden" name="sub" value="submitforums">
+						<table width="100%">
+							<tr>
+							  	<td width="100%" height="20"><font face="arial,helvetica" size="2" color="white"><b>Forums:</b></font></td>
+							</tr>
+							<!--%ForumsList%-->
+							<tr>
+							  	<td width="100%" height="20" valign="top"><input type="submit" name="submit" value="Restore" style="color:white;background-color:#4682b4;width:128">&nbsp;&nbsp;<input type="submit" name="submit" value="Destroy" style="color:white;background-color:#4682b4;width:128"></td>
+							</tr>
+						</table>
+						</form>
+						<form action="<!--*ScriptName*-->" method="POST">
+						<input type="hidden" name="action" value="recyclebin">
+						<input type="hidden" name="sub" value="submitposts">
+						<table width="100%">
+							<tr>
+							  	<td width="100%" height="20"><font face="arial,helvetica" size="2" color="white"><b>Posts:</b></font></td>
+							</tr>
+							<!--%PostsList%-->
+							<tr>
+							  	<td width="100%" height="20" valign="top"><input type="submit" name="submit" value="Restore" style="color:white;background-color:#4682b4;width:128">&nbsp;&nbsp;<input type="submit" name="submit" value="Destroy" style="color:white;background-color:#4682b4;width:128"></td>
+							</tr>
+						</table>
+						</form>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,506 @@
+<script language="JScript" src="toastEdit/HeadrushMedia.WebControls.ToastEdit.js"></script>
+<div id="ToastEdit1LoadingDiv">
+  <table cellpadding="0" cellspacing="0" border="0" width="600" height="300" style="border-collapse:separate;">
+    <tr>
+      <td height="100%" width="100%" bgcolor="threedface" align="center" valign="middle">Please wait, loading edit control...<br><br><img src="toastEdit/images/connect.gif"></td>
+    </tr>
+  </table>
+</div>
+<div id="ToastEdit1Div" style="display:none">
+  <input type="hidden" name="<!--%SubmitTextName%-->" value="<!--%SubmitTextValue%-->">
+  <input type="hidden" name="UsingHTMLEditor" value="True">
+  <table cellpadding="0" cellspacing="0" border="0" width="600" height="300" style="border-collapse:separate;">
+    <tr>
+      <td height="25" width="100%">
+        <table id="ToastEdit1ToolBar1" height="25" width="100%" style="border-collapse:separate;">
+          <tr height="25" valign="middle">
+            <td id="ToastEdit1CutButton">
+              <img width="20" height="20" src="toastEdit/images/cut.gif">
+            </td>
+            <td id="ToastEdit1CopyButton">
+              <img width="20" height="20" src="toastEdit/images/copy.gif">
+            </td>
+            <td id="ToastEdit1PasteButton">
+              <img width="20" height="20" src="toastEdit/images/paste.gif">
+            </td>
+            <td id="ToastEdit1BoldButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/bold.gif">
+            </td>
+            <td id="ToastEdit1ItalicButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/italic.gif">
+            </td>
+            <td id="ToastEdit1UnderlineButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/underline.gif">
+            </td>
+            <td id="ToastEdit1CreateLinkButton">
+              <img width="20" height="20" src="toastEdit/images/hyperlink.gif">
+            </td>
+            <td id="ToastEdit1InsertImageButton">
+              <img width="20" height="20" src="toastEdit/images/image.gif">
+            </td>
+            <td id="ToastEdit1JustifyLeftButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/leftAlign.gif">
+            </td>
+            <td id="ToastEdit1JustifyCenterButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/centerAlign.gif">
+            </td>
+            <td id="ToastEdit1JustifyRightButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/rightAlign.gif">
+            </td>
+            <td id="ToastEdit1InsertOrderedListButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/numberedList.gif">
+            </td>
+            <td id="ToastEdit1InsertUnorderedListButton" toggle="up">
+              <img width="20" height="20" src="toastEdit/images/bulletedList.gif">
+            </td>
+            <td id="ToastEdit1OutdentButton">
+              <img width="20" height="20" src="toastEdit/images/outdent.gif">
+            </td>
+            <td id="ToastEdit1IndentButton">
+              <img width="20" height="20" src="toastEdit/images/indent.gif">
+            </td>
+            <td id="ToastEdit1SpellCheckButton">
+              <img width="20" height="20" src="toastEdit/images/spellCheck.gif">
+            </td>
+            <td>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="25" width="100%">
+        <table id="ToastEdit1ToolBar2" height="25" width="100%" style="border-collapse:separate;">
+          <tr height="25" valign="top">
+            <td width="140">
+              <table id="ToastEdit1FontFaceDropDownList" cellspacing="0" cellpadding="0" style="border-collapse:separate;">
+                <tr height="20" valign="middle">
+                  <td id="ToastEdit1FontFaceDropDownListText" align="left" style="FONT-SIZE: 12px; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white; width: 125px; CURSOR: default; PADDING-LEFT: 5px;">Times New Roman</td>
+                  <td width="12" valign="middle">
+                    <img width="12" height="20" src="toastEdit/images/dropDown.gif">
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="65">
+              <table id="ToastEdit1FontSizeDropDownList" cellspacing="0" cellpadding="0" style="border-collapse:separate;">
+                <tr height="20" valign="middle">
+                  <td id="ToastEdit1FontSizeDropDownListText" align="left" style="PADDING-LEFT: 5px; FONT-SIZE: 12px; WIDTH: 50px; CURSOR: default; FONT-FAMILY: Verdana; BACKGROUND-COLOR: white">3</td>
+                  <td width="12" valign="middle">
+                    <img width="12" height="20" src="toastEdit/images/dropDown.gif">
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="35">
+              <table id="ToastEdit1FontColorsDropDownButton" cellspacing="0" cellpadding="0" style="border-collapse:separate;">
+                <tr height="25" valign="middle">
+                  <td align="center">
+                    <img width="20" height="20" src="toastEdit/images/fontColors.gif">
+                  </td>
+                  <td width="12" valign="middle">
+                    <img width="12" height="20" src="toastEdit/images/dropDown.gif">
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td width="35">
+              <table id="ToastEdit1EmoticonsDropDownButton" cellspacing="0" cellpadding="0" style="border-collapse:separate;">
+                <tr height="25" valign="middle">
+                  <td align="center">
+                    <img width="20" height="20" src="toastEdit/images/emoticons.gif">
+                  </td>
+                  <td width="12" valign="middle">
+                    <img width="12" height="20" src="toastEdit/images/dropDown.gif">
+                  </td>
+                </tr>
+              </table>
+            </td>
+            <td align="right"><button id="ToastEdit1DefaultFontButton" style="width:165px;">Save this font as default</button></td>
+          </tr>
+        </table>
+        <table id="ToastEdit1FontFaceSubBar" width="150" style="position:absolute;display:none;border-collapse:separate;">
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceArial" fontFace="Arial">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceArialBlack" fontFace="Arial Black">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceArialNarrow" fontFace="Arial Narrow">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceComicSansMS" fontFace="Comic Sans MS">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceCourierNew" fontFace="Courier New">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceSystem" fontFace="System">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceTahoma" fontFace="Tahoma">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceTimesNewRoman" fontFace="Times New Roman">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceVerdana" fontFace="Verdana">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontFaceWingdings" fontFace="Wingdings">
+            </td>
+          </tr>
+        </table>
+        <table id="ToastEdit1FontSizeSubBar" width="75" style="position:absolute;display:none;border-collapse:separate;">
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize1" fontSize="1">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize2" fontSize="2">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize3" fontSize="3">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize4" fontSize="4">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize5" fontSize="5">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize6" fontSize="6">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontSize7" fontSize="7">
+            </td>
+          </tr>
+        </table>
+        <table id="ToastEdit1FontColorSubBar" style="position:absolute;display:none;border-collapse:separate;">
+          <tr valign="middle">
+            <td id="ToastEdit1FontColorBlack" fontColor="Black">
+            </td>
+            <td id="ToastEdit1FontColorWhite" fontColor="White">
+            </td>
+            <td id="ToastEdit1FontColorGreen" fontColor="Green">
+            </td>
+            <td id="ToastEdit1FontColorMaroon" fontColor="Maroon">
+            </td>
+            <td id="ToastEdit1FontColorOlive" fontColor="Olive">
+            </td>
+            <td id="ToastEdit1FontColorNavy" fontColor="Navy">
+            </td>
+            <td id="ToastEdit1FontColorPurple" fontColor="Purple">
+            </td>
+            <td id="ToastEdit1FontColorGray" fontColor="Gray">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1FontColorYellow" fontColor="Yellow">
+            </td>
+            <td id="ToastEdit1FontColorLime" fontColor="Lime">
+            </td>
+            <td id="ToastEdit1FontColorCyan" fontColor="Cyan">
+            </td>
+            <td id="ToastEdit1FontColorMagenta" fontColor="Magenta">
+            </td>
+            <td id="ToastEdit1FontColorSilver" fontColor="Silver">
+            </td>
+            <td id="ToastEdit1FontColorRed" fontColor="Red">
+            </td>
+            <td id="ToastEdit1FontColorBlue" fontColor="Blue">
+            </td>
+            <td id="ToastEdit1FontColorTeal" fontColor="Teal">
+            </td>
+          </tr>
+        </table>
+        <table id="ToastEdit1EmoticonSubBar" style="position:absolute;display:none;border-collapse:separate;">
+          <tr valign="middle">
+            <td id="ToastEdit1EmoticonArrow" emoticonImage="icon_arrow" altText="(})">
+            </td>
+            <td id="ToastEdit1EmoticonArrowD" emoticonImage="icon_arrowd" altText="(v)">
+            </td>
+            <td id="ToastEdit1EmoticonArrowL" emoticonImage="icon_arrowl" altText="({)">
+            </td>
+            <td id="ToastEdit1EmoticonArrowU" emoticonImage="icon_arrowu" altText="(^)">
+            </td>
+            <td id="ToastEdit1EmoticonBigGrin" emoticonImage="icon_biggrin" altText=":D">
+            </td>
+            <td id="ToastEdit1EmoticonCheesyGrin" emoticonImage="icon_cheesygrin" altText=":B">
+            </td>
+            <td id="ToastEdit1EmoticonConfused" emoticonImage="icon_confused" altText=":?">
+            </td>
+            <td id="ToastEdit1EmoticonCool" emoticonImage="icon_cool" altText="8)">
+            </td>
+            <td id="ToastEdit1EmoticonCry" emoticonImage="icon_cry" altText=":'(">
+            </td>
+          </tr>
+          <tr valign="middle">
+            <td id="ToastEdit1EmoticonEek" emoticonImage="icon_eek" altText="8O">
+            </td>
+            <td id="ToastEdit1EmoticonEvil" emoticonImage="icon_evil" altText="(6)">
+            </td>
+            <td id="ToastEdit1EmoticonExclaim" emoticonImage="icon_exclaim" altText="(!)">
+            </td>
+            <td id="ToastEdit1EmoticonFrown" emoticonImage="icon_frown" altText=";(">
+            </td>
+            <td id="ToastEdit1EmoticonIdea" emoticonImage="icon_idea" altText="(i)">
+            </td>
+            <td id="ToastEdit1EmoticonLol" emoticonImage="icon_lol" altText="(lol)">
+            </td>
+            <td id="ToastEdit1EmoticonMad" emoticonImage="icon_mad" altText=":@">
+            </td>
+            <td id="ToastEdit1EmoticonMrGreen" emoticonImage="icon_mrgreen" altText="(mrgreen)">
+            </td>
+            <td id="ToastEdit1EmoticonNeutral" emoticonImage="icon_neutral" altText=":|">
+          </tr>
+          <tr valign="middle">
+            </td>
+            <td id="ToastEdit1EmoticonQuestion" emoticonImage="icon_question" altText="(?)">
+            </td>
+            <td id="ToastEdit1EmoticonRazz" emoticonImage="icon_razz" altText=":P">
+            </td>
+            <td id="ToastEdit1EmoticonRedFace" emoticonImage="icon_redface" altText=":$">
+            </td>
+            <td id="ToastEdit1EmoticonRollEyes" emoticonImage="icon_rolleyes" altText="(roll)">
+            </td>
+            <td id="ToastEdit1EmoticonSad" emoticonImage="icon_sad" altText=":(">
+            </td>
+            <td id="ToastEdit1EmoticonSmile" emoticonImage="icon_smile" altText=":)">
+            </td>
+            <td id="ToastEdit1EmoticonSurprised" emoticonImage="icon_surprised" altText=":o">
+            </td>
+            <td id="ToastEdit1EmoticonTwisted" emoticonImage="icon_twisted" altText="};)">
+            </td>
+            <td id="ToastEdit1EmoticonWink" emoticonImage="icon_wink" altText=";)">
+            </td>
+          </tr>          
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="100%" width="100%">
+        <table id="ToastEdit1ContentArea" style="BORDER-RIGHT: buttonshadow 1px solid; BORDER-TOP: buttonhighlight 1px solid; BORDER-LEFT: buttonhighlight 1px solid; BORDER-BOTTOM: buttonshadow 1px solid; background-color:threedface;border-collapse:separate;" cellspacing="0" width="100%" height="100%">
+          <tr>
+            <td>
+              <iframe id="ToastEdit1ContentFrame" width="100%" height="100%">
+              </iframe>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="20" width="100%">
+        <table id="ToastEdit1ToolBar3" cellspacing="5" height="20" width="100%" style="border-collapse:separate;">
+          <tr height="20" valign="middle">
+            <td width="50" id="ToastEdit1DesignButton" toggle="up">Design</td>
+            <td width="50" id="ToastEdit1HTMLButton" toggle="up">HTML</td>
+            <td align="right"><font size="1">Tip: Hold down the Shift key while pressing Enter to move down a single line.</font></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <div style="DISPLAY:none" id="WSpellDiv">
+  </div>
+  <script language="javascript">
+
+		var ToastEdit1Toolbars = new Array();
+		var ToastEdit1SubToolbars = new Array();
+		var ToastEdit1ToolbarButtons = new Array();
+		var ToastEdit1ToolbarDropDownButtons = new Array();
+		var ToastEdit1DropDownLists = new Array();
+		var ToastEdit1DropDownListValues = new Array();
+		var ToastEdit1ModeButtons = new Array();
+		var ToastEdit1FontFaceButtons = new Array();
+		var ToastEdit1FontSizeButtons = new Array();
+		var ToastEdit1FontColorButtons = new Array();
+		var ToastEdit1EmoticonButtons = new Array();
+		var ToastEdit1Styles = new Array();
+		var ToastEdit1Language = new Array();
+		var ToastEdit1Objects = new Array();
+							
+		document.onreadystatechange = fnStartInit;
+
+		function fnStartInit()
+		{
+		   if (document.readyState=="complete")
+		   {
+					ToastEdit1Toolbars["TOOLBAR1"] = ToastEdit1ToolBar1;
+					ToastEdit1Toolbars["TOOLBAR2"] = ToastEdit1ToolBar2;
+					ToastEdit1Toolbars["TOOLBAR3"] = ToastEdit1ToolBar3;
+
+					ToastEdit1SubToolbars["FONTFACESUBBAR"] = ToastEdit1FontFaceSubBar;
+					ToastEdit1SubToolbars["FONTSIZESUBBAR"] = ToastEdit1FontSizeSubBar;
+					ToastEdit1SubToolbars["FONTCOLORSUBBAR"] = ToastEdit1FontColorSubBar;
+					ToastEdit1SubToolbars["EMOTICONSUBBAR"] = ToastEdit1EmoticonSubBar;
+
+					ToastEdit1ToolbarButtons["CUT"] = ToastEdit1CutButton;
+					ToastEdit1ToolbarButtons["COPY"] = ToastEdit1CopyButton;
+					ToastEdit1ToolbarButtons["PASTE"] = ToastEdit1PasteButton;
+					ToastEdit1ToolbarButtons["BOLD"] = ToastEdit1BoldButton;
+					ToastEdit1ToolbarButtons["ITALIC"] = ToastEdit1ItalicButton;
+					ToastEdit1ToolbarButtons["UNDERLINE"] = ToastEdit1UnderlineButton;
+					ToastEdit1ToolbarButtons["CREATELINK"] = ToastEdit1CreateLinkButton;
+					ToastEdit1ToolbarButtons["INSERTIMAGE"] = ToastEdit1InsertImageButton;
+					ToastEdit1ToolbarButtons["JUSTIFYLEFT"] = ToastEdit1JustifyLeftButton;
+					ToastEdit1ToolbarButtons["JUSTIFYCENTER"] = ToastEdit1JustifyCenterButton;
+					ToastEdit1ToolbarButtons["JUSTIFYRIGHT"] = ToastEdit1JustifyRightButton;
+					ToastEdit1ToolbarButtons["INSERTORDEREDLIST"] = ToastEdit1InsertOrderedListButton;
+					ToastEdit1ToolbarButtons["INSERTUNORDEREDLIST"] = ToastEdit1InsertUnorderedListButton;
+					ToastEdit1ToolbarButtons["OUTDENT"] = ToastEdit1OutdentButton;
+					ToastEdit1ToolbarButtons["INDENT"] = ToastEdit1IndentButton;
+					ToastEdit1ToolbarButtons["SPELLCHECK"] = ToastEdit1SpellCheckButton;
+
+					ToastEdit1ToolbarDropDownButtons["FONTCOLORS"] = ToastEdit1FontColorsDropDownButton;
+					ToastEdit1ToolbarDropDownButtons["EMOTICONS"] = ToastEdit1EmoticonsDropDownButton;
+
+					ToastEdit1DropDownLists["FONTFACE"] = ToastEdit1FontFaceDropDownList;
+					ToastEdit1DropDownLists["FONTSIZE"] = ToastEdit1FontSizeDropDownList;
+
+					ToastEdit1DropDownListValues["FONTFACETEXT"] = ToastEdit1FontFaceDropDownListText;
+					ToastEdit1DropDownListValues["FONTSIZETEXT"] = ToastEdit1FontSizeDropDownListText;
+
+					ToastEdit1ModeButtons["DESIGN"] = ToastEdit1DesignButton;
+					ToastEdit1ModeButtons["HTML"] = ToastEdit1HTMLButton;
+					
+					ToastEdit1FontFaceButtons["Arial"] = ToastEdit1FontFaceArial;
+					ToastEdit1FontFaceButtons["ArialBlack"] = ToastEdit1FontFaceArialBlack;
+					ToastEdit1FontFaceButtons["ArialNarrow"] = ToastEdit1FontFaceArialNarrow;
+					ToastEdit1FontFaceButtons["ComicSansMS"] = ToastEdit1FontFaceComicSansMS;
+					ToastEdit1FontFaceButtons["CourierNew"] = ToastEdit1FontFaceCourierNew;
+					ToastEdit1FontFaceButtons["System"] = ToastEdit1FontFaceSystem;
+					ToastEdit1FontFaceButtons["Tahoma"] = ToastEdit1FontFaceTahoma;
+					ToastEdit1FontFaceButtons["TimesNewRoman"] = ToastEdit1FontFaceTimesNewRoman;
+					ToastEdit1FontFaceButtons["Verdana"] = ToastEdit1FontFaceVerdana;
+					ToastEdit1FontFaceButtons["Wingdings"] = ToastEdit1FontFaceWingdings;
+
+					ToastEdit1FontSizeButtons["1"] = ToastEdit1FontSize1;
+					ToastEdit1FontSizeButtons["2"] = ToastEdit1FontSize2;
+					ToastEdit1FontSizeButtons["3"] = ToastEdit1FontSize3;
+					ToastEdit1FontSizeButtons["4"] = ToastEdit1FontSize4;
+					ToastEdit1FontSizeButtons["5"] = ToastEdit1FontSize5;
+					ToastEdit1FontSizeButtons["6"] = ToastEdit1FontSize6;
+					ToastEdit1FontSizeButtons["7"] = ToastEdit1FontSize7;
+
+					ToastEdit1FontColorButtons["Black"] = ToastEdit1FontColorBlack;
+					ToastEdit1FontColorButtons["White"] = ToastEdit1FontColorWhite;
+					ToastEdit1FontColorButtons["Green"] = ToastEdit1FontColorGreen;
+					ToastEdit1FontColorButtons["Maroon"] = ToastEdit1FontColorMaroon;
+					ToastEdit1FontColorButtons["Olive"] = ToastEdit1FontColorOlive;
+					ToastEdit1FontColorButtons["Navy"] = ToastEdit1FontColorNavy;
+					ToastEdit1FontColorButtons["Purple"] = ToastEdit1FontColorPurple;
+					ToastEdit1FontColorButtons["Gray"] = ToastEdit1FontColorGray;
+					ToastEdit1FontColorButtons["Yellow"] = ToastEdit1FontColorYellow;
+					ToastEdit1FontColorButtons["Lime"] = ToastEdit1FontColorLime;
+					ToastEdit1FontColorButtons["Cyan"] = ToastEdit1FontColorCyan;
+					ToastEdit1FontColorButtons["Magenta"] = ToastEdit1FontColorMagenta;
+					ToastEdit1FontColorButtons["Silver"] = ToastEdit1FontColorSilver;
+					ToastEdit1FontColorButtons["Red"] = ToastEdit1FontColorRed;
+					ToastEdit1FontColorButtons["Blue"] = ToastEdit1FontColorBlue;
+					ToastEdit1FontColorButtons["Teal"] = ToastEdit1FontColorTeal;
+														
+					ToastEdit1EmoticonButtons["1"] = ToastEdit1EmoticonArrow;
+					ToastEdit1EmoticonButtons["2"] = ToastEdit1EmoticonArrowD;
+					ToastEdit1EmoticonButtons["3"] = ToastEdit1EmoticonArrowL;
+					ToastEdit1EmoticonButtons["4"] = ToastEdit1EmoticonArrowU;
+					ToastEdit1EmoticonButtons["5"] = ToastEdit1EmoticonBigGrin;
+					ToastEdit1EmoticonButtons["6"] = ToastEdit1EmoticonCheesyGrin;
+					ToastEdit1EmoticonButtons["7"] = ToastEdit1EmoticonConfused;
+					ToastEdit1EmoticonButtons["8"] = ToastEdit1EmoticonCool;
+					ToastEdit1EmoticonButtons["9"] = ToastEdit1EmoticonCry;
+					ToastEdit1EmoticonButtons["10"] = ToastEdit1EmoticonEek;
+					ToastEdit1EmoticonButtons["11"] = ToastEdit1EmoticonEvil;
+					ToastEdit1EmoticonButtons["12"] = ToastEdit1EmoticonExclaim;
+					ToastEdit1EmoticonButtons["13"] = ToastEdit1EmoticonFrown;
+					ToastEdit1EmoticonButtons["14"] = ToastEdit1EmoticonIdea;
+					ToastEdit1EmoticonButtons["15"] = ToastEdit1EmoticonLol;
+					ToastEdit1EmoticonButtons["16"] = ToastEdit1EmoticonMad;
+					ToastEdit1EmoticonButtons["17"] = ToastEdit1EmoticonMrGreen;
+					ToastEdit1EmoticonButtons["18"] = ToastEdit1EmoticonNeutral;
+					ToastEdit1EmoticonButtons["19"] = ToastEdit1EmoticonQuestion;
+					ToastEdit1EmoticonButtons["20"] = ToastEdit1EmoticonRazz;
+					ToastEdit1EmoticonButtons["21"] = ToastEdit1EmoticonRedFace;
+					ToastEdit1EmoticonButtons["22"] = ToastEdit1EmoticonRollEyes;
+					ToastEdit1EmoticonButtons["23"] = ToastEdit1EmoticonSad;
+					ToastEdit1EmoticonButtons["24"] = ToastEdit1EmoticonSmile;
+					ToastEdit1EmoticonButtons["25"] = ToastEdit1EmoticonSurprised;
+					ToastEdit1EmoticonButtons["26"] = ToastEdit1EmoticonTwisted;
+					ToastEdit1EmoticonButtons["27"] = ToastEdit1EmoticonWink;
+					
+					ToastEdit1Styles["TOOLBARCSSCLASS"] = "";
+					ToastEdit1Styles["SUBTOOLBARCSSCLASS"] = "";
+					ToastEdit1Styles["TOOLBARBUTTONCSSCLASS"] = "";
+					ToastEdit1Styles["TOOLBARBUTTONMOUSEOVERCSSCLASS"] = "";
+					ToastEdit1Styles["TOOLBARBUTTONMOUSEDOWNCSSCLASS"] = "";
+					ToastEdit1Styles["DROPDOWNBUTTONCSSCLASS"] = "";
+					ToastEdit1Styles["DROPDOWNBUTTONMOUSEOVERCSSCLASS"] = "";
+					ToastEdit1Styles["DROPDOWNBUTTONMOUSEDOWNCSSCLASS"] = "";
+					ToastEdit1Styles["DROPDOWNLISTCSSCLASS"] = "";
+					ToastEdit1Styles["DROPDOWNLISTMOUSEOVERCSSCLASS"] = "";
+					ToastEdit1Styles["DROPDOWNLISTMOUSEDOWNCSSCLASS"] = "";
+
+					ToastEdit1Language["DOWNLOADSPELLCHECKERPROMPT"] = "The Spell Checker needs to be installed.  Click OK to install it now.";
+					ToastEdit1Language["DOWNLOADSPELLCHECKERERROR"] = "An error occurred while installing the Spell Checker.  Please make sure your browser is configured to accept signed ActiveX controls and try again.";
+					ToastEdit1Language["SPELLCHECKCOMPLETE"] = "The spell check is complete.";
+					ToastEdit1Language["SPELLCHECKERINSTRUCTIONTEXT"] = "Please wait while the Spell Checker is downloaded. Please answer \"Yes\" if asked to install the \"WSpell ActiveX Spelling Checker\" from Wintertree Software Inc. This should only take a few minutes on a 56k connection.<br><br>Downloading 269kb...";
+					ToastEdit1Language["IMAGEPROMPT"] = "Please type the link to the image.  The link must begin with \"http://.\"";
+					ToastEdit1Language["IMAGELINKERROR"] = "Image link must begin with \"http://\"";
+					ToastEdit1Language["SETDEFAULTFONTTEXT"] = "The current font has been set as default.";
+		
+					ToastEdit1Objects["PREFIX"] = "ToastEdit1";
+					ToastEdit1Objects["TOOLBARS"] = ToastEdit1Toolbars;
+					ToastEdit1Objects["SUBTOOLBARS"] = ToastEdit1SubToolbars;
+					ToastEdit1Objects["TOOLBARBUTTONS"] = ToastEdit1ToolbarButtons;
+					ToastEdit1Objects["DROPDOWNBUTTONS"] = ToastEdit1ToolbarDropDownButtons;
+					ToastEdit1Objects["DROPDOWNLISTS"] = ToastEdit1DropDownLists;
+					ToastEdit1Objects["DROPDOWNLISTVALUES"] = ToastEdit1DropDownListValues;
+					ToastEdit1Objects["MODEBUTTONS"] = ToastEdit1ModeButtons;			
+					ToastEdit1Objects["FONTFACEBUTTONS"] = ToastEdit1FontFaceButtons;
+					ToastEdit1Objects["FONTSIZEBUTTONS"] = ToastEdit1FontSizeButtons;
+					ToastEdit1Objects["FONTCOLORBUTTONS"] = ToastEdit1FontColorButtons;
+					ToastEdit1Objects["EMOTICONBUTTONS"] = ToastEdit1EmoticonButtons;
+					ToastEdit1Objects["STYLES"] = ToastEdit1Styles;
+					ToastEdit1Objects["LANGUAGE"] = ToastEdit1Language;
+					ToastEdit1Objects["DEFAULTFONTFACE"] = "Verdana";
+					ToastEdit1Objects["DEFAULTFONTSIZE"] = "2";
+					ToastEdit1Objects["DEFAULTFONTCOLOR"] = "Black";
+					ToastEdit1Objects["DEFAULTFONTBUTTON"] = document.getElementById("ToastEdit1DefaultFontButton");
+					ToastEdit1Objects["CONTENTAREA"] = ToastEdit1ContentArea;
+					ToastEdit1Objects["CONTENTFRAME"] = ToastEdit1ContentFrame;
+					ToastEdit1Objects["CONTENTFRAMESELECTION"] = null;
+					ToastEdit1Objects["CONTENTFRAMESELECTIONTYPE"] = null;
+					ToastEdit1Objects["DESIGNMODE"] = false;
+					ToastEdit1Objects["EMOTICONSLOADED"] = false;
+					ToastEdit1Objects["FONTCOLORSLOADED"] = false;
+					ToastEdit1Objects["FILESROOT"] = "toastEdit/";
+					ToastEdit1Objects["EMOTICONSROOT"] = "emoticons/";
+					ToastEdit1Objects["MAINDIV"] = ToastEdit1Div;
+					ToastEdit1Objects["LOADINGDIV"] = ToastEdit1LoadingDiv;
+					ToastEdit1Objects["SUBMITTEXT"] = document.getElementById("<!--%SubmitTextName%-->");
+
+					teStartup(ToastEdit1Objects);
+		
+					window.formMain.onsubmit = function (evt) {teOnSubmit(ToastEdit1Objects)};
+
+		   }
+		}
+
+	</script>
+</div>

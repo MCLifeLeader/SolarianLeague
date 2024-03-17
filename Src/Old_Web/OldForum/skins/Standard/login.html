@@ -1,0 +1,39 @@
+<!--*Header*-->
+			<tr>
+				<td>
+					<form action="<!--*ScriptName*-->" method="post" id="formMain" name="formMain">
+					<input type="hidden" name="action" value="login">
+					<input type="hidden" name="sub" value="submit">
+					<input type="hidden" name="return" value="<!--%ReturnPage%-->">
+					<table width="100%" border="0" cellpadding="3" cellspacing="0" class="contentHeader">
+						<tr>
+							<td>Login</td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="3" cellspacing="0">
+						<tr>
+							<td class="subContentHeader">Please enter your username and password to login. If you do not have a username, click "Register" to create one. Lost your password? <!--%LostPasswordLink%--></td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="3" cellspacing="0" class="contentCell">						
+						<tr>
+							<td><b>Username:</b></td>
+						</tr>
+						<tr>
+							<td><input type="text" size="40" name="username" value="<!--%Username%-->" maxlength="16"></td>
+						</tr>
+						<tr>
+							<td><b>Password:</b></td>
+						</tr>
+						<tr>
+							<td><input type="password" size="40" name="password" value="<!--%Password%-->" maxlength="12"></td>
+						</tr>
+						<tr>
+							<td><input type="Checkbox" name="remember" value="True" class="Checkbox" <!--%SavePassword%-->>Remember your password?<br><br>
+								  <input type="image" border="0" src="<!--*SelectedSkinPath*-->button_submit.gif" name="submit" value="Submit"><br>&nbsp;</td>
+						</tr>			
+					</table>
+					</form>
+				</td>
+			</tr>
+<!--*Footer*-->

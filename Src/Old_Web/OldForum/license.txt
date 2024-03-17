@@ -1,0 +1,47 @@
+Toast Forums
+Copyright (c) 2000-2006 Josh Painter, (c) 2007 Appelsoft
+All Rights Reserved.
+
+USE
+Toast Forums is being distributed as freeware for personal, educational, 
+government, non-profit, and commercial use, as long as the terms and conditions
+outlined below are followed.
+
+MODIFICATIONS AND CHANGES
+You may alter or modify this software, at your own risk, but only for your own
+use. You may also hire others to modify your own copy of the code, as long as 
+the code is not transferred to or retained by the individual who is hired. 
+Although you may modify the code for your use, modified code may NOT be resold
+or distributed
+
+All copyright notices used throughout the program, within the scripts and 
+within the HTML that the scripts generate, MUST remain intact. Furthermore, 
+these notices, including "Powered by" wording that appears online must remain 
+visible to the human eye. Your acceptance of this agreement also permits Josh 
+Painter to list your Toast Forum in promotional materials and/or on 
+toastforums.com, unless a special agreement is made prohibiting such use.
+
+This software is funded by self-promotional messages that are inserted into 
+each posted message.  You may not try to circumvent this system; These 
+messages must remain readable to the human eye at all times. Failure to show 
+these messages will result in forfeiture of your License. A Non-Branded 
+license may be purchased at toastforums.com, which removes these messages 
+and alternatively the "Powered By" footer.
+
+Selling, or distributing the source code for this program in any medias 
+without prior written consent from Josh Painter is expressly forbidden. In 
+all cases copyright notices must remain intact.
+
+WARRANTIES
+THIS SOFTWARE PROGRAM AND THE ACCOMPANYING FILES ARE MADE AVAILABLE "AS IS"
+AND WITHOUT WARRANTIES AS TO PERFORMANCE OR MERCHANTABILITY OR ANY OTHER 
+WARRANTIES WHETHER EXPRESSED OR IMPLIED. THE AUTHOR ALSO MAKES NO WARRANTY 
+OF FITNESS FOR A PARTICULAR PURPOSE. TECHNICAL SUPPORT IS NOT PROVIDED WITH 
+THIS PRODUCT, ALTHOUGH SUCH SUPPORT MAY BE FOUND ONLINE AT TOASTFORUMS.COM.
+
+Josh Painter, Appelsoft and/or toastforums.com is not liable for any conduct 
+associated with bulletin board activity, nor for any messages posted using 
+this program.
+
+By continuing use of Toast Forums software, you agree to this License 
+Agreement and all terms and conditions contained within.

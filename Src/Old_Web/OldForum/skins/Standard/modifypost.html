@@ -1,0 +1,53 @@
+<!--*Header*-->
+			<tr>
+				<td>
+					<form action="<!--*ScriptName*-->" method="post" id="formMain" name="formMain">
+					<input type="hidden" name="action" value="modify">
+					<input type="hidden" name="sub" value="submit">
+					<input type="hidden" name="fid" value="<!--%ForumID%-->">
+					<input type="hidden" name="tid" value="<!--%TopicID%-->">
+					<input type="hidden" name="pid" value="<!--%PostID%-->">
+					<input type="hidden" name="postdate" value="<!--%PostDate%-->">
+					<input type="hidden" name="uid" value="<!--%UserID%-->">
+					<input type="hidden" name="username" value="<!--%Username%-->">
+					<input type="hidden" name="querystring" value="<!--%QueryString%-->">
+					<table width="100%" border="0" cellpadding="3" cellspacing="0" class="contentHeader">
+						<tr>
+							<td>Modify a Post</td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="3" cellspacing="0">
+						<tr>
+							<td class="subContentHeader">Modify any of the fields below and click Submit.</td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="3" cellspacing="0" class="contentCell">						
+						<tr>
+							<td><b>Subject:</b></td>
+						</tr>
+						<tr>
+							<td><input type="text" size="40" name="subject" value="<!--%ReplySubject%-->"></td>
+						</tr>
+						<tr>
+							<td><b>Message Icon:</b></td>
+						</tr>
+						<tr>
+							<td><!--%MessageIconList%--></td>
+						</tr>
+						<tr>
+							<td><b>Message:</b></td>
+						</tr>
+						<tr>
+							<td><!--%ToastEdit%--></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name="notify" value="True" <!--%NotifyDefault%-->>Email notification of replies?<br>
+									<input type="checkbox" name="includesig" value="True">Include your signature?<br>
+									<input type="checkbox" name="preview" value="True" checked>Preview first<br><br>
+								  <input type="image" border="0" src="<!--*SelectedSkinPath*-->button_submit.gif" name="submit" value="Submit"><br>&nbsp;</td>
+						</tr>			
+					</table>
+					</form>
+				</td>
+			</tr>
+<!--*Footer*-->

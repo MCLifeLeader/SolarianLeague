@@ -1,0 +1,147 @@
+<div class="whiteLink"><form method="get" action="<!--*ScriptName*-->" id="frmboardrules" name="frmboardrules">
+<input type="hidden" name="action" value="boardrules">
+<input type="hidden" name="sub" value="submit">
+<table width="100%" border="1" bordercolor="black" cellpadding="0" cellspacing="0" bgcolor="#000000">
+	<tr>
+		<td width="100%" height="20" bgcolor="#4682b4">&nbsp;<font face="arial,helvetica" color="white"><b>Board Rules</b></font></td>
+	</tr>
+</table>
+<table width="100%" border="1" bordercolor="black" cellpadding="4" cellspacing="0" bgcolor="#4682b4">
+	<tr>
+		<td>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="100%" height="20"><font face="arial,helvetica" size="2" color="white">Edit any parameters below and click "Submit." &nbsp;Click on any of the labels for help.</font><br>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgMaxSignatureLength');" style="text-decoration:none;">Max Characters in Signature:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="tstcfgMaxSignatureLength" value="<!--%tstcfgMaxSignatureLength%-->"></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgWordWrapLength');" style="text-decoration:none;">Word Wrap Length:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="text" size="40" name="tstcfgWordWrapLength"  value="<!--%tstcfgWordWrapLength%-->"></td>
+				</tr>	
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgReservedUsernames');" style="text-decoration:none;">Reserved Usernames:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">
+					&nbsp;<input type="hidden" name="tstcfgReservedUsernames" id="tstcfgReservedUsernames">
+					<select name="reservedusernames" id="reservedusernames" size="6" multiple><!--%tstcfgReservedUsernames%--></select>
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">
+					&nbsp;<font face="arial,helvetica" size="2" color="white">New reserved Username:</font><br><input type="text" size="40" name="reservedusername" id="reservedusername"><br><input type="button" name="add" value="Add Username" style="color:white;background-color:#4682b4;width:128" onclick="javascript:AddElement(frmboardrules.reservedusername, '', frmboardrules.reservedusernames, frmboardrules.tstcfgReservedUsernames);">&nbsp;&nbsp;<input type="button" name="delete" value="Delete Username" style="color:white;background-color:#4682b4;width:128" onclick="javascript:RemoveElement(frmboardrules.reservedusernames,frmboardrules.tstcfgReservedUsernames);"><br>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgAutomaticallyLinkURLs');" style="text-decoration:none;">Automatically Link URLs:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<select name="tstcfgAutomaticallyLinkURLs"><!--%tstcfgAutomaticallyLinkURLs%--></select></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgAllowHTML');" style="text-decoration:none;">Allow HTML in Posts:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<select name="tstcfgAllowHTML"><!--%tstcfgAllowHTML%--></select></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgAllowedHTML');" style="text-decoration:none;">Allowed HTML Tags:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="hidden" name="tstcfgAllowedHTML" id="tstcfgAllowedHTML"><select name="allowedhtml" id="allowedhtml" size="6" multiple><!--%tstcfgAllowedHTML%--></select></td>
+				</tr>		
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white">New Allowed Tag:</font><br><input type="text" size="40" name="opentag" id="opentag"><br><input type="button" name="add" value="Add Tag" style="color:white;background-color:#4682b4;width:128" onclick="javascript:AddElement(frmboardrules.opentag, '', frmboardrules.allowedhtml, frmboardrules.tstcfgAllowedHTML);">&nbsp;&nbsp;<input type="button" name="delete" value="Delete Tag" style="color:white;background-color:#4682b4;width:128" onclick="javascript:RemoveElement(frmboardrules.allowedhtml, frmboardrules.tstcfgAllowedHTML);"><br>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgBadWordFilter');" style="text-decoration:none;">Filter Bad Words:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<select name="tstcfgBadWordFilter"><!--%tstcfgBadWordFilter%--></select></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white"><b><a href="javascript:popup('admin.asp?action=help&sub=tstcfgBadWordList');" style="text-decoration:none;">Bad Word List:</a></b></font></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<input type="hidden" name="tstcfgBadWordList" id="tstcfgBadWordList"><select name="badwordlist" id="badwordlist" size="6" multiple><!--%tstcfgBadWordList%--></select></td>
+				</tr>
+				<tr>
+					<td width="100%" height="20">&nbsp;<font face="arial,helvetica" size="2" color="white">New Bad Word:</font><br><input type="text" size="40" name="badword" id="badword"><br>&nbsp;<font face="arial,helvetica" size="2" color="white">Replace With:</font><br><input type="text" size="40" name="badwordreplace" id="badwordreplace"><br><input type="button" name="add" value="Add Bad Word" style="color:white;background-color:#4682b4;width:128" onclick="javascript:if (frmboardrules.badwordreplace.value == '') {frmboardrules.badwordreplace.value = '****';} AddElement(frmboardrules.badword, frmboardrules.badwordreplace, frmboardrules.badwordlist, frmboardrules.tstcfgBadWordList);">&nbsp;&nbsp;<input type="button" name="delete" value="Delete Bad Word" style="color:white;background-color:#4682b4;width:128" onclick="javascript:RemoveElement(frmboardrules.badwordlist, frmboardrules.tstcfgBadWordList);"><br>&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="100%" height="20"><br>&nbsp;<input type="submit" name="submit" style="color:white;background-color:#4682b4" value="Submit"><br>&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</form>
+<script language="Javascript" runat="server">
+
+GetList(frmboardrules.allowedhtml, frmboardrules.tstcfgAllowedHTML);
+GetList(frmboardrules.badwordlist, frmboardrules.tstcfgBadWordList);
+GetList(frmboardrules.reservedusernames, frmboardrules.tstcfgReservedUsernames);
+
+function AddElement(textbox1, textbox2, listbox, hiddentextbox){
+
+	oOption = document.createElement('OPTION');
+	
+	if (textbox1.value != '') {
+		if (textbox2.value == '' || textbox2.value == null) {
+			oOption.text=textbox1.value;
+			oOption.value=textbox1.value;
+		} else {
+			oOption.text=textbox1.value + ':' + textbox2.value;
+			oOption.value=textbox1.value + ':' + textbox2.value;
+			textbox2.value='';
+		}
+	
+		textbox1.value='';
+
+		listbox.options.add(oOption, listbox.options.selectedIndex);
+
+		for (var i=listbox.length-1; i>-1; i--){
+			if (listbox.options(i).selected){
+				listbox.options(i).selected=0;
+			}
+		}
+
+		oOption.selected = 1;
+
+	}
+	
+	GetList(listbox, hiddentextbox);
+
+	return true;
+}
+
+function RemoveElement(listbox, hiddentextbox){
+
+	for (var i=listbox.length-1; i>-1; i--){
+		if (listbox.options(i).selected){
+			listbox.options.remove(i);
+		}
+	}
+	
+	GetList(listbox, hiddentextbox);
+
+}
+
+function GetList(listbox, textbox){
+
+	textbox.value='';
+	
+	for (var i=0; i<listbox.length; i++){
+		textbox.value=textbox.value + '|' + listbox.options(i).value;
+	}
+
+}
+
+</script>
+</div>

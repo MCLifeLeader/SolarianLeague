@@ -1,0 +1,23 @@
+Toast Forums Change List
+
+Version 1.646:
+
+	* Security fix in search pages to avoid possible attacks of Cross Side Scripting.
+
+	* Fixed bug causing the board to fail if trying to view page 2 of a topic containing only 1 page
+	
+	* Minor change to /admin/news.html to allow you to be notified of new versions through the admin page.
+
+	
+Version 1.645:
+
+	* Fixed bug to allow ToastEdit HTML editor to work with Internet Explorer 7.0
+	
+--------
+
+Minor fixes may have been made in addition to the above mentioned.
+
+No change log is officially available for versions prior to 1.645. Please browse our support forum for 
+possible information on those changes.
+
+HTTP://WWW.TOASTFORUMS.COM

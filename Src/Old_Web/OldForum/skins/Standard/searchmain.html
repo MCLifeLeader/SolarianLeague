@@ -1,0 +1,78 @@
+<!--*Header*-->
+			<tr>
+				<td>
+					<form action="<!--*ScriptName*-->" method="GET" id="frmSearch" name="frmSearch">
+					<input type="hidden" name="action" value="posts">
+					<input type="hidden" name="sub" value="search">
+					<table width="100%" border="0" cellpadding="3" cellspacing="0" class="contentHeader">
+						<tr>
+							<td>Search <!--*BoardTitle*--></td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="3" cellspacing="0">
+						<tr>
+							<td class="subContentHeader">Choose the search criteria below and click Submit.</td>
+						</tr>
+					</table>
+					<table width="100%" border="0" cellpadding="3" cellspacing="0" class="contentCell">						
+						<tr>
+							<td><b>Forum:</b></td>
+						</tr>
+						<tr>
+							<td><select name="fid"><!--%ForumList%--></select></td>
+						</tr>
+						<tr>
+							<td><b>Author:</b></td>
+						</tr>
+						<tr>
+							<td><input type="text" size="40" name="author" value="<!--%Author%-->"></td>
+						</tr>
+						<tr>
+							<td><b>Subject:</b></td>
+						</tr>
+						<tr>
+							<td><input type="text" size="40" name="subject" value="<!--%Subject%-->"></td>
+						</tr>
+						<tr>
+							<td><b>Message:</b></td>
+						</tr>
+						<tr>
+							<td><input type="text" size="40" name="message" value="<!--%Message%-->"></td>
+						</tr>						
+						<tr>
+							<td><b>Added or modified in the last:</b></td>
+						</tr>
+						<tr>
+							<td><select id="dayprune" name="dayprune"><option value="-1">Anytime</option><option value="1">In the last day</option><option value="7">In the last week</option><option value="14">In the last 2 weeks</option><option value="30">In the last month</option><option value="90">In the last 3 months</option><option value="180">In the last 6 months</option></select></td>
+						</tr>						
+						<tr>
+							<td><input type="image" border="0" src="<!--*SelectedSkinPath*-->button_submit.gif" name="submit" value="Submit"><br>&nbsp;</td>
+						</tr>			
+					</table>
+					</form>
+					<SCRIPT Language=Javascript>
+						for (var i=frmSearch.dayprune.length-1; i>-1; i--){
+							if (frmSearch.dayprune.options[i].value=='<!--%DayPrune%-->') {
+								frmSearch.dayprune.options[i].selected=1;
+							}
+						}
+					</SCRIPT>					
+				</td>
+			</tr>
+			<!--%BeginSearchResults%-->
+			<tr>
+				<td>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="contentCell">
+						<tr>
+							<td><!--%ResultsFound%--></td>
+							<td align="right" nowrap><!--%PageNumberLink%--></td>									
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!--%SearchList%-->
+			<tr>
+				<td align="right" class="contentCell"><!--%PageNumberLink%--></td>
+			</tr>			
+			<!--%EndSearchResults%-->
+<!--*Footer*-->

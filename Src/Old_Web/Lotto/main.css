@@ -1,0 +1,254 @@
+html
+{
+	min-height: 100%;
+	margin-bottom: 1px;
+	width: 100%;
+}
+BODY
+{
+	font-size: 1em;
+	font-family: Tahoma, 'Bookman Old Style' , Arial, sans-serif, Helvetica;
+	background-color: Black;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	color: White;
+}
+b
+{
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Verdana;
+	color: Navy;
+}
+h3
+{
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family: Verdana;
+	color: Navy;
+}
+.ContentBody
+{
+	width: 100%;
+}
+.ContentTable
+{
+	border-collapse: collapse;
+	width: 100%;
+	height: 600px;
+}
+.ContentTableInner
+{
+	border-collapse: collapse;
+	width: 100%;
+	height: 100%;
+}
+.BoxHack
+{
+	clear: both;
+}
+div
+{
+	/* 	height: 20px; 	border: solid 1px black; 	*/
+}
+A
+{
+	font-family: Tahoma, 'Bookman Old Style' , Arial, sans-serif, Helvetica;
+}
+A:link
+{
+	text-decoration: none;
+}
+A:visited
+{
+	text-decoration: none;
+}
+A:active
+{
+	text-decoration: underline;
+}
+A:hover
+{
+	text-decoration: underline;
+}
+.NormalPrintBold
+{
+	font-size: 1em;
+	font-weight: bold;
+	font-family: Verdana;
+	color: Navy;
+}
+.SmallPrintBold
+{
+	font-size: .8em;
+	font-weight: bold;
+	font-family: Verdana;
+	color: Navy;
+}
+.SmallerListBox
+{
+	width: 140px;
+	height: 150px;
+}
+.LargePrint
+{
+	font-size: 2em;
+}
+.LargePrintBold
+{
+	font-size: 2em;
+	font-weight: bold;
+}
+.MedPrint
+{
+	font-size: 1.2em;
+}
+.MedPrintBold
+{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.SmallPrint
+{
+	font-size: .5em;
+}
+.SmallPrintBold
+{
+	font-size: .5em;
+	font-weight: bold;
+}
+.HeaderSiteTitle1
+{
+	left: -2px;
+	position: relative;
+	color: White;
+	font-family: 'Tahoma' , sans-serif, Helvetica;
+	font-size: 30px;
+	font-weight: bold;
+	z-index: 3;
+}
+.HeaderSiteTitle2
+{
+	position: relative;
+	top: -34px;
+	color: White;
+	font-family: 'Tahoma' , sans-serif, Helvetica;
+	font-size: 30px;
+	font-weight: bold;
+	z-index: 2;
+}
+#Header
+{
+	background-color: #000000;
+	color: Blue;
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 2em;
+	text-align:center;
+}
+.Menu
+{
+	font-weight: bold;
+	text-align: left;
+}
+.MenuNavPos
+{
+	/*padding-right: 20px; 	width: 775px;*/
+}
+.TopNav
+{
+	background-color: black;
+	height: 80px;
+}
+.MenuNav
+{
+	/*background-color:Gray;*/
+	height: 46px;
+}
+#TopNav A:link
+{
+	text-decoration: none;
+	color: white;
+}
+#TopNav A:visited
+{
+	text-decoration: none;
+	color: Silver;
+}
+#TopNav A:active
+{
+	text-decoration: underline;
+	color: Yellow;
+}
+#TopNav A:hover
+{
+	text-decoration: underline;
+	color: Silver;
+}
+.LeftNav
+{
+	/*background-color: gray;*/
+	width: 269px;
+}
+.ContentBodyArea
+{
+	/*background-color: ghostwhite;*/
+	vertical-align: top;
+}
+#Footer
+{
+	/*background-color: lightblue;*/
+	height: 25px;
+	vertical-align: bottom;
+	width: 100%;
+	padding: 0px 0px 0px 0px;
+	float: left;
+	float: right;
+	clear: both;
+}
+#Footer A:link
+{
+	color: Silver;
+}
+#Footer A:visited
+{
+	text-decoration: none;
+	color: Silver;
+}
+#Footer A:active
+{
+	text-decoration: underline;
+	color: Yellow;
+}
+#Footer A:hover
+{
+	text-decoration: underline;
+	color: Silver;
+}
+.SmallPrintFooter
+{
+	font-size: 12px;
+	font-weight: bold;
+	height: 25px; /*position:relative;*/
+	padding-top: 5px;
+	padding-left: 20px;
+	color: White;
+}
+.ReportCell
+{
+	padding: 1px 5px 1px 5px;
+}
+.ContentList
+{
+	border-color: #404040;
+	border-width: 1px;
+	border-style: solid;
+}
+/*
+table
+{
+	border-width: 5px;
+	border-color: Lime;
+}
+*/

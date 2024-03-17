@@ -1,0 +1,604 @@
+<%@  language="VBScript" %>
+<%
+option explicit:
+%>
+<% Response.Buffer=True
+ Response.Clear
+%>
+<!--#INCLUDE FILE="shared.asp"-->
+<% Const z22cccd659d="1.6"
+ Dim z63f4bb4eda
+ Dim zd776796739
+ Dim z6696c9c8e6
+ Dim z5338afa0cd
+ Dim zaf17af823b
+ Dim zb5e706236f
+ Dim zc4433a7212
+ Dim zc1809c9abf
+ Dim z86132a4fa1
+ Dim z1c126544a4
+ On Error Resume Next
+ zfc7e949eb6
+ If Err.Number<>(&h183b+117-&H18b0) Then zd00d4cc179 Err.Number,Err.Description,Err.Source,""
+ Sub zfc7e949eb6()
+Response.Expires=-(&h11b6+2620-&H180a)
+ zd776796739="Welcome!<br>"
+ z6696c9c8e6="Agreement<br>"
+ z5338afa0cd="Self Check<br>"
+ zaf17af823b="Quick Config<br>"
+ zb5e706236f="Finish<br>"
+ If tstDebugMode Then
+ zc4433a7212="<br><textarea cols=""100"" rows=""30"">" &z43e40faa8f &"</textarea><br>"
+ Else
+ zc4433a7212=""
+ End If
+ zc1809c9abf=Request("action")
+If zc1809c9abf="" Then zc1809c9abf="wizard"
+ Select Case zc1809c9abf
+ Case "wizard"
+ z86132a4fa1=Request("sub")
+If z86132a4fa1="" Then z86132a4fa1="welcome"
+ Select Case z86132a4fa1
+ Case "welcome"
+ Session(tstUniqueBoardKey &"SetupRunning")=Now()
+Case Else
+ If Session(tstUniqueBoardKey &"SetupRunning")="" Then
+ Session(tstUniqueBoardKey &"SetupRunning")=Now()
+Response.Redirect "setup.asp"
+ End If
+ End Select
+ Select Case z86132a4fa1
+ Case "welcome"
+ If Request("nav")=" Next >> " Then
+ z6696c9c8e6="<b>>>Agreement</b><br>"
+ zc363664ca9
+ Else
+ zd776796739="<b>>>Welcome!</b><br>"
+ ze3ff8c22f3
+ End If
+ Case "agreement"
+ If Request("nav")=" Next >> " Then
+ z5338afa0cd="<b>>>Self Check</b><br>"
+ z5788415200
+ Else
+ zd776796739="<b>>>Welcome!</b><br>"
+ ze3ff8c22f3
+ End If
+ Case "selfcheck"
+ If Request("nav")=" Next >> " Then
+ zaf17af823b="<b>>>Quick Config</b><br>"
+ z79c24de613
+ Else
+ z6696c9c8e6="<b>>>Agreement</b><br>"
+ zc363664ca9
+ End If
+ Case "changeadminpassword"
+ If Request("nav")=" Next >> " Then
+ zaf17af823b="<b>>>Quick Config</b><br>"
+ z7e95452b62
+ Else
+ z5338afa0cd="<b>>>Self Check</b><br>"
+ z5788415200
+ End If
+ Case "quickconfig"
+ If Request("nav")=" Next >> " Then
+ zb5e706236f="<b>>>Finish</b><br>"
+ z043b158a64
+ Else
+ zaf17af823b="<b>>>Quick Config</b><br>"
+ z79c24de613
+ End If
+ Case "finish"
+ Response.Redirect "admin.asp?action=finishsetup"
+ Case Else
+ z6c19d37b1f "Invalid POST or GET."
+ End Select
+ End Select
+ End Sub
+ Sub ze3ff8c22f3()
+Dim z25352d0d09
+ z25352d0d09=z25352d0d09 &"<p>Congratulations on downloading one of the coolest message board systems out there!  Not only is Toast TOTALLY customizable, but it's also very easy to administer and is fully skinnable!  It will keep your users coming back month after month.</p>"
+ z25352d0d09=z25352d0d09 &"<p>If you run into any errors, or have any other questions, please visit the Toast Support Forums at <a href=""http://www.SolarianLeague.com"">http://www.SolarianLeague.com</a>.  Here you will find other Toast users sharing ideas, solutions and skins.</p>"
+ z25352d0d09=z25352d0d09 &"<p>This Setup program will walk you through each step of configuring your Toast message board.  Toast Setup will also inform you of any problems it encounters along the way.  You will be able to change any of these values in the Admin area after you have finished Setup.</p>"
+ z25352d0d09=z25352d0d09 &"<b>Click the Next button to continue.</b>"
+ z63f4bb4eda=z63f4bb4eda &"<form action=""setup.asp"" method=""POST"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""action"" value=""wizard"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""sub"" value=""welcome"">"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>Welcome to Toast " &z22cccd659d &" Setup!</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">" &z25352d0d09 &"</font><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" Next >> ""><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub zc363664ca9
+ Dim z25352d0d09
+ z25352d0d09=z25352d0d09 &"<p>You should carefully read the following terms and conditions before using this software. Unless you have a different license agreement signed by Josh Painter, your use of this software indicates your acceptance of this license agreement.</p>"
+ z25352d0d09=z25352d0d09 &"<font face=""arial,helvetica"" size=""1"" color=""white""><p>Toast Forums<br>Copyright &copy; 2000-2003 Josh Painter. All Rights Reserved.</p>"
+ z25352d0d09=z25352d0d09 &"<p><b>USE</b><br>Toast Forums is being distributed as freeware for personal, educational, government, non-profit, and commercial use, as long as the terms and conditions outlined below are followed.</p>"
+ z25352d0d09=z25352d0d09 &"<p><b>MODIFICATIONS AND CHANGES</b><br>You may alter or modify this software, at your own risk, but only for your own use. You may also hire others to modify your own copy of the code, as long as the code is not transferred to or retained by the individual who is hired. Although you may modify the code for your use, modified code may NOT be resold or distributed.</p>"
+ z25352d0d09=z25352d0d09 &"<p>All copyright notices used throughout the program, within the scripts and within the HTML that the scripts generate, MUST remain intact. Furthermore, these notices, including ""Powered by"" wording that appears online must remain visible to the human eye. Your acceptance of this agreement also permits Josh Painter to list your Toast Forum in promotional materials and/or on SolarianLeague.com, unless a special agreement is made prohibiting such use.</p>"
+ z25352d0d09=z25352d0d09 &"<p>This software is funded by self-promotional messages that are inserted into each posted message.  You may not try to circumvent this system; These messages must remain readable to the human eye at all times. Failure to show these messages will result in forfeiture of your License. A Non-Branded license may be purchased at SolarianLeague.com, which removes these messages and alternatively the ""Powered By"" footer.</p>"
+ z25352d0d09=z25352d0d09 &"<p>Selling, or distributing the source code for this program in any medias without prior written consent from Josh Painter is expressly forbidden. In all cases copyright notices must remain intact.</p>"
+ z25352d0d09=z25352d0d09 &"<p><b>WARRANTIES</b><br>THIS SOFTWARE PROGRAM AND THE ACCOMPANYING FILES ARE MADE AVAILABLE ""AS IS"" AND WITHOUT WARRANTIES AS TO PERFORMANCE OR MERCHANTABILITY OR ANY OTHER WARRANTIES WHETHER EXPRESSED OR IMPLIED. THE AUTHOR ALSO MAKES NO WARRANTY OF FITNESS FOR A PARTICULAR PURPOSE. TECHNICAL SUPPORT IS NOT PROVIDED WITH THIS PRODUCT, ALTHOUGH SUCH SUPPORT MAY BE FOUND ONLINE AT TOASTFORUMS.COM.</p>"
+ z25352d0d09=z25352d0d09 &"<p>Josh Painter and/or SolarianLeague.com is not liable for any conduct associated with bulletin board activity, nor for any messages posted using this program.</p>"
+ z25352d0d09=z25352d0d09 &"<p>By continuing use of Toast Forums software and/or clicking the ""Next"" button below, you agree to this License Agreement and all terms and conditions contained within.</p></font>"
+ z25352d0d09=z25352d0d09 &"<b>Click the Next button to continue.</b>"
+ z63f4bb4eda=z63f4bb4eda &"<form action=""setup.asp"" method=""POST"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""action"" value=""wizard"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""sub"" value=""agreement"">"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>License Agreement</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">" &z25352d0d09 &"</font><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" << Back "">&nbsp;&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" Next >> ""><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub z5788415200
+ Dim zd492f3824c
+ Dim zf1bfd88757,z2b267d4f57
+ Dim zb4a6719d88
+ Dim z3d841a229b
+ Dim z34a6726ac9
+ Dim zd1bcf502e7
+ Dim z27f306e3f6
+ Dim zf70077d808
+ Dim z4b1db4fe86
+ Dim z29ca81b3c2
+ Dim z1de071f1b2
+ Dim zaac6751d4e
+ Dim zd1cb26e371
+ Dim zc577d4a897
+ Dim zca7201199f
+ Dim zcca66305f9
+ Dim z25352d0d09
+ On Error Resume Next
+ Application(tstUniqueBoardKey &"tstcfgStarted")=""
+ zd492f3824c=False
+ zf1bfd88757=Request.ServerVariables("SERVER_SOFTWARE")
+If InStr(zf1bfd88757,"Microsoft-IIS")=(&h14f4+2696-&H1f7c) Then
+ z2b267d4f57="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">Toast was developed for Microsoft IIS 4.0 and above.  It may work just fine on other web server types, but it has not been tested.  Your webserver type was reported as: " &Request.ServerVariables("SERVER_SOFTWARE") &"</font></li><br>"
+ Else
+ z2b267d4f57="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">Your server reported it's version as: " &Request.ServerVariables("SERVER_SOFTWARE") &"</font></li><br>"
+ End If
+ If ScriptEngineMajorVersion>=(&h90+4098-&H108d) Then
+ zb4a6719d88="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">Your webserver's script version was reported as: " &ScriptEngine &" Version " &ScriptEngineMajorVersion &"." &ScriptEngineMinorVersion &"." &ScriptEngineBuildVersion &"</font></li><br>"
+ Else
+ zb4a6719d88="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">Toast was developed for VBScript 5.0 and above.  Your webserver's script version was reported as: " &ScriptEngine &" Version " &ScriptEngineMajorVersion &"." &ScriptEngineMinorVersion &"." &ScriptEngineBuildVersion &"</font></li><br>"
+ zd492f3824c=True
+ End If
+ If Not zd492f3824c Then
+ Set z83881822ff=Server.CreateObject("ADODB.Connection")
+Set zcca66305f9=Server.CreateObject("ADODB.Recordset")
+If Err.Number Then
+ zf70077d808="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">Creating an ADO Connection Object and/or an ADO Recordset Object failed.  Creating both of these objects is required by Toast Forums.  You may need to install the latest MDAC, available here: <a href=""http://www.microsoft.com/data"">http://www.microsoft.com/data</a>"
+ zf70077d808=zf70077d808 &"<br><br>The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ zf70077d808="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">An ADO Connection object and an ADO Recordset object were successfully created.</font></li><br>"
+ End If
+ Else
+ zf70077d808=""
+ End If
+ If Not zd492f3824c Then
+ z83881822ff.Open tstDBConnectString
+ If Err.Number Then
+ z4b1db4fe86="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">Database connection failed.  Make sure the connect string is correct.  The connect string used was: <br><br>" &tstDBConnectString
+ z4b1db4fe86=z4b1db4fe86 &"<br><br>The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ z4b1db4fe86="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">The database connection succeeded.</font></li><br>"
+ If Instr(tstDBConnectString,"data\data.mdb") Then
+z4b1db4fe86=z4b1db4fe86 &"<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">The database file is still named data.mdb.  This is a security risk.  Please read the Security Alert in the readme.txt file for more information.</font></li><br>"
+ End If
+ End If
+ Else
+ z4b1db4fe86=""
+ End If
+ If Not zd492f3824c Then
+ With zcca66305f9
+ If tstUpdateCursorLocation>-(&hd6c+5442-&H22ad) Then
+.CursorLocation=tstUpdateCursorLocation
+ End If
+ If tstUpdateCursorType>-(&h991+3445-&H1705) Then
+.CursorType=tstUpdateCursorType
+ End If
+ If tstUpdateLockType>-(&h826+1868-&Hf71) Then
+.LockType=tstUpdateLockType
+ End If
+.Open "SELECT * FROM " &tstdbInfoTable &" WHERE " &tstdbInfoFieldID &" = 1",z83881822ff
+ End With
+ If Err.Number Then
+ z29ca81b3c2="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">The database could not be read.  You may need to check read permissions for the database."
+ z29ca81b3c2=z29ca81b3c2 &"<br><br>The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ If zcca66305f9(tstdbInfoFieldDBVersion)=z22cccd659d Or zcca66305f9(tstdbInfoFieldDBVersion)="1.5" Then
+ z29ca81b3c2="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">The database appears to be the correct version.  The version it reported was: " &zcca66305f9(tstdbInfoFieldDBVersion) &"</font></li><br>"
+ Else
+ z29ca81b3c2="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">The database does not appear to be the correct version.  The version it reported was: " &zcca66305f9(tstdbInfoFieldDBVersion) &"</font></li><br>"
+ zd492f3824c=True
+ End If
+ End If
+ Else
+ z29ca81b3c2=""
+ End If
+ If Not zd492f3824c Then
+ zcca66305f9(tstdbInfoFieldDBVersion)=zcca66305f9(tstdbInfoFieldDBVersion)
+zcca66305f9.Update
+ If Err.Number Then
+ z1de071f1b2="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">The database does not have full write permissions.  If you are using a MSAccess database (.mdb) then make sure full NTFS write permissions for IUSR_&lt;machinename&gt; are enabled for the file, and that it is not read-only.  The directory should also have full NTFS write permissions for the IUSR_&lt;machinename&gt; account, and the TEMP and TMP environment variable directories should also have full NTFS write permissions for the IUSR_&lt;machinename&gt; account.  The connect string used was: " &tstDBConnectString
+ z1de071f1b2=z1de071f1b2 &"<br><br>The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ z1de071f1b2="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">The database has write permissions enabled.</font></li><br>"
+ End If
+ Else
+ z1de071f1b2=""
+ End If
+ Set zcca66305f9=Nothing
+ zdcd0251e32
+ If Not zd492f3824c Then
+ Set zc577d4a897=Server.CreateObject(tstFileSystemObjectProgID)
+If Err.Number<>(&h148+4624-&H1358) Then
+ z3d841a229b="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">Your webserver does not seem to support the " &tstFileSystemObjectProgID &" component, or your host has disabled it.  This is required for Toast to function correctly.  Please ask your host if they have replaced the default FileSystemObject with a third-party component.  If they have, simply change the tstFileSystemObjectProgID Constant in constants.asp to the ProgID of the third party component."
+ z3d841a229b=z3d841a229b &"<br>      The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ z3d841a229b="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">Your webserver passed the " &tstFileSystemObjectProgID &" creation test.</font></li><br>"
+ End If
+ End If
+ If Not zd492f3824c Then
+ If zc577d4a897.FileExists(tstConfigFile) Then
+z2b79277e31("tstcfgBoardAvailable")
+If Err.Number Then
+ z34a6726ac9="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">The Config file was found, but there was an error loading the variables.  This may be because the config.asp file is corrupted, or it was damaged during upload.  Certain FTP programs and Mac computers have been known to corrupt this file on upload, so try using a different FTP program on a Windows computer for better results."
+ z34a6726ac9=z34a6726ac9 &"<br>      The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ z34a6726ac9="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">The Config file was successfully found, and all variables were loaded.</font></li><br>"
+ End If
+ Else
+ z34a6726ac9="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">" &tstConfigFile &" could not be found.  Setup is looking for the Config file at " &tstConfigFile &", so if this is not the correct location then change the tstConfigFile constant at the top of constants.asp.  Also, make sure that full read/write NTFS permissions for the IUSR_<machinename> account are set for it.</font></li><br>"
+ zd492f3824c=True
+ End If
+ Else
+ z34a6726ac9=""
+ End If
+ If Not zd492f3824c Then
+ Set zd1cb26e371=z4b400b6588(tstConfigFile)
+zbd43a15cb8 zd1cb26e371,tstConfigFile
+ If Err.Number Then
+ z27f306e3f6="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">" &tstConfigFile &" could not be written to.  You should make sure the file is not read-only, and full read/write NTFS permissions for the IUSR_&lt;machinename&gt; account are set for it.  You may have to contact your host and ask them to change permissions for this file.  Also, some hosts only allow writable files in a certain directory, so you will need to put config.asp in that directory and then change the tstConfigFile at the top of constants.asp to point to the new location."
+ z27f306e3f6=z27f306e3f6 &"<br><br>The exact message your webserver reported was:<br><br>" &Err.number &"  " &Err.Description &"</font></li><br>"
+ zd492f3824c=True
+ Else
+ z27f306e3f6="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">The Config file was successfully written.</font></li><br>"
+ End If
+ Else
+ z27f306e3f6=""
+ End If
+ If Not zd492f3824c Then
+ If z2b79277e31("tstcfgNewInstall")="True" Then
+ zd1bcf502e7="<li style=""color:white""><font face=""arial,helvetica"" size=""2"" color=""white"">The New Install flag has been verified.  Read about this security feature in Help.</font></li><br>"
+ Else
+ zd1bcf502e7="<li style=""color:yellow""><font face=""arial,helvetica"" size=""2"" color=""white"">The New Install flag is not correct.  Setup cannot continue until this value is modified in the Config file.  Open the Config file manually and read the comments for the tstcfgNewInstall parameter.</font></li><br>"
+ zd492f3824c=True
+ End If
+ Else
+ zd1bcf502e7=""
+ End If
+ If Not zd492f3824c Then
+ zaac6751d4e="<br>Congratulations!  Your webserver seems to support Toast Forums.<br><br><b>Click the Next button to continue.</b>"
+ Else
+ zaac6751d4e="<br>Because of the above errors that were encountered, Toast Setup cannot continue.  Please remedy the above errors and try to run Setup again."
+ End If
+ z25352d0d09=z25352d0d09 &"<ul>" &z2b267d4f57
+ z25352d0d09=z25352d0d09 &zb4a6719d88
+ z25352d0d09=z25352d0d09 &zf70077d808
+ z25352d0d09=z25352d0d09 &z4b1db4fe86
+ z25352d0d09=z25352d0d09 &z29ca81b3c2
+ z25352d0d09=z25352d0d09 &z1de071f1b2
+ z25352d0d09=z25352d0d09 &z3d841a229b
+ z25352d0d09=z25352d0d09 &z34a6726ac9
+ z25352d0d09=z25352d0d09 &z27f306e3f6
+ z25352d0d09=z25352d0d09 &zd1bcf502e7 &"</ul>"
+ z25352d0d09=z25352d0d09 &zaac6751d4e
+ z63f4bb4eda=z63f4bb4eda &"<form action=""setup.asp"" method=""POST"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""action"" value=""wizard"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""sub"" value=""selfcheck"">"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>Webserver Self Check</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">" &z25352d0d09 &"</font><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ If Not zd492f3824c Then
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" << Back "">&nbsp;&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" Next >> ""><br>&nbsp;</td>"
+ Else
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" << Back ""><br>&nbsp;</td>"
+ End If
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub z79c24de613
+ Dim z25352d0d09
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">Admin Username:</font></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white""><b>admin</b></font></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">Admin Password:</font></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><input type=""password"" name=""password"" size=""40"" maxlength=""12""></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">Confirm Admin Password:</font></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><input type=""password"" name=""confirmpassword"" size=""40"" maxlength=""12""></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><br><font face=""arial,helvetica"" size=""2"" color=""white""><b>Click the Next button to continue.</b></font></td></tr>"
+ z63f4bb4eda=z63f4bb4eda &"<form action=""setup.asp"" method=""POST"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""action"" value=""wizard"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""sub"" value=""changeadminpassword"">"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>Change Admin Password</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				" &z25352d0d09
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" << Back "">&nbsp;&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" Next >> ""><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub z7e95452b62
+ Dim z25352d0d09
+ If Request("nav")=" Next >> " And Not Session(tstUniqueBoardKey &"Upgrading") Then
+z6c19d37b1f zeac5c1e272(Request("password"),tstdbMemberFieldPasswordFriendly,tstdbMemberFieldPasswordLen,False)
+If Request("password")<>Request("confirmpassword") Then
+z6c19d37b1f "Your passwords do not match.  Press the Back button on your browser and try again."
+ End If
+ If z2b79277e31("tstcfgNewInstall")<>"True" Then
+ z6c19d37b1f "The New Install flag is not correct.  Setup cannot continue until this value is modified in the Config file.  Open the Config file manually and read the comments for the tstcfgNewInstall parameter."
+ End If
+ z6c19d37b1f zfdd5f559cf((&h24e7+103-&H254d),Null,Null,Null,Request("password"),Null,Null,Null,Null,Null,Null,Null,Null,Null,Null,Null)
+End If
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">Edit any parameters below and click Next.</font><br>&nbsp;</td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">Board Title:</font></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><input type=""text"" size=""40"" name=""tstcfgBoardTitle"" value=""" &z2b79277e31("tstcfgBoardTitle") &"""></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white""><b><a href=""javascript:popup('admin.asp?action=help&sub=tstcfgFromName');"" style=""text-decoration:none;"">Email From Name:</a></b></font></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><input type=""text"" size=""40"" name=""tstcfgFromName"" value=""" &z2b79277e31("tstcfgFromName") &"""></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white""><b><a href=""javascript:popup('admin.asp?action=help&sub=tstcfgFromAddress');"" style=""text-decoration:none;"">Email From Address:</a></b></font></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><input type=""text"" size=""40"" name=""tstcfgFromAddress"" value=""" &z2b79277e31("tstcfgFromAddress") &"""></td></tr>"
+ z25352d0d09=z25352d0d09 &"<tr><td width=""100%"" height=""20""><br><font face=""arial,helvetica"" size=""2"" color=""white""><b>Click the Next button to continue.</b></font></td></tr>"
+ z63f4bb4eda=z63f4bb4eda &"<form action=""setup.asp"" method=""POST"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""action"" value=""wizard"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""sub"" value=""quickconfig"">"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>Quick Config</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				" &z25352d0d09
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" << Back "">&nbsp;&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value="" Next >> ""><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub z043b158a64
+ Dim zd1cb26e371
+ Dim zcd03d78132
+ Dim zd38b036918
+ Dim z25352d0d09
+ If Request("tstcfgFromAddress")="newinstall@SolarianLeague.com" Then
+ z6c19d37b1f "Please change the From Address to your e-mail address."
+ End If
+ If z2b79277e31("tstcfgNewInstall")<>"True" Then
+ z6c19d37b1f "The New Install flag is not correct.  Setup cannot continue until this value is modified in the Config file.  Open the Config file manually and read the comments for the tstcfgNewInstall parameter."
+ End If
+ z6c19d37b1f zfdd5f559cf((&h4dc+2629-&Hf20),Null,Null,Null,Null,Request("tstcfgFromAddress"),Null,Null,Null,Null,Null,Null,Null,Null,Null,Null)
+Set zd1cb26e371=z4b400b6588(tstConfigFile)
+If zd1cb26e371("tstcfgRuntimeErrorTo")="newinstall@SolarianLeague.com" Then
+ zd1cb26e371("tstcfgRuntimeErrorTo")=Request("tstcfgFromAddress")
+End If
+ For Each zcd03d78132 In Request.Form
+ If zd1cb26e371.Exists(zcd03d78132) Then
+zd1cb26e371(zcd03d78132)=Request(zcd03d78132)
+End If
+ Next
+ zbd43a15cb8 zd1cb26e371,tstConfigFile
+ Set zd1cb26e371=Nothing
+ Application(tstUniqueBoardKey &"tstcfgStarted")=""
+ z25352d0d09=z25352d0d09 &"<p>Toast Setup is complete.  You will now be redirected to the Admin area, where you can modify many more parameters.  To log into the Admin area, use the username ""admin"" and the password you chose.</p>"
+ z25352d0d09=z25352d0d09 &"<p>Again, if you have any questions or problems with Toast, please visit the official Toast Support forums at <a href=""http://www.SolarianLeague.com"">http://www.SolarianLeague.com</a>.</p>"
+ z25352d0d09=z25352d0d09 &"<p><font face=""arial,helvetica"" size=""4"" color=""yellow""><b>---VERY IMPORTANT!!---</b></font><br>When you click ""Finish"" below, this Setup script will attempt to rename itself from ""setup.asp"" to ""setup.bak"".  This is a security measure for your protection.  You should verify that it was correctly renamed.  You might also want to delete this Setup script from your webserver.  Anybody who stumbles upon this script can run it and make any changes that you just did.  If you think you might need to run it again in the future, you should download it and store it in a safe place before deleting it, or move it to a password-protected directory on your webserver.  This is a very important step to avoid a security hole in your board!!</p>"
+ z25352d0d09=z25352d0d09 &"<p>Thanks for using Toast!  Please send comments and suggestions to comments@SolarianLeague.com.  Have fun!</p>"
+ z25352d0d09=z25352d0d09 &"<br><br><b>Click the Finish button to continue.</b>"
+ z63f4bb4eda=z63f4bb4eda &"<form action=""setup.asp"" method=""POST"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""action"" value=""wizard"">"
+ z63f4bb4eda=z63f4bb4eda &"<input type=""hidden"" name=""sub"" value=""finish"">"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>Finish</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white"">" &z25352d0d09 &"</font><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><br>&nbsp;<input type=""submit"" name=""nav"" style=""color:white;background-color:#4682b4"" value=""Finish""><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub z6c19d37b1f(zba0b6d687e)
+If zba0b6d687e="" Then Exit Sub
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""0"" cellspacing=""0"" bgcolor=""#000000"">"
+ z63f4bb4eda=z63f4bb4eda &"	 <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td width=""100%"" height=""20"" bgcolor=""#4682b4"">&nbsp;<font face=""arial,helvetica"" color=""white""><b>Error</b></font></td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z63f4bb4eda=z63f4bb4eda &"<table width=""100%"" border=""1"" bordercolor=""black"" cellpadding=""4"" cellspacing=""0"" bgcolor=""#4682b4"">"
+ z63f4bb4eda=z63f4bb4eda &"  <tr>"
+ z63f4bb4eda=z63f4bb4eda &"		<td>"
+ z63f4bb4eda=z63f4bb4eda &"			<table width=""100%"" border=""0"" cellpadding=""0"" cellspacing=""0"">"
+ z63f4bb4eda=z63f4bb4eda &"				<tr>"
+ z63f4bb4eda=z63f4bb4eda &"					<td width=""100%"" height=""20""><font face=""arial,helvetica"" size=""2"" color=""white""><b>" &zba0b6d687e &"</b></font><br>&nbsp;</td>"
+ z63f4bb4eda=z63f4bb4eda &"				</tr>"
+ z63f4bb4eda=z63f4bb4eda &"			</table>"
+ z63f4bb4eda=z63f4bb4eda &"	  	</td>"
+ z63f4bb4eda=z63f4bb4eda &"	 </tr>"
+ z63f4bb4eda=z63f4bb4eda &"</table>"
+ z32e830cf3a
+ End Sub
+ Sub z32e830cf3a()
+%>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+   <title>Toast
+      <%= z22cccd659d %>
+      Setup</title>
+   <style type="text/css">  </style>
+</head>
+<body bgcolor="white">
+
+   <script language="Javascript"><!--
+
+		
+		function popup(vfile) {
+		window.open(vfile,"help","toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=250,height=200")
+		}
+		//
+		
+--></script>
+
+   <table border="0" cellpadding="0" cellspacing="0" width="550" height="60">
+      <tr height="60">
+         <td width="100%" height="60">
+            <img border="0" src="admin\setupheader.gif"></td>
+      </tr>
+   </table>
+   <table border="0" cellpadding="3" cellspacing="0" width="550" height="20">
+      <tr>
+         <td width="100%" height="20" bgcolor="black" align="left" valign="middle">
+            <font face="arial,helvetica" color="white" size="2"><b>Welcome to Toast Setup</b></font></td>
+      </tr>
+   </table>
+   <br>
+   <table width="550" height="350" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+         <td width="130" height="100%" valign="top">
+            <table width="120" border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="100%" height="20" valign="top">
+                     <img src="admin\navtop.gif"></td>
+               </tr>
+               <tr>
+                  <td width="100%" height="200" bgcolor="black" align="center" valign="top">
+                     <table width="120" height="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#4682b4">
+                        <tr>
+                           <td width="100%" valign="top">
+                              <font face="arial,helvetica" color="white" size="2">
+                                 <br>
+                                 <%= zd776796739 %>
+                                 <%= z6696c9c8e6 %>
+                                 <%= z5338afa0cd %>
+                                 <%= zaf17af823b %>
+                                 <%= zb5e706236f %>
+                              </font>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td width="100%" height="20" valign="top">
+                     <img src="admin\navbot.gif"></td>
+               </tr>
+            </table>
+         </td>
+         <td width="20" height="100%">
+            <img src="admin\pixelw.gif" width="20" height="100%"></td>
+         <td width="400" height="350" valign="top">
+            <%= z63f4bb4eda %>
+         </td>
+      </tr>
+   </table>
+   <%= zc4433a7212 %>
+   <br>
+   <table width="100%" align="left" border="0" bgcolor="#FFFFFF">
+      <tr>
+         <td width="100%" align="left" nowrap>
+            <font face="arial,helvetica" style="letter-spacing: 1px;" size="1" color="black">Powered
+               by <a href="http://www.SolarianLeague.com"><font face="arial,helvetica" style="letter-spacing: 1px;"
+                  size="1" color="black">Toast
+                  <%= z22cccd659d %>
+               </font></a>
+               <br>
+               Copyright © 2000 <a href="http://www.joshpainter.com"><font face="arial,helvetica"
+                  style="letter-spacing: 1px;" size="1" color="black">Josh Painter</font></a> All
+               Rights Reserved.</font>
+         </td>
+      </tr>
+   </table>
+</body>
+</html>
+<% Response.End
+ End Sub
+%>
