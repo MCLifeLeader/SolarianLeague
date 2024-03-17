@@ -1,20 +1,33 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# Introduction
+This project is to create a website for my World of Warcraft guild, Solarian League.
+
+
+# Purpose
+This entire website is a learning project for me to learn the basics of web development.
+I have little prior experience in web development, so this is a great way for me to learn the basics of HTML, CSS, and JavaScript.
+I will also be using Blazor C# Webassembly to learn the basics of C# web development.
+
+## Key focus areas of study for this project include:
+1. HTML
+2. CSS
+3. JavaScript
+4. Blazor C# Webassembly
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+1.	Visual Studio 2022
+2.	.NET 8 SDK
+3.	Source content for Solarian League Website will primarily be pulled from the World of Warcraft website.
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Building of the project will be done through Visual Studio 2022.
+I am not planning on using any testing frameworks at this time, the focus here is to learn the basics of web development.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# Solarian League Website data
+Source data will be pulled from: https://develop.battle.net/
+Additional source examples:
+- https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league
+- https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league/achievements
+- https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu
+
+
