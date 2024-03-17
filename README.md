@@ -3,9 +3,9 @@ This project is to create a website for my World of Warcraft guild, Solarian Lea
 
 
 # Purpose
-This entire website is a learning project for me to learn the basics of web development.
-I have little prior experience in web development, so this is a great way for me to learn the basics of HTML, CSS, and JavaScript.
-I will also be using Blazor C# Webassembly to learn the basics of C# web development.
+This is a personal project so that I can improve in my front-end UI development skills in web development.
+I will be using Blazor C# and WebAssembly as the framework for the development project.
+My focus for this project is mostly front-end and I will likely not spend a lot of time on backend code.
 
 ## Key focus areas of study for this project include:
 1. HTML
