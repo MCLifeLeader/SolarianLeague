@@ -24,8 +24,14 @@ I am not planning on using any testing frameworks at this time, the focus here i
 
 
 # Solarian League Website data
-Source data will be pulled from: https://develop.battle.net/
-Additional source examples:
+
+## Blizzard API documentation
+https://develop.battle.net/
+
+## Postman Import
+Coming soon
+
+## Additional source examples
 - https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league
 - https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league/achievements
 - https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu
