@@ -5,18 +5,27 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <NavLink class="nav-link" href="about">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> About
-            </NavLink>
+        <div class="top-row px-4 text-light bg-dark text-sm-center text-lg-center text-xl-center text-xxl-center text-center">
+            <h1 class="small">Solarian League - Antonidas</h1>
         </div>
 
-        <article class="content px-4 h-75">
+        <article class="content px-4 h-100 text-light">
             @Body
         </article>
-        
-        <footer class="px-4">
-            Copyright © Solarian League @DateTime.UtcNow.Year, All rights reserved. All other content belongs to their respective owners.
-        </footer>
     </main>
+
+    <footer class="sticky-bottom text-light text-opacity-50 bg-dark">
+        Copyright © Solarian League 2007-@DateTime.UtcNow.Year, All rights reserved.
+        <NavLink class="nav-justified" href="privacy">
+            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Privacy
+        </NavLink>
+        &nbsp;
+        <NavLink class="nav-justified" href="termsofuse">
+            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Terms of Use
+        </NavLink>
+        &nbsp;
+        <NavLink class="nav-justified" href="legal">
+            <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Legal
+        </NavLink>
+    </footer>
 </div>

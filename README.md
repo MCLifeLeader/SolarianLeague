@@ -18,6 +18,10 @@ My focus for this project is mostly front-end and I will likely not spend a lot 
 2.	.NET 8 SDK
 3.	Source content for Solarian League Website will primarily be pulled from the World of Warcraft website.
 
+## Resources
+- [Bootstrap](https://getbootstrap.com/)
+- [Bootstrap Icons](https://icons.getbootstrap.com/) Example usage in NavMenu.razor.css, look for 'bi-plus-square-fill-nav-menu', copy svg code into css style.
+
 # Build and Test
 Building of the project will be done through Visual Studio 2022.
 I am not planning on using any testing frameworks at this time, the focus here is to learn the basics of web development.
