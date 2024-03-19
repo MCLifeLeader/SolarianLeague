@@ -1,6 +1,6 @@
 # Introduction
-This project is to create a website for my World of Warcraft guild, Solarian League.
-
+This project is to create a website for my World of Warcraft guild, Solarian League and can be found at [Solarian League](https://www.solarianleague.com)]
+The source content for the Website will primarily be pulled from the World of Warcraft website.
 
 # Purpose
 This is a personal project so that I can improve in my front-end UI development skills in web development.
@@ -11,12 +11,12 @@ My focus for this project is mostly front-end and I will likely not spend a lot 
 1. HTML
 2. CSS
 3. JavaScript
-4. Blazor C# Webassembly
+4. Blazor C# Web Assembly
 
 # Getting Started
-1.	Visual Studio 2022
-2.	.NET 8 SDK
-3.	Source content for Solarian League Website will primarily be pulled from the World of Warcraft website.
+1. Visual Studio 2022
+2. .NET 8 SDK
+3. npm install -g @azure/static-web-apps-cli
 
 ## Resources
 - [Bootstrap](https://getbootstrap.com/)
