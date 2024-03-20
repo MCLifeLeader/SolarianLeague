@@ -1,23 +1,24 @@
 ﻿@page "/discord"
+@using Solarian.League.Web.Components.Widgets
 
 <PageTitle>Discord</PageTitle>
 
 <h1>Discord</h1>
 
 <div class="row">
-    <div class="m-6">
+    <div class="col-md-6">
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut diam quam. Tempus iaculis urna id volutpat lacus. Nullam eget felis eget nunc lobortis mattis aliquam faucibus purus. Integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Pretium quam vulputate dignissim suspendisse in est ante in nibh. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Senectus et netus et malesuada. Congue nisi vitae suscipit tellus mauris a diam. Mollis aliquam ut porttitor leo. Non arcu risus quis varius quam. Lacus laoreet non curabitur gravida arcu ac. Habitasse platea dictumst quisque sagittis purus. Faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget.
         </p>
         <p>
             Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum. Turpis cursus in hac habitasse platea. Fames ac turpis egestas integer eget aliquet nibh praesent tristique. Arcu risus quis varius quam quisque id diam vel quam. Elementum nibh tellus molestie nunc non blandit massa enim nec. Felis eget nunc lobortis mattis aliquam faucibus purus in. Erat nam at lectus urna duis convallis. Velit laoreet id donec ultrices. Lectus arcu bibendum at varius vel pharetra. Id faucibus nisl tincidunt eget nullam. Id aliquet lectus proin nibh. Placerat vestibulum lectus mauris ultrices. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Malesuada bibendum arcu vitae elementum curabitur. Dui ut ornare lectus sit amet est placerat in.
         </p>
-        <p>
-            Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Faucibus vitae aliquet nec ullamcorper sit amet. Maecenas sed enim ut sem. Pulvinar etiam non quam lacus suspendisse faucibus. Sed ullamcorper morbi tincidunt ornare massa eget egestas purus viverra. Ut placerat orci nulla pellentesque dignissim enim sit amet. Ac ut consequat semper viverra nam. Volutpat ac tincidunt vitae semper quis lectus nulla. Quam viverra orci sagittis eu. Donec adipiscing tristique risus nec. Libero justo laoreet sit amet cursus sit amet dictum sit. Porttitor lacus luctus accumsan tortor posuere.
-        </p>
     </div>
-    <div class="m-6">
-        <iframe class="p-1" src="https://discord.com/widget?id=511303656193392652&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <div class="row">
+        <ActiveDiscordUsers/>
+        <div class="col-md-12">
+            <iframe class="p-1" src="https://discord.com/widget?id=511303656193392652&theme=dark" width="100%" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
     </div>
 </div>
 

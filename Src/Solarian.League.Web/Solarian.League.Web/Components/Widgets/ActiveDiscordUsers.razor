@@ -1,0 +1,24 @@
+﻿<h3>Discord</h3>
+
+<div class="container col-md-12">
+    <lable><span class="fw-bolder">@DiscordData.PresenceCount</span> Members Online</lable>
+    <table class="table table-bordered text-center">
+        <thead>
+            <tr class="d-table-row">
+                <th class="d-table-cell">Username</th>
+                <th class="d-table-cell">Status</th>
+                <th class="d-table-cell">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in DiscordData.Members)
+            {
+                <tr class="d-table-row">
+                    <td class="d-table-cell">@user.Username</td>
+                    <td class="d-table-cell">@user.Status</td>
+                    <td class="d-table-cell"><img class="img-fluid rounded-3 discord_image_max_width" src="@user.AvatarUrl" alt="@user.Username" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
