@@ -1,0 +1,10 @@
+﻿.row:not(:first-child) > .col {
+    border: 1px solid #dee2e6;
+    padding-top: 0.50rem;
+    padding-bottom: 0.50rem;
+}
+
+.row:not(:first-child) {
+    margin-left: 0;
+    margin-right: 0;
+}
