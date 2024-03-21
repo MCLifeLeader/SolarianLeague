@@ -21,11 +21,11 @@ My focus for this project is mostly front-end and I will likely not spend a lot 
 ## Resources
 - [Bootstrap](https://getbootstrap.com/)
 - [Bootstrap Icons](https://icons.getbootstrap.com/) Example usage in NavMenu.razor.css, look for 'bi-plus-square-fill-nav-menu', copy svg code into css style.
+- [jQuery](https://jquery.com/)
 
 # Build and Test
 Building of the project will be done through Visual Studio 2022.
 I am not planning on using any testing frameworks at this time, the focus here is to learn the basics of web development.
-
 
 # Solarian League Website data
 
@@ -39,5 +39,3 @@ Coming soon
 - https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league
 - https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league/achievements
 - https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu
-
-
