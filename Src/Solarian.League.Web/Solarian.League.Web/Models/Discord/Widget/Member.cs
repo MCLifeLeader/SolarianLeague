@@ -41,6 +41,6 @@ namespace Solarian.League.Web.Models.Discord.Widget
         public bool Suppress { get; set; }
 
         [JsonProperty("channel_id")]
-        public string ChannelId { get; set; }
+        public long ChannelId { get; set; }
     }
 }
