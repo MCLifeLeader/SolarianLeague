@@ -1,10 +1,20 @@
 ﻿<lable>
-    <span class="fw-bolder">
-        <h3>Discord</h3>
-        @DiscordData.PresenceCount
-    </span> Members Online
+    <div>
+        @DiscordData.Name: <span class="fw-bold">@DiscordData.PresenceCount</span> Online
+    </div>
+    <div>
+        Invite Link:
+        @if (!string.IsNullOrEmpty(DiscordData.InstantInvite))
+        {
+            <a href="@DiscordData.InstantInvite">Active</a>
+        }
+        else
+        {
+            <span class="fw-bolder">Inactive</span>
+        }
+    </div>
 </lable>
-<table class="table table-bordered">
+<table class="table table-bordered table-striped rounded">
     <thead>
         <tr class="d-table-row">
             <th class="d-table-cell">Name</th>
