@@ -70,7 +70,10 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <!-- Default service worker registration script that will use cache-first strategy uncomment for production -->
+    <!-- <script>navigator.serviceWorker.register('service-worker.js');</script> -->
+    <!-- Override script to use network-first strategy and is good for development comment out for production -->
+    <script>navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' });</script>
 </body>
 
 </html>
