@@ -1,4 +1,8 @@
-﻿<lable>
+﻿@if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <h3>@ErrorMessage</h3>
+}
+<lable>
     <div>
         @DiscordData.Name: <span class="fw-bold">@DiscordData.PresenceCount</span> Online
     </div>

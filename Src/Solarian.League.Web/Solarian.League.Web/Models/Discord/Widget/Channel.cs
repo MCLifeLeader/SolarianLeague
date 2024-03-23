@@ -8,7 +8,7 @@ namespace Solarian.League.Web.Models.Discord.Widget
         public long Id { get; set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [JsonProperty("position")]
         public int Position { get; set; }

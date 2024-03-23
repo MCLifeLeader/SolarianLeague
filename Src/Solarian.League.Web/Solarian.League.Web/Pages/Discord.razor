@@ -14,7 +14,14 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <ActiveDiscordUsers />
+            <ErrorBoundary>
+                <ChildContent>
+                    <ActiveDiscordUsers />
+                </ChildContent>
+                <ErrorContent>
+                    <p class="blazor-error-boundary"></p>
+                </ErrorContent>
+            </ErrorBoundary>
         </div>
         <div class="col-8">
         </div>
