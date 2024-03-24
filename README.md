@@ -39,3 +39,6 @@ Coming soon
 - https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league
 - https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league/achievements
 - https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu
+
+## Discord
+Sourced the Discord widget from the Discord website and added it to the website from https://discord.com/widget?id=511303656193392652&theme=dark
