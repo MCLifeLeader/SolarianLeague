@@ -1,39 +1,64 @@
-﻿@if (!string.IsNullOrEmpty(ErrorMessage))
-{
-    <h3>@ErrorMessage</h3>
-}
-<lable>
-    <div>
-        @DiscordData.Name: <span class="fw-bold">@DiscordData.PresenceCount</span> Online
+﻿<div id="discord-widget">
+    <div class="widget">
+        <div class="widgetHeader">
+            <a class="btn text-light bi bi-discord discord_text" aria-hidden="true" href="https://discord.com" target="_blank"> Discord</a>
+            <span class="widgetHeaderCount">
+
+                <strong>@DiscordData.PresenceCount</strong> Members Online
+            </span>
+        </div>
+        <div class="widgetBody">
+            <div>
+                @foreach (var channel in DiscordData.Channels)
+                {
+                    <div id="@string.Format($"{channel.Name}_{@channel.Id}")" class="widgetChannel">
+                        <div class="widgetChannelName">@channel.Name</div>
+                        @if (DiscordData.Members.Any(m => m.ChannelId == channel.Id))
+                        {
+                            <div>
+                                @foreach (var member in DiscordData.Members)
+                                {
+                                    @if (member.ChannelId == channel.Id)
+                                    {
+                                        <div class="widgetMember">
+                                            <div class="widgetMemberAvatar">
+                                                <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="https://cdn.discordapp.com/widget-avatars/kWajk9yLuWFWo2isiPeb-PX29qycB15ZtRyJMZwFdCM/E7HrAN6YCI_uTWx0BmsTcTsRycgTBlx_cxrj7VP_O9fqe2dp-cwfxemy6vtfI-CGzFT2dszwAnK3SfB1ysS3vAjMQ8n1gC5S9QngA5w9AFuzZxRyXotleyh-eb86EK0knW-cWP3UZuFi0g">
+                                            </div><span class="widgetMemberName">Tails - Nithén</span>
+                                            @if (member.Mute || member.SelfMute)
+                                            {
+                                                <span class="widgetIcon widgetIconMute"></span>
+                                            }
+                                            @if (member.Deaf || member.SelfDeaf)
+                                            {
+                                                <span class="widgetIcon widgetIconDeaf"></span>
+                                            }
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            <div>
+                <div class="widgetMembersOnline">Members Online</div>
+                <div>
+                    @foreach (var member in DiscordData.Members)
+                    {
+                        <div class="widgetMember">
+                            <div class="widgetMemberAvatar">
+                                <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="@member.AvatarUrl" />
+                                <span class="widgetMemberStatus @member.Status"></span>
+                            </div>
+                            <span class="widgetMemberName">@member.Username</span>
+                            <span class="widgetMemberGame">@member.Game.Name</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="widgetFooter">
+            <span class="widgetFooterInfo">Hangout with people who get it</span>
+        </div>
     </div>
-    <div>
-        Invite Link:
-        @if (!string.IsNullOrEmpty(DiscordData.InstantInvite))
-        {
-            <a href="@DiscordData.InstantInvite">Active</a>
-        }
-        else
-        {
-            <span class="fw-bolder">Inactive</span>
-        }
-    </div>
-</lable>
-<table class="table table-bordered table-striped rounded">
-    <thead>
-        <tr class="d-table-row">
-            <th class="d-table-cell">Name</th>
-            <th class="d-table-cell">Status</th>
-            <th class="d-table-cell">Channel</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var user in DiscordData.Members)
-        {
-            <tr class="d-table-row">
-                <td class="d-table-cell"><img class="img-fluid rounded-3 discord_image_max_width" src="@user.AvatarUrl" alt="@user.Username" /> @user.Username</td>
-                <td class="d-table-cell">@user.Status</td>
-                <td class="d-table-cell">@DiscordData.Channels.FirstOrDefault(e => e.Id == user.ChannelId)?.Name</td>
-            </tr>
-        }
-    </tbody>
-</table>
+</div>

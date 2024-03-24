@@ -1,3 +1,164 @@
-﻿.discord_image_max_width {
-    max-width: 30px;
+﻿/*
+    Much of the styling for the ActiveDiscordUsers component was sourced from the Discord Widget css.
+*/
+body {
+    line-height: 1;
+    background-color: transparent;
+    min-height: -webkit-fill-available;
+}
+
+div {
+    unicode-bidi: isolate;
+}
+
+.discord_image_max_width {
+    max-width: 16px;
+}
+
+.bi-discord {
+    font-size: 24px;
+}
+
+.discord_text {
+    font-size: 24px;
+}
+
+.widget, .widget a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.widget {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    font-family: gg sans, Noto Sans, Helvetica Neue, Helvetica, Arial, sans-serif font-size: 14px;
+    background-color: rgb(46, 52, 64);
+}
+
+.widgetHeader {
+    background-color: rgb(128 128 255);
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+    .widgetHeader .widgetHeaderCount {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        text-align: right
+    }
+
+.widgetBody {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-shadow: 0 1px 0 hsl(0 calc( 1 *0%) 0% /.2);
+    box-shadow: 0 1px 0 hsl(0 calc( 1 *0%) 0% /.2);
+    padding: 20px;
+}
+
+.widgetIcon {
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    display: inline-block;
+}
+
+.widgetIconMute {
+    background-image: url('lib/bootstrap-icons/icons/mic-mute.svg');
+}
+
+.widgetIconDeaf {
+    background-image: url('lib/bootstrap-icons/icons/volume-off.svg');
+}
+
+.widgetChannel {
+    margin-top: 12px;
+}
+
+.widgetChannel:first-child {
+    margin-top: 0;
+}
+.widgetChannelName {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.widgetMembersOnline {
+    color: #8a8e94;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.widgetMember {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 10px;
+    margin: 6px 0;
+}
+
+.widgetMemberAvatar {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    margin-right: 4px;
+}
+
+.widgetMember .widgetMemberGame, .widgetMember .widgetMemberName {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.widgetMember .widgetMemberName {
+    color: #8a8e94;
+}
+
+.widgetFooter {
+    -webkit-box-shadow: 0 -1px 18px hsl(0 calc( 1 *0%) 0% /.2), 0 -1px 0 hsl(0 calc( 1 *0%) 0% /.2);
+    box-shadow: 0 -1px 18px hsl(0 calc( 1 *0%) 0% /.2), 0 -1px 0 hsl(0 calc( 1 *0%) 0% /.2);
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 6px 6px 6px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 30px;
+    background-color: darkslategray;
+}
+
+.widgetFooter .widgetFooterInfo {
+    display: inline-block;
+    font-weight: 500;
+    color: #8a8e94;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
 }
