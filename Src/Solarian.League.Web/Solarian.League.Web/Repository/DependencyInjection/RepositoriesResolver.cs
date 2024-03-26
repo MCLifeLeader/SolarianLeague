@@ -1,4 +1,5 @@
 ﻿using Solarian.League.Web.Models.ApplicationSettings;
+using Solarian.League.Web.Repository.Http.Blizzard;
 using Solarian.League.Web.Repository.Http.Discord;
 using Solarian.League.Web.Services;
 
@@ -9,5 +10,6 @@ public static class RepositoriesResolver
     public static void RegisterDependencies(IServiceCollection service, AppSettings appSettings)
     {
         service.AddScoped<IDiscordRepository, DiscordRepository>();
+        service.AddScoped<IBlizzardRepository, BlizzardRepository>();
     }
 }

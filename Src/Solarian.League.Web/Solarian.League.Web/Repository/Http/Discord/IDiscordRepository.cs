@@ -1,9 +1,8 @@
 ﻿using Solarian.League.Web.Models.Discord;
 
-namespace Solarian.League.Web.Repository.Http.Discord
+namespace Solarian.League.Web.Repository.Http.Discord;
+
+public interface IDiscordRepository
 {
-    public interface IDiscordRepository
-    {
-        public Task<WidgetData> GetDiscordServerDataAsync();
-    }
+    public Task<WidgetData> GetDiscordServerDataAsync();
 }

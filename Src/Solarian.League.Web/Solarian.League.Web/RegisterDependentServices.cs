@@ -1,18 +1,15 @@
 using FluentValidation;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Net.Http.Headers;
 using Solarian.League.Web.Constants;
 using Solarian.League.Web.Helpers.DependencyInjection;
 using Solarian.League.Web.Models.ApplicationSettings;
-using Microsoft.AspNetCore.Http;
 using Solarian.League.Web.Connection.DependencyInjection;
 using Solarian.League.Web.Factories.DependencyInjection;
 using Solarian.League.Web.Helpers.Extensions;
 using Solarian.League.Web.Services.DependencyInjection;
 using Solarian.League.Web.Repository.DependencyInjection;
-using Solarian.League.Web.Helpers.State;
 
 namespace Solarian.League.Web;
 
@@ -70,8 +67,6 @@ public static class RegisterDependentServices
 
     private static void SetDependencyInjection(this WebAssemblyHostBuilder builder, AppSettings appSettings)
     {
-        builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
         // connections
         ConnectionResolver.RegisterDependencies(builder.Services, appSettings);
 
@@ -92,11 +87,23 @@ public static class RegisterDependentServices
     {
         builder.Services.AddHttpClient(HttpClientNames.DISCORD_SERVER_DATA, c =>
         {
-            c.BaseAddress = new Uri(appSettings.HttpClients!.DiscordData!.BaseUrl!);
+            c.BaseAddress = new Uri(appSettings.HttpClients!.DiscordClient!.BaseUrl!);
 
             c.DefaultRequestHeaders.Accept.Clear();
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             c.Timeout = TimeSpan.FromSeconds(120);
         });
+
+        builder.Services.AddHttpClient(HttpClientNames.BLIZZARD_SERVER_DATA, c =>
+        {
+            c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseUrl!);
+
+            c.DefaultRequestHeaders.Accept.Clear();
+            c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
+            c.Timeout = TimeSpan.FromSeconds(120);
+        });
+
+        //https://kb7ppb-function.azurewebsites.net
     }
 }

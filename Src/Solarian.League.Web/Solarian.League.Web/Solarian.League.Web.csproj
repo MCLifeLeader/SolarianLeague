@@ -5,7 +5,13 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+    <Configurations>Debug;Release;Development</Configurations>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\appsettings.Development.json" />
+    <Content Remove="wwwroot\appsettings.kb7ppbstatic.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.9.0" />
@@ -13,8 +19,6 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.3" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
@@ -39,6 +43,15 @@
       <IsTransformFile>true</IsTransformFile>
       <DependentUpon>appsettings.json</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\appsettings.Development.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>appsettings.json</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\appsettings.kb7ppbstatic.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>appsettings.json</DependentUpon>
     </None>
     <None Include="wwwroot\appsettings.Release.json">
       <IsTransformFile>true</IsTransformFile>

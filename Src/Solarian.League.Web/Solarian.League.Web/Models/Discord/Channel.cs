@@ -1,16 +1,15 @@
 ﻿using Newtonsoft.Json;
 
-namespace Solarian.League.Web.Models.Discord
+namespace Solarian.League.Web.Models.Discord;
+
+public class Channel
 {
-    public class Channel
-    {
-        [JsonProperty("id")]
-        public long Id { get; set; }
+    [JsonProperty("id")]
+    public long Id { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; } = string.Empty;
+    [JsonProperty("name")]
+    public string Name { get; set; } = string.Empty;
 
-        [JsonProperty("position")]
-        public int Position { get; set; }
-    }
+    [JsonProperty("position")]
+    public int Position { get; set; }
 }

@@ -12,16 +12,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		..\..\README.md = ..\..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solarian.League.Api", "Solarian.League.Api\Solarian.League.Api.csproj", "{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Development|Any CPU = Development|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6467596A-8D02-4409-BC91-4A64ADF75C21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6467596A-8D02-4409-BC91-4A64ADF75C21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6467596A-8D02-4409-BC91-4A64ADF75C21}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{6467596A-8D02-4409-BC91-4A64ADF75C21}.Development|Any CPU.Build.0 = Development|Any CPU
 		{6467596A-8D02-4409-BC91-4A64ADF75C21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6467596A-8D02-4409-BC91-4A64ADF75C21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}.Development|Any CPU.Build.0 = Development|Any CPU
+		{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

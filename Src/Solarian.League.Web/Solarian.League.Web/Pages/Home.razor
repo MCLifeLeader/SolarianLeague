@@ -11,6 +11,17 @@
     </div>
     <div class="col-12 text-center">
         <h3>This site is under construction. Please check back later.</h3>
+        
+        <ErrorBoundary>
+            <ChildContent>
+                <h2>@Message.Message</h2>
+            </ChildContent>
+            <ErrorContent>
+                <p class="blazor-error-boundary">
+                    <h4>@ErrorMessage</h4>
+                </p>
+            </ErrorContent>
+        </ErrorBoundary>
     </div>
     <div class="col-6">
         <p class="p-1">

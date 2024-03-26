@@ -33,7 +33,7 @@ public partial class ActiveDiscordUsers
                 DiscordData = await DiscordService!.GetDiscordServerDataAsync();
 
                 ApplicationData.ActiveDiscordUsers.DiscordWidgetLastUpdated = DateTime.UtcNow.AddSeconds(
-                    AppSettings!.HttpClients!.DiscordData!.CacheDurationInSeconds);
+                    AppSettings!.HttpClients!.DiscordClient!.CacheDurationInSeconds);
                 ApplicationData.ActiveDiscordUsers.DiscordWidgetData = DiscordData;
             }
             else

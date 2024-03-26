@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Solarian.League.Web.Models.Discord
+namespace Solarian.League.Web.Models.Discord;
+
+public class Game
 {
-    public class Game
-    {
-        [JsonProperty("name")]
-        public string Name { get; set; } = string.Empty;
-    }
+    [JsonProperty("name")]
+    public string Name { get; set; } = string.Empty;
 }
