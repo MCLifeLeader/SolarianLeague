@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Solarian.League.Web.Models.Discord.Widget
+namespace Solarian.League.Web.Models.Discord
 {
     public class Channel
     {

@@ -12,8 +12,7 @@ using Solarian.League.Web.Factories.DependencyInjection;
 using Solarian.League.Web.Helpers.Extensions;
 using Solarian.League.Web.Services.DependencyInjection;
 using Solarian.League.Web.Repository.DependencyInjection;
-using System.Text.Encodings.Web;
-using System.Text.Json;
+using Solarian.League.Web.Helpers.State;
 
 namespace Solarian.League.Web;
 
@@ -65,8 +64,6 @@ public static class RegisterDependentServices
 
         builder.RootComponents.Add<App>("#app");
         builder.RootComponents.Add<HeadOutlet>("head::after");
-
-        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
         return builder;
     }

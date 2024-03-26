@@ -2,7 +2,7 @@
 using Solarian.League.Web.Connection.Interfaces;
 using Solarian.League.Web.Constants;
 using Solarian.League.Web.Models.ApplicationSettings;
-using Solarian.League.Web.Models.Discord.Widget;
+using Solarian.League.Web.Models.Discord;
 using System.Text;
 
 namespace Solarian.League.Web.Repository.Http.Discord
@@ -17,9 +17,10 @@ namespace Solarian.League.Web.Repository.Http.Discord
             _httpClient = httpClientWrapper;
         }
 
-        public async Task<Widget> GetDiscordServerDataAsync()
+        public async Task<WidgetData> GetDiscordServerDataAsync()
         {
-            var response = await _httpClient.GetObjectAsync<Widget>("api/guilds/511303656193392652/widget.json", HttpClientNames.DISCORD_SERVER_DATA);
+            string route = $"api/guilds/511303656193392652/widget.json?t={DateTime.UtcNow.Ticks}";
+            var response = await _httpClient.GetObjectAsync<WidgetData>(route, HttpClientNames.DISCORD_SERVER_DATA);
             
             return response;
         }

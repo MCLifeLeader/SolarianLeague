@@ -1,25 +1,33 @@
 ﻿@page "/discord"
+@page "/discord/{*pageRoute}"
+
 @using Solarian.League.Web.Components.Widgets
 
 <PageTitle>Discord</PageTitle>
 
 <h1>Discord</h1>
 
-    <div class="row">
-        <div class="col-6">
-            <ErrorBoundary>
-                <ChildContent>
-                    <ActiveDiscordUsers />
-                </ChildContent>
-                <ErrorContent>
-                    <p class="blazor-error-boundary"></p>
-                </ErrorContent>
-            </ErrorBoundary>
-        </div>
-        <div class="col-6">
-            <p class="p-1">
-                Welcome to our Discord page.  Here you can find information about our Discord server and see who is currently online. 
-                If we are accepting new members, you can also find a link to join our Discord server.
-            </p>
-        </div>
-   </div>
+<div class="row">
+    <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <p class="p-1">
+            Welcome to our Discord page.  Here you can find information about our Discord server and see who is currently online.
+            If we are accepting new members, you can also find a link to join our Discord server.
+        </p>
+    </div>
+    <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <ErrorBoundary>
+            <ChildContent>
+                <ActiveDiscordUsers />
+            </ChildContent>
+            <ErrorContent>
+                <p class="blazor-error-boundary"></p>
+            </ErrorContent>
+        </ErrorBoundary>
+    </div>
+    <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <p class="p-3">
+            &nbsp;
+        </p>
+    </div>
+
+</div>
