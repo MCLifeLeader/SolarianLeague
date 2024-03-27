@@ -363,3 +363,4 @@ FodyWeavers.xsd
 
 # Custom Exclusions
 **/PublishProfiles/*
+**/wwwroot/appsettings.kb7ppbstatic.json

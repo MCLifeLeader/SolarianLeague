@@ -265,3 +265,4 @@ __pycache__/
 
 # Custom Exclusions
 **/kb7ppb-function - Zip Deploy/*
+**/serviceDependencies.kb7ppb-function - Zip Deploy.json
