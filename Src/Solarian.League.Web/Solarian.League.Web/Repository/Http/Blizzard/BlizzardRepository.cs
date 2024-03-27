@@ -1,7 +1,6 @@
-﻿using Solarian.League.Web.Connection.Interfaces;
+﻿using Solarian.League.Common.Connection.Interfaces;
 using Solarian.League.Web.Constants;
 using Solarian.League.Web.Models.Blizzard;
-using Solarian.League.Web.Models.Discord;
 
 namespace Solarian.League.Web.Repository.Http.Blizzard;
 
@@ -18,7 +17,7 @@ public class BlizzardRepository : IBlizzardRepository
     public async Task<GuildRoster> GetGuildRosterAsync()
     {
         string route = $"api/roster?t={DateTime.UtcNow.Ticks}";
-        var response = await _httpClient.GetObjectAsync<GuildRoster>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
+        GuildRoster response = await _httpClient.GetObjectAsync<GuildRoster>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
             
         return response;
     }

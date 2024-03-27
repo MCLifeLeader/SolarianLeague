@@ -1,9 +1,6 @@
-﻿using Microsoft.Extensions.Options;
-using Solarian.League.Web.Connection.Interfaces;
+﻿using Solarian.League.Common.Connection.Interfaces;
 using Solarian.League.Web.Constants;
-using Solarian.League.Web.Models.ApplicationSettings;
 using Solarian.League.Web.Models.Discord;
-using System.Text;
 
 namespace Solarian.League.Web.Repository.Http.Discord;
 

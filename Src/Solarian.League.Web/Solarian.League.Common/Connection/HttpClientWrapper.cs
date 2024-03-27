@@ -1,8 +1,8 @@
-﻿using Solarian.League.Web.Connection.Interfaces;
+﻿using Solarian.League.Common.Connection.Interfaces;
 using System.Net;
 using System.Net.Http.Headers;
 
-namespace Solarian.League.Web.Connection;
+namespace Solarian.League.Common.Connection;
 
 /// <summary>
 /// Wrapper class for HttpClient that provides methods for making HTTP requests.
@@ -11,6 +11,7 @@ public class HttpClientWrapper : IHttpClientWrapper
 {
     private readonly IHttpClientFactory _httpClientFactory;
 
+    // ReSharper disable once ConvertToPrimaryConstructor
     public HttpClientWrapper(
         IHttpClientFactory httpClientFactory)
     {

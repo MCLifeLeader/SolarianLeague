@@ -61,6 +61,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Solarian.League.Common\Solarian.League.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="wwwroot\appsettings.json">
       <TransformOnBuild>true</TransformOnBuild>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

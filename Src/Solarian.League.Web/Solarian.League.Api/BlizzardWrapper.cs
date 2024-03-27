@@ -10,13 +10,14 @@ public class BlizzardWrapper
 {
     private readonly ILogger<BlizzardWrapper> _logger;
 
+    // ReSharper disable once ConvertToPrimaryConstructor
     public BlizzardWrapper(ILogger<BlizzardWrapper> logger)
     {
         _logger = logger;
     }
 
     [Function("roster")]
-    public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
+    public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
 

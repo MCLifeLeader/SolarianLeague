@@ -1,4 +1,4 @@
-﻿namespace Solarian.League.Web.Connection.Interfaces;
+﻿namespace Solarian.League.Common.Connection.Interfaces;
 
 public interface IHttpClientWrapper
 {

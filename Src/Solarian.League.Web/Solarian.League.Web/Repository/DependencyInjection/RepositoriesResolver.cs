@@ -1,7 +1,6 @@
 ﻿using Solarian.League.Web.Models.ApplicationSettings;
 using Solarian.League.Web.Repository.Http.Blizzard;
 using Solarian.League.Web.Repository.Http.Discord;
-using Solarian.League.Web.Services;
 
 namespace Solarian.League.Web.Repository.DependencyInjection;
 
