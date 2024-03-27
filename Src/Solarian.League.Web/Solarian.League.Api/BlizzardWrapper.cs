@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
+using Solarian.League.Api.Model.Blizzard;
 
 namespace Solarian.League.Api;
 
@@ -19,6 +20,11 @@ public class BlizzardWrapper
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-        return new OkObjectResult("{\"Message\":\"Hello World!\"}");
+        GuildRoster roster = new GuildRoster()
+        {
+            Message = "Hello World!"
+        };
+
+        return new OkObjectResult(roster);
     }
 }
