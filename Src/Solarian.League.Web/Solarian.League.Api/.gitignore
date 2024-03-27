@@ -263,6 +263,5 @@ paket-files/
 __pycache__/
 *.pyc
 
-**/appInsights1.arm.json
-**/storage1.arm.json
-**/serviceDependencies.kb7ppb-function - Zip Deploy.json
+# Custom Exclusions
+**/kb7ppb-function - Zip Deploy/*

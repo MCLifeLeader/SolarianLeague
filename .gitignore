@@ -362,4 +362,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Custom Exclusions
-*.kb7ppbstatic.json
+**/PublishProfiles/*
