@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
-using Solarian.League.Api.Model.Blizzard;
+using Solarian.League.Common.Models.Wow.Guild.Base;
 
 namespace Solarian.League.Api;
 
@@ -16,16 +16,11 @@ public class BlizzardWrapper
         _logger = logger;
     }
 
-    [Function("roster")]
-    public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequest req)
+    [Function("GuildBase")]
+    public IActionResult GuildBase([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildBase")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
 
-        GuildRoster roster = new GuildRoster()
-        {
-            Message = "Hello World!"
-        };
-
-        return new OkObjectResult(roster);
+        return new OkObjectResult(new GuildRoot());
     }
 }

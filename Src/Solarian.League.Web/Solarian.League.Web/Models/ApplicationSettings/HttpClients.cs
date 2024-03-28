@@ -3,5 +3,5 @@
 public class HttpClients
 {
     public DiscordClient? DiscordClient { get; set; }
-    public BlizzardClient? BlizzardClient { get; set; }
+    public BlizzardWrapperClient? BlizzardClient { get; set; }
 }

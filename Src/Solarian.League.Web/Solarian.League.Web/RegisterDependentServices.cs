@@ -94,7 +94,7 @@ public static class RegisterDependentServices
             c.Timeout = TimeSpan.FromSeconds(120);
         });
 
-        builder.Services.AddHttpClient(HttpClientNames.BLIZZARD_SERVER_DATA, c =>
+        builder.Services.AddHttpClient(HttpClientNames.BLIZZARD_SERVER_WRAPPER_DATA, c =>
         {
             c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseUrl!);
 
@@ -103,7 +103,5 @@ public static class RegisterDependentServices
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
             c.Timeout = TimeSpan.FromSeconds(120);
         });
-
-        //https://kb7ppb-function.azurewebsites.net
     }
 }

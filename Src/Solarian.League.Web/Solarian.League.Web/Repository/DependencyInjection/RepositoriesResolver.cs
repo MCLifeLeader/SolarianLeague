@@ -9,6 +9,6 @@ public static class RepositoriesResolver
     public static void RegisterDependencies(IServiceCollection service, AppSettings appSettings)
     {
         service.AddScoped<IDiscordRepository, DiscordRepository>();
-        service.AddScoped<IBlizzardRepository, BlizzardRepository>();
+        service.AddScoped<IBlizzardWrapperRepository, BlizzardWrapperRepository>();
     }
 }

@@ -4,12 +4,12 @@ using Solarian.League.Web.Models.Blizzard;
 
 namespace Solarian.League.Web.Repository.Http.Blizzard;
 
-public class BlizzardRepository : IBlizzardRepository
+public class BlizzardWrapperRepository : IBlizzardWrapperRepository
 {
     private readonly IHttpClientWrapper _httpClient;
 
     // ReSharper disable once ConvertToPrimaryConstructor
-    public BlizzardRepository(IHttpClientWrapper httpClientWrapper)
+    public BlizzardWrapperRepository(IHttpClientWrapper httpClientWrapper)
     {
         _httpClient = httpClientWrapper;
     }
@@ -17,7 +17,7 @@ public class BlizzardRepository : IBlizzardRepository
     public async Task<GuildRoster> GetGuildRosterAsync()
     {
         string route = $"api/roster?t={DateTime.UtcNow.Ticks}";
-        GuildRoster response = await _httpClient.GetObjectAsync<GuildRoster>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
+        GuildRoster response = await _httpClient.GetObjectAsync<GuildRoster>(route, HttpClientNames.BLIZZARD_SERVER_WRAPPER_DATA);
             
         return response;
     }

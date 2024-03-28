@@ -1,6 +1,6 @@
-﻿namespace Solarian.League.Web.Models.ApplicationSettings;
+﻿namespace Solarian.League.Api.Models.ApplicationSettings;
 
-public class BlizzardWrapperClient
+public class BlizzardClient
 {
     public string? BaseUrl { get; set; }
     public int TimeoutInSeconds { get; set; }

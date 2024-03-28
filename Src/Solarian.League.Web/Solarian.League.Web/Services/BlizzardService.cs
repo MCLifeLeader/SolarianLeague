@@ -6,9 +6,9 @@ namespace Solarian.League.Web.Services;
 
 public class BlizzardService : IBlizzardService
 {
-    private readonly IBlizzardRepository _blizzardRepository;
+    private readonly IBlizzardWrapperRepository _blizzardRepository;
 
-    public BlizzardService(IBlizzardRepository blizzardRepository)
+    public BlizzardService(IBlizzardWrapperRepository blizzardRepository)
     {
         _blizzardRepository = blizzardRepository;
     }

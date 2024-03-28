@@ -2,7 +2,7 @@
 
 namespace Solarian.League.Web.Repository.Http.Blizzard;
 
-public interface IBlizzardRepository
+public interface IBlizzardWrapperRepository
 {
     public Task<GuildRoster> GetGuildRosterAsync();
 }
