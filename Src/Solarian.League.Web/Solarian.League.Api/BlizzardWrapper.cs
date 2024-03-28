@@ -27,7 +27,7 @@ public class BlizzardWrapper
     }
 
     [Function("GuildBase")]
-    public async Task<IActionResult> GuildBase([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildBase")] HttpRequest req)
+    public async Task<IActionResult> GuildBase([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildBase")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         _logger.LogInformation($"AppSettings: '{_appSettings?.HttpClients?.BlizzardClient?.ClientId}'");

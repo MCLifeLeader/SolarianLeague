@@ -3,7 +3,6 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Solarian.League.Api.Connection.DependencyInjection;
 using Solarian.League.Api.Constants;
@@ -121,7 +120,6 @@ public static class RegisterDependentServices
             string clientSecret = appSettings.HttpClients!.BlizzardClient!.ClientSecret!.Trim();
 
             c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseOAuthUrl!);
-
             c.DefaultRequestHeaders.Accept.Clear();
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -140,8 +138,10 @@ public static class RegisterDependentServices
 
         services.AddHttpClient(HttpClientNames.BLIZZARD_SERVER_DATA, c =>
         {
-            c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseUrl!);
+            string serverUrl = appSettings.HttpClients!.BlizzardClient!.BaseUrl!
+                .Replace("*", appSettings.HttpClients.BlizzardClient.Region);
 
+            c.BaseAddress = new Uri(serverUrl);
             c.DefaultRequestHeaders.Accept.Clear();
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             c.Timeout = TimeSpan.FromSeconds(appSettings.HttpClients!.BlizzardClient.TimeoutInSeconds);
