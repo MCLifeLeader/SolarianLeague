@@ -10,5 +10,6 @@ public class AppSettings
     [XmlIgnore]
     public IConfiguration? ConfigurationBase { get; set; }
 
-    public HttpClients? HttpClients { get; set; }
+    public int MaxHttpTimeoutSeconds { get; set; }
+    public HttpClients? HttpClients { get; set; } = new();
 }

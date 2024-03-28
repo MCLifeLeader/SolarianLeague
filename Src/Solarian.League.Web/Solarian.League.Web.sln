@@ -9,12 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\..\.editorconfig = ..\..\.editorconfig
 		..\..\.gitignore = ..\..\.gitignore
+		..\..\Docs\Blizzard.postman_collection.json = ..\..\Docs\Blizzard.postman_collection.json
+		..\..\Docs\Blizzard.postman_environment.json = ..\..\Docs\Blizzard.postman_environment.json
 		..\..\README.md = ..\..\README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solarian.League.Api", "Solarian.League.Api\Solarian.League.Api.csproj", "{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solarian.League.Common", "Solarian.League.Common\Solarian.League.Common.csproj", "{30EE506D-3A99-4E35-B6D2-032F06DD5877}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solarian.League.Common", "Solarian.League.Common\Solarian.League.Common.csproj", "{30EE506D-3A99-4E35-B6D2-032F06DD5877}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

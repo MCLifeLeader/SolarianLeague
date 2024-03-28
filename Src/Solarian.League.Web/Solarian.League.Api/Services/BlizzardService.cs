@@ -8,6 +8,7 @@ public class BlizzardService : IBlizzardService
 {
     private readonly IBlizzardRepository _blizzardRepository;
 
+    // ReSharper disable once ConvertToPrimaryConstructor
     public BlizzardService(IBlizzardRepository blizzardRepository)
     {
         _blizzardRepository = blizzardRepository;

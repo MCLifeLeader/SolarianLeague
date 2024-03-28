@@ -12,8 +12,7 @@ public class HttpClientWrapper : IHttpClientWrapper
     private readonly IHttpClientFactory _httpClientFactory;
 
     // ReSharper disable once ConvertToPrimaryConstructor
-    public HttpClientWrapper(
-        IHttpClientFactory httpClientFactory)
+    public HttpClientWrapper(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
     }

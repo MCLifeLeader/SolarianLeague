@@ -4,5 +4,8 @@ public static class HttpClientNames
 {
     // ReSharper disable once IdentifierTypo
     // ReSharper disable once InconsistentNaming
+    public const string BLIZZARD_OAUTH = "Blizzard_OAuth";
+    // ReSharper disable once IdentifierTypo
+    // ReSharper disable once InconsistentNaming
     public const string BLIZZARD_SERVER_DATA = "Blizzard_Server_Data";
 }

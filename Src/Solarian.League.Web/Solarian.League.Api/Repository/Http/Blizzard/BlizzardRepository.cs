@@ -16,7 +16,10 @@ public class BlizzardRepository : IBlizzardRepository
 
     public async Task<GuildRoot> GetGuildRosterAsync()
     {
-        string route = $"api/roster?t={DateTime.UtcNow.Ticks}";
+        string realm = "antonidas";
+        string guildName = "solarian-league";
+
+        string route = $"data/wow/guild/{realm}/{guildName}?namespace=profile-us";
         GuildRoot response = await _httpClient.GetObjectAsync<GuildRoot>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
             
         return response;

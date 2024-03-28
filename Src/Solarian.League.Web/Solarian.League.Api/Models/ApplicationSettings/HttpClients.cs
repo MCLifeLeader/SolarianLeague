@@ -2,5 +2,5 @@
 
 public class HttpClients
 {
-    public BlizzardClient? BlizzardClient { get; set; }
+    public BlizzardClient? BlizzardClient { get; set; } = new();
 }
