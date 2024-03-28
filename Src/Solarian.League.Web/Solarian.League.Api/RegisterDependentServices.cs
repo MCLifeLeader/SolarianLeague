@@ -3,6 +3,7 @@ using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Solarian.League.Api.Connection.DependencyInjection;
 using Solarian.League.Api.Constants;
@@ -116,8 +117,8 @@ public static class RegisterDependentServices
 
         services.AddHttpClient(HttpClientNames.BLIZZARD_OAUTH, c =>
         {
-            string clientId = appSettings.HttpClients!.BlizzardClient!.ClientId!;
-            string clientSecret = appSettings.HttpClients!.BlizzardClient!.ClientSecret!;
+            string clientId = appSettings.HttpClients!.BlizzardClient!.ClientId!.Trim();
+            string clientSecret = appSettings.HttpClients!.BlizzardClient!.ClientSecret!.Trim();
 
             c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseOAuthUrl!);
 
@@ -146,7 +147,10 @@ public static class RegisterDependentServices
             c.Timeout = TimeSpan.FromSeconds(appSettings.HttpClients!.BlizzardClient.TimeoutInSeconds);
 
             // If we have a token, use it
-            token ??= GetAuthToken(services, appSettings)!;
+            if (token == null || string.IsNullOrEmpty(token.AccessToken))
+            {
+                token = GetAuthToken(services, appSettings)!;
+            }
 
             c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
         }).ConfigurePrimaryHttpMessageHandler(c =>
@@ -167,12 +171,12 @@ public static class RegisterDependentServices
         try
         {
             string route = "token?grant_type=client_credentials";
-            string result = httpClient.PostData(route, string.Empty, HttpClientNames.BLIZZARD_OAUTH);
-            BlizzardToken token=  result.FromJson<BlizzardToken>();
-            
+            var result = httpClient.PostData(route, string.Empty, HttpClientNames.BLIZZARD_OAUTH);
+            BlizzardToken token = result.FromJson<BlizzardToken>();
+
             return token;
         }
-        catch
+        catch (Exception ex)
         {
             return new();
         }

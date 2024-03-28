@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Solarian.League.Api.Models.ApplicationSettings;
 using Solarian.League.Api.Services.Interfaces;
+using Solarian.League.Common.Models.Wow.Guild.Base;
 
 namespace Solarian.League.Api;
 
@@ -30,9 +31,15 @@ public class BlizzardWrapper
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");
         _logger.LogInformation($"AppSettings: '{_appSettings?.HttpClients?.BlizzardClient?.ClientId}'");
-
-        var result = await _blizzardService.GetGuildRosterAsync();
-
-        return new OkObjectResult(result);
+        try
+        {
+            GuildRoot? result = await _blizzardService.GetGuildRosterAsync();
+            return new OkObjectResult(result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in GuildBase");
+            return new BadRequestObjectResult(ex.Message);
+        }
     }
 }

@@ -9,6 +9,11 @@
     <UserSecretsId>05395af1-3dd7-43e6-9216-1a112175ec4a</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Properties\ServiceDependencies\kb7ppb-function - Zip Deploy\**" />
+    <EmbeddedResource Remove="Properties\ServiceDependencies\kb7ppb-function - Zip Deploy\**" />
+    <None Remove="Properties\ServiceDependencies\kb7ppb-function - Zip Deploy\**" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="appsettings.json" />
   </ItemGroup>
   <ItemGroup>
@@ -62,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Properties\ServiceDependencies\kb7ppb-function - Zip Deploy\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solarian.League.Common\Solarian.League.Common.csproj" />

@@ -1,4 +1,5 @@
-﻿using Solarian.League.Common.Models.Wow.Guild.Base;
+﻿using Microsoft.Extensions.Logging;
+using Solarian.League.Common.Models.Wow.Guild.Base;
 
 namespace Solarian.League.Api.Services.Interfaces;
 
