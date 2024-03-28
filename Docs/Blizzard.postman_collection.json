@@ -1,0 +1,1848 @@
+{
+	"info": {
+		"_postman_id": "a150ca3d-68a1-4ddf-a9d5-80a90277c511",
+		"name": "Blizzard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1651378"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Token - Run First",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.clearEnvironmentVariable(\"BearerToken\");\r",
+									"postman.setEnvironmentVariable(\"BearerToken\", data.access_token);\r",
+									"\r",
+									"pm.test('Status code is 200', function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://oauth.battle.net/token?grant_type=client_credentials",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"battle",
+								"net"
+							],
+							"path": [
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://oauth.battle.net/check_token?token={{BearerToken}}&region=us",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"battle",
+								"net"
+							],
+							"path": [
+								"check_token"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}"
+								},
+								{
+									"key": "region",
+									"value": "us"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userinfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BearerToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://oauth.battle.net/userinfo",
+							"protocol": "https",
+							"host": [
+								"oauth",
+								"battle",
+								"net"
+							],
+							"path": [
+								"userinfo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WoW",
+			"item": [
+				{
+					"name": "Account",
+					"item": [
+						{
+							"name": "Account Profile Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Protected Character Profile Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow/protected-character/:realmId_characterId",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow",
+										"protected-character",
+										":realmId_characterId"
+									],
+									"variable": [
+										{
+											"key": "realmId_characterId",
+											"value": "{{realmId}}-{{characterId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Collections Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow/collections",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow",
+										"collections"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Mounts Collection Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow/collections/mounts",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow",
+										"collections",
+										"mounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Pets Collection Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow/collections/pets",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow",
+										"collections",
+										"pets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Toys Collection Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow/collections/toys",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow",
+										"collections",
+										"toys"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Account Heirlooms Collection Summary",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/profile/user/wow/collections/heirlooms",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"profile",
+										"user",
+										"wow",
+										"collections",
+										"heirlooms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Character",
+					"item": [
+						{
+							"name": "Achievements",
+							"item": [
+								{
+									"name": "Character Achievements Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/achievements?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"achievements"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Achievements Statistics",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/achievements/statistics?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"achievements",
+												"statistics"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Appearance",
+							"item": [
+								{
+									"name": "Character Appearance Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/appearance?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"appearance"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Collections",
+							"item": [
+								{
+									"name": "Character Collections Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/collections?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"collections"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Collections Mounts Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/collections/mounts?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"collections",
+												"mounts"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Collections Pets Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/collections/pets?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"collections",
+												"pets"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Collections Toys Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/collections/toys?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"collections",
+												"toys"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Collections Heirlooms Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/collections/heirlooms?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"collections",
+												"heirlooms"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Encounters",
+							"item": [
+								{
+									"name": "Character Encounters Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/encounters?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"encounters"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Dungeons",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/encounters/dungeons?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"encounters",
+												"dungeons"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Raids",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/encounters/raids?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"encounters",
+												"raids"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Equipment",
+							"item": [
+								{
+									"name": "Character Equipment Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/equipment?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"equipment"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Hunter Pets",
+							"item": [
+								{
+									"name": "Character Hunter Pets",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/hunter-pets?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"hunter-pets"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Media",
+							"item": [
+								{
+									"name": "Character Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/character-media?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"character-media"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mythic Keystone",
+							"item": [
+								{
+									"name": "Character Mythic Keystone Profile Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/mythic-keystone-profile?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"mythic-keystone-profile"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Mythic Keystone Season Details",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/mythic-keystone-profile/season/:seasonId?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"mythic-keystone-profile",
+												"season",
+												":seasonId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												},
+												{
+													"key": "seasonId",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Professions",
+							"item": [
+								{
+									"name": "Character Professions Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/professions?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"professions"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Profile",
+							"item": [
+								{
+									"name": "Character Profile Status",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/status?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"status"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Profile Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PvP",
+							"item": [
+								{
+									"name": "Character PvP Bracket Statistics",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/pvp-bracket/:pvpBracket?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"pvp-bracket",
+												":pvpBracket"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												},
+												{
+													"key": "pvpBracket",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character PvP Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/pvp-summary?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"pvp-summary"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Quests",
+							"item": [
+								{
+									"name": "Character Quests",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/quests?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"quests"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Character Completed Quests",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/quests/completed?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"quests",
+												"completed"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Reputations",
+							"item": [
+								{
+									"name": "Character Reputations Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/reputations?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"reputations"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Soulbinds",
+							"item": [
+								{
+									"name": "Character Soulbinds",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/soulbinds?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"soulbinds"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Specializations",
+							"item": [
+								{
+									"name": "Character Specializations Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/specializations?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"specializations"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Statistics",
+							"item": [
+								{
+									"name": "Character Statistics Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/statistics?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"statistics"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Titles",
+							"item": [
+								{
+									"name": "Character Titles Summary",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/profile/wow/character/:realm/:charactername/titles?namespace=profile-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"profile",
+												"wow",
+												"character",
+												":realm",
+												":charactername",
+												"titles"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "profile-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "realm",
+													"value": "antonidas"
+												},
+												{
+													"key": "charactername",
+													"value": "leathlu"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Guild",
+					"item": [
+						{
+							"name": "Guild",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/data/wow/guild/:realm/:guildName?namespace=profile-us",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"data",
+										"wow",
+										"guild",
+										":realm",
+										":guildName"
+									],
+									"query": [
+										{
+											"key": "namespace",
+											"value": "profile-us"
+										}
+									],
+									"variable": [
+										{
+											"key": "realm",
+											"value": "antonidas"
+										},
+										{
+											"key": "guildName",
+											"value": "solarian-league"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guild Achievement",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/data/wow/guild/:realm/:guildName/achievements?namespace=profile-us",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"data",
+										"wow",
+										"guild",
+										":realm",
+										":guildName",
+										"achievements"
+									],
+									"query": [
+										{
+											"key": "namespace",
+											"value": "profile-us"
+										}
+									],
+									"variable": [
+										{
+											"key": "realm",
+											"value": "antonidas"
+										},
+										{
+											"key": "guildName",
+											"value": "solarian-league"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guild Activity",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/data/wow/guild/:realm/:guildName/activity?namespace=profile-us",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"data",
+										"wow",
+										"guild",
+										":realm",
+										":guildName",
+										"activity"
+									],
+									"query": [
+										{
+											"key": "namespace",
+											"value": "profile-us"
+										}
+									],
+									"variable": [
+										{
+											"key": "realm",
+											"value": "antonidas"
+										},
+										{
+											"key": "guildName",
+											"value": "solarian-league"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guild Roster",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/data/wow/guild/:realm/:guildName/roster?namespace=profile-us",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"data",
+										"wow",
+										"guild",
+										":realm",
+										":guildName",
+										"roster"
+									],
+									"query": [
+										{
+											"key": "namespace",
+											"value": "profile-us"
+										}
+									],
+									"variable": [
+										{
+											"key": "realm",
+											"value": "antonidas"
+										},
+										{
+											"key": "guildName",
+											"value": "solarian-league"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Search",
+					"item": [
+						{
+							"name": "Base Query",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/data/wow/search/:documentType?namespace=profile-us",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"data",
+										"wow",
+										"search",
+										":documentType"
+									],
+									"query": [
+										{
+											"key": "namespace",
+											"value": "profile-us"
+										}
+									],
+									"variable": [
+										{
+											"key": "documentType",
+											"value": "realm"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Game Data",
+					"item": [
+						{
+							"name": "Character Races",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/data/wow/playable-race/index?namespace=profile-us",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"data",
+										"wow",
+										"playable-race",
+										"index"
+									],
+									"query": [
+										{
+											"key": "namespace",
+											"value": "profile-us"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{BearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
