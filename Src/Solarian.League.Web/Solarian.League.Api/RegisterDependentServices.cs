@@ -10,7 +10,6 @@ using Solarian.League.Api.Factories.DependencyInjection;
 using Solarian.League.Api.Helpers.DependencyInjection;
 using Solarian.League.Api.Helpers.Extensions;
 using Solarian.League.Api.Models.ApplicationSettings;
-using Solarian.League.Api.Models.State;
 using Solarian.League.Api.Repository.DependencyInjection;
 using Solarian.League.Api.Services.DependencyInjection;
 using Solarian.League.Common.Connection.Interfaces;
@@ -62,15 +61,15 @@ public static class RegisterDependentServices
                     .ValidateFluently()
                     .ValidateOnStart();
 
-                if (string.IsNullOrEmpty(appSettings!.HttpClients!.BlizzardClient!.ClientId))
+                if (string.IsNullOrEmpty(appSettings.HttpClients!.BlizzardClient!.ClientId))
                 {
-                    appSettings!.HttpClients!.BlizzardClient!.ClientId =
+                    appSettings.HttpClients!.BlizzardClient!.ClientId =
                         Environment.GetEnvironmentVariable("Blizzard_ClientId") ?? configuration!["ClientId"];
                 }
 
-                if (string.IsNullOrEmpty(appSettings!.HttpClients!.BlizzardClient!.ClientSecret))
+                if (string.IsNullOrEmpty(appSettings.HttpClients!.BlizzardClient!.ClientSecret))
                 {
-                    appSettings!.HttpClients!.BlizzardClient!.ClientSecret =
+                    appSettings.HttpClients!.BlizzardClient!.ClientSecret =
                         Environment.GetEnvironmentVariable("Blizzard_ClientSecret") ?? configuration!["ClientSecret"];
                 }
 
@@ -117,10 +116,10 @@ public static class RegisterDependentServices
 
         services.AddHttpClient(HttpClientNames.BLIZZARD_OAUTH, c =>
         {
-            string clientId = appSettings!.HttpClients!.BlizzardClient!.ClientId!;
-            string clientSecret = appSettings!.HttpClients!.BlizzardClient!.ClientSecret!;
+            string clientId = appSettings.HttpClients!.BlizzardClient!.ClientId!;
+            string clientSecret = appSettings.HttpClients!.BlizzardClient!.ClientSecret!;
 
-            c.BaseAddress = new Uri(appSettings!.HttpClients!.BlizzardClient!.BaseOAuthUrl!);
+            c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseOAuthUrl!);
 
             c.DefaultRequestHeaders.Accept.Clear();
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -128,7 +127,7 @@ public static class RegisterDependentServices
             byte[] byteArray = Encoding.ASCII.GetBytes($"{clientId}:{clientSecret}");
             c.DefaultRequestHeaders.Authorization = new("Basic", Convert.ToBase64String(byteArray));
 
-            c.Timeout = TimeSpan.FromSeconds(appSettings!.HttpClients!.BlizzardClient.TimeoutInSeconds);
+            c.Timeout = TimeSpan.FromSeconds(appSettings.HttpClients!.BlizzardClient.TimeoutInSeconds);
         }).ConfigurePrimaryHttpMessageHandler(c =>
         {
             HttpClientHandler h = new HttpClientHandler
@@ -140,11 +139,11 @@ public static class RegisterDependentServices
 
         services.AddHttpClient(HttpClientNames.BLIZZARD_SERVER_DATA, c =>
         {
-            c.BaseAddress = new Uri(appSettings!.HttpClients!.BlizzardClient!.BaseUrl!);
+            c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseUrl!);
 
             c.DefaultRequestHeaders.Accept.Clear();
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            c.Timeout = TimeSpan.FromSeconds(appSettings!.HttpClients!.BlizzardClient.TimeoutInSeconds);
+            c.Timeout = TimeSpan.FromSeconds(appSettings.HttpClients!.BlizzardClient.TimeoutInSeconds);
 
             // If we have a token, use it
             token ??= GetAuthToken(services, appSettings)!;
@@ -173,10 +172,9 @@ public static class RegisterDependentServices
             
             return token;
         }
-        catch (Exception e)
+        catch
         {
-            Console.WriteLine(e.ToString());
-            return null;
+            return new();
         }
     }
 
@@ -184,15 +182,15 @@ public static class RegisterDependentServices
     {
         [JsonProperty("access_token")]
         [JsonPropertyName("access_token")]
-        public string? AccessToken { get; set; }
+        public string AccessToken { get; set; } = string.Empty;
         [JsonProperty("token_type")]
         [JsonPropertyName("token_type")]
-        public string? TokenType { get; set; }
+        public string TokenType { get; set; } = string.Empty;
         [JsonProperty("expires_in")]
         [JsonPropertyName("expires_in")]
-        public int? ExpiresIn { get; set; }
+        public int ExpiresIn { get; set; }
         [JsonProperty("sub")]
         [JsonPropertyName("sub")]
-        public string? Sub { get; set; }
+        public string Sub { get; set; } = string.Empty;
     }
 }

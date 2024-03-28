@@ -15,14 +15,14 @@ public partial class Home
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            Message = await BlizzardService.GetGuildRosterAsync();
-        }
-        catch (Exception ex)
-        {
-            ErrorMessage = ex.ToString();
-        }
+        //try
+        //{
+        //    Message = await BlizzardService.GetGuildRosterAsync();
+        //}
+        //catch (Exception ex)
+        //{
+        //    ErrorMessage = ex.ToString();
+        //}
 
         await base.OnInitializedAsync();
     }

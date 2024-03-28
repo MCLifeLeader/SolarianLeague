@@ -364,3 +364,5 @@ FodyWeavers.xsd
 # Custom Exclusions
 **/PublishProfiles/*
 **/wwwroot/appsettings.kb7ppbstatic.json
+**/kb7ppb - Zip Deploy
+**/serviceDependencies.kb7ppb - Zip Deploy.json
