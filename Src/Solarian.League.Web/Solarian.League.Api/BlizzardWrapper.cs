@@ -5,7 +5,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Solarian.League.Api.Models.ApplicationSettings;
 using Solarian.League.Api.Services.Interfaces;
-using Solarian.League.Common.Models.Wow.Guild.Base;
 
 namespace Solarian.League.Api;
 

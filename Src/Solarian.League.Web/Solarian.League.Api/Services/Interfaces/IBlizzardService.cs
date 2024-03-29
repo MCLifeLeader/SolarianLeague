@@ -1,7 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
-using Solarian.League.Common.Models.Wow.Guild.Achievement;
+﻿using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
-using Solarian.League.Common.Models.Wow.Guild.Base;
+using Solarian.League.Common.Models.Wow.Guild.Detail;
 using Solarian.League.Common.Models.Wow.Guild.Roster;
 
 namespace Solarian.League.Api.Services.Interfaces;

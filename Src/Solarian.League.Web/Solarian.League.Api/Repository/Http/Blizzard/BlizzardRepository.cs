@@ -5,7 +5,7 @@ using Solarian.League.Api.Repository.Http.Blizzard.Interfaces;
 using Solarian.League.Common.Connection.Interfaces;
 using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
-using Solarian.League.Common.Models.Wow.Guild.Base;
+using Solarian.League.Common.Models.Wow.Guild.Detail;
 using Solarian.League.Common.Models.Wow.Guild.Roster;
 
 namespace Solarian.League.Api.Repository.Http.Blizzard;

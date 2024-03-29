@@ -5,159 +5,356 @@ namespace Solarian.League.Common.Models.Wow.Guild.Achievement;
 
 public class GuildAchievements
 {
-    public _Links _links { get; set; }
-    public Guild guild { get; set; }
-    public int total_quantity { get; set; }
-    public int total_points { get; set; }
-    public Achievement[] achievements { get; set; }
-    public Category_Progress[] category_progress { get; set; }
-    public Recent_Events[] recent_events { get; set; }
+    [JsonPropertyName("_links")]
+    [JsonProperty("_links")]
+    public Links Links { get; set; }
+
+    [JsonPropertyName("guild")]
+    [JsonProperty("guild")]
+    public Guild Guild { get; set; }
+
+    [JsonPropertyName("total_quantity")]
+    [JsonProperty("total_quantity")]
+    public int TotalQuantity { get; set; }
+
+    [JsonPropertyName("total_points")]
+    [JsonProperty("total_points")]
+    public int TotalPoints { get; set; }
+
+    [JsonPropertyName("achievements")]
+    [JsonProperty("achievements")]
+    public Achievement[] Achievements { get; set; }
+
+    [JsonPropertyName("category_progress")]
+    [JsonProperty("category_progress")]
+    public CategoryProgress[] CategoryProgress { get; set; }
+
+    [JsonPropertyName("recent_events")]
+    [JsonProperty("recent_events")]
+    public RecentEvents[] RecentEvents { get; set; }
 }
 
-public class _Links
+public class Links
 {
-    public Self self { get; set; }
+    [JsonPropertyName("self")]
+    [JsonProperty("self")]
+    public Self Self { get; set; }
 }
 
 public class Self
 {
-    public string href { get; set; }
+    [JsonPropertyName("href")]
+    [JsonProperty("href")]
+    public string Href { get; set; }
 }
 
 public class Guild
 {
-    public Key key { get; set; }
-    public string name { get; set; }
-    public int id { get; set; }
-    public Realm realm { get; set; }
-    public Faction faction { get; set; }
+    [JsonPropertyName("key")]
+    [JsonProperty("key")]
+    public Key Key { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("realm")]
+    [JsonProperty("realm")]
+    public Realm Realm { get; set; }
+
+    [JsonPropertyName("faction")]
+    [JsonProperty("faction")]
+    public Faction Faction { get; set; }
 }
 
 public class Key
 {
-    public string href { get; set; }
+    [JsonPropertyName("href")]
+    [JsonProperty("href")]
+    public string Href { get; set; }
 }
 
 public class Realm
 {
-    public Key1 key { get; set; }
-    public Name name { get; set; }
-    public int id { get; set; }
-    public string slug { get; set; }
+    [JsonPropertyName("key")]
+    [JsonProperty("key")]
+    public Key1 Key { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public Name Name { get; set; }
+
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("slug")]
+    [JsonProperty("slug")]
+    public string Slug { get; set; }
 }
 
 public class Key1
 {
-    public string href { get; set; }
+    [JsonPropertyName("href")]
+    [JsonProperty("href")]
+    public string Href { get; set; }
 }
 
 public class Name
 {
-    public string en_US { get; set; }
-    public string es_MX { get; set; }
-    public string pt_BR { get; set; }
-    public string de_DE { get; set; }
-    public string en_GB { get; set; }
-    public string es_ES { get; set; }
-    public string fr_FR { get; set; }
-    public string it_IT { get; set; }
-    public string ru_RU { get; set; }
-    public string ko_KR { get; set; }
-    public string zh_TW { get; set; }
-    public string zh_CN { get; set; }
+    [JsonPropertyName("en_US")]
+    [JsonProperty("en_US")]
+    public string EnUs { get; set; }
+
+    [JsonPropertyName("es_MX")]
+    [JsonProperty("es_MX")]
+    public string EsMx { get; set; }
+
+    [JsonPropertyName("pt_BR")]
+    [JsonProperty("pt_BR")]
+    public string PtBr { get; set; }
+
+    [JsonPropertyName("de_DE")]
+    [JsonProperty("de_DE")]
+    public string DeDe { get; set; }
+
+    [JsonPropertyName("en_GB")]
+    [JsonProperty("en_GB")]
+    public string EnGb { get; set; }
+
+    [JsonPropertyName("es_ES")]
+    [JsonProperty("es_ES")]
+    public string EsEs { get; set; }
+
+    [JsonPropertyName("fr_FR")]
+    [JsonProperty("fr_FR")]
+    public string FrFr { get; set; }
+
+    [JsonPropertyName("it_IT")]
+    [JsonProperty("it_IT")]
+    public string ItIt { get; set; }
+
+    [JsonPropertyName("ru_RU")]
+    [JsonProperty("ru_RU")]
+    public string RuRu { get; set; }
+
+    [JsonPropertyName("ko_KR")]
+    [JsonProperty("ko_KR")]
+    public string KoKr { get; set; }
+
+    [JsonPropertyName("zh_TW")]
+    [JsonProperty("zh_TW")]
+    public string ZhTw { get; set; }
+
+    [JsonPropertyName("zh_CN")]
+    [JsonProperty("zh_CN")]
+    public string ZhCn { get; set; }
 }
 
 public class Faction
 {
-    public string type { get; set; }
-    public Name1 name { get; set; }
+    [JsonPropertyName("type")]
+    [JsonProperty("type")]
+    public string Type { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public Name1 Name { get; set; }
 }
 
 public class Name1
 {
-    public string en_US { get; set; }
-    public string es_MX { get; set; }
-    public string pt_BR { get; set; }
-    public string de_DE { get; set; }
-    public string en_GB { get; set; }
-    public string es_ES { get; set; }
-    public string fr_FR { get; set; }
-    public string it_IT { get; set; }
-    public string ru_RU { get; set; }
-    public string ko_KR { get; set; }
-    public string zh_TW { get; set; }
-    public string zh_CN { get; set; }
+    [JsonPropertyName("en_US")]
+    [JsonProperty("en_US")]
+    public string EnUs { get; set; }
+
+    [JsonPropertyName("es_MX")]
+    [JsonProperty("es_MX")]
+    public string EsMx { get; set; }
+
+    [JsonPropertyName("pt_BR")]
+    [JsonProperty("pt_BR")]
+    public string PtBr { get; set; }
+
+    [JsonPropertyName("de_DE")]
+    [JsonProperty("de_DE")]
+    public string DeDe { get; set; }
+
+    [JsonPropertyName("en_GB")]
+    [JsonProperty("en_GB")]
+    public string EnGb { get; set; }
+
+    [JsonPropertyName("es_ES")]
+    [JsonProperty("es_ES")]
+    public string EsEs { get; set; }
+
+    [JsonPropertyName("fr_FR")]
+    [JsonProperty("fr_FR")]
+    public string FrFr { get; set; }
+
+    [JsonPropertyName("it_IT")]
+    [JsonProperty("it_IT")]
+    public string ItIt { get; set; }
+
+    [JsonPropertyName("ru_RU")]
+    [JsonProperty("ru_RU")]
+    public string RuRu { get; set; }
+
+    [JsonPropertyName("ko_KR")]
+    [JsonProperty("ko_KR")]
+    public string KoKr { get; set; }
+
+    [JsonPropertyName("zh_TW")]
+    [JsonProperty("zh_TW")]
+    public string ZhTw { get; set; }
+
+    [JsonPropertyName("zh_CN")]
+    [JsonProperty("zh_CN")]
+    public string ZhCn { get; set; }
 }
 
 public class Achievement
 {
-    public int id { get; set; }
-    public Achievement1 achievement { get; set; }
-    public Criteria criteria { get; set; }
-    public long completed_timestamp { get; set; }
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("achievement")]
+    [JsonProperty("achievement")]
+    public Achievement1 Achievement1 { get; set; }
+
+    [JsonPropertyName("criteria")]
+    [JsonProperty("criteria")]
+    public Criteria Criteria { get; set; }
+
+    [JsonPropertyName("completed_timestamp")]
+    [JsonProperty("completed_timestamp")]
+    public long CompletedTimestamp { get; set; }
 }
 
 public class Achievement1
 {
-    public Key2 key { get; set; }
-    public string name { get; set; }
-    public int id { get; set; }
+    [JsonPropertyName("key")]
+    [JsonProperty("key")]
+    public Key2 Key { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
 }
 
 public class Key2
 {
-    public string href { get; set; }
+    [JsonPropertyName("href")]
+    [JsonProperty("href")]
+    public string Href { get; set; }
 }
 
 public class Criteria
 {
-    public int id { get; set; }
-    public bool is_completed { get; set; }
-    public Child_Criteria[] child_criteria { get; set; }
-    public int amount { get; set; }
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("is_completed")]
+    [JsonProperty("is_completed")]
+    public bool IsCompleted { get; set; }
+
+    [JsonPropertyName("child_criteria")]
+    [JsonProperty("child_criteria")]
+    public ChildCriteria[] ChildCriteria { get; set; }
+
+    [JsonPropertyName("amount")]
+    [JsonProperty("amount")]
+    public int Amount { get; set; }
 }
 
-public class Child_Criteria
+public class ChildCriteria
 {
-    public int id { get; set; }
-    public long amount { get; set; }
-    public bool is_completed { get; set; }
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("amount")]
+    [JsonProperty("amount")]
+    public long Amount { get; set; }
+
+    [JsonPropertyName("is_completed")]
+    [JsonProperty("is_completed")]
+    public bool IsCompleted { get; set; }
 }
 
-public class Category_Progress
+public class CategoryProgress
 {
-    public Category category { get; set; }
-    public int quantity { get; set; }
-    public int points { get; set; }
+    [JsonPropertyName("category")]
+    [JsonProperty("category")]
+    public Category Category { get; set; }
+
+    [JsonPropertyName("quantity")]
+    [JsonProperty("quantity")]
+    public int Quantity { get; set; }
+
+    [JsonPropertyName("points")]
+    [JsonProperty("points")]
+    public int Points { get; set; }
 }
 
 public class Category
 {
-    public Key3 key { get; set; }
-    public string name { get; set; }
-    public int id { get; set; }
+    [JsonPropertyName("key")]
+    [JsonProperty("key")]
+    public Key3 Key { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public string Name { get; set; }
+
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
 }
 
 public class Key3
 {
-    public string href { get; set; }
+    [JsonPropertyName("href")]
+    [JsonProperty("href")]
+    public string Href { get; set; }
 }
 
-public class Recent_Events
+public class RecentEvents
 {
-    public Achievement2 achievement { get; set; }
-    public long timestamp { get; set; }
+    [JsonPropertyName("achievement")]
+    [JsonProperty("achievement")]
+    public Achievement2 Achievement { get; set; }
+
+    [JsonPropertyName("timestamp")]
+    [JsonProperty("timestamp")]
+    public long Timestamp { get; set; }
 }
 
 public class Achievement2
 {
-    public Key4 key { get; set; }
-    public string name { get; set; }
-    public int id { get; set; }
+    [JsonPropertyName("key")]
+    [JsonProperty("key")]
+    public Key4 Key { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public int Id { get; set; }
 }
 
 public class Key4
 {
-    public string href { get; set; }
+    [JsonPropertyName("href")]
+    [JsonProperty("href")]
+    public string Href { get; set; }
 }
 
