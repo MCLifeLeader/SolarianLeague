@@ -34,9 +34,5 @@ public class AppSettingsOptionsValidator : AbstractValidator<AppSettings>
         RuleFor(x => x!.HttpClients!.BlizzardClient!.TimeoutInSeconds)
             .InclusiveBetween(10, 120)
             .WithMessage("Invalid range value, must be between 10 and 120");
-
-        RuleFor(x => x!.HttpClients!.BlizzardClient!.CacheDurationInSeconds)
-            .InclusiveBetween(10, 120)
-            .WithMessage("Invalid range value, must be between 10 and 120");
     }
 }

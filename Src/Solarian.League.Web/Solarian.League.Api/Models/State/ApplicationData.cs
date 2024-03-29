@@ -5,6 +5,6 @@
 /// </summary>
 public class ApplicationData
 {
-    public string? BlizzardClientId { get; set; }
-    public string? BlizzardClientSecret { get; set; }
+    public DateTime LastTokenRefresh { get; set; } = DateTime.MinValue;
+    public OAuthToken AuthToken { get; set; } = new();
 }

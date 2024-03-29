@@ -26,19 +26,67 @@ public class BlizzardWrapper
         _blizzardService = blizzardService;
     }
 
-    [Function("GuildBase")]
-    public async Task<IActionResult> GuildBase([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildBase")] HttpRequest req)
+    [Function("GuildDetails")]
+    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildDetails")] HttpRequest req)
     {
-        _logger.LogInformation("C# HTTP trigger function processed a request.");
-        _logger.LogInformation($"AppSettings: '{_appSettings?.HttpClients?.BlizzardClient?.ClientId}'");
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildDetails));
+
         try
         {
-            GuildRoot? result = await _blizzardService.GetGuildRosterAsync();
-            return new OkObjectResult(result);
+            return new OkObjectResult(await _blizzardService.GetGuildDetailsAsync());
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error in GuildBase");
+            _logger.LogError(ex, $"Error in {nameof(GuildDetails)}");
+            return new BadRequestObjectResult(ex.Message);
+        }
+    }
+
+    [Function("GuildRoster")]
+    public async Task<IActionResult> GuildRoster([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildRoster")] HttpRequest req)
+    {
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildRoster));
+
+        try
+        {
+            return new OkObjectResult(await _blizzardService.GetGuildRosterAsync());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error in {nameof(GuildRoster)}");
+            return new BadRequestObjectResult(ex.Message);
+        }
+    }
+
+
+    [Function("GuildActivity")]
+    public async Task<IActionResult> GuildActivity([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildActivity")] HttpRequest req)
+    {
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildActivity));
+
+        try
+        {
+            return new OkObjectResult(await _blizzardService.GetGuildActivityAsync());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error in {nameof(GuildActivity)}");
+            return new BadRequestObjectResult(ex.Message);
+        }
+    }
+
+    [Function("GuildAchievements")]
+    public async Task<IActionResult> GuildAchievements([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildAchievements")] HttpRequest req)
+    {
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
+
+        try
+        {
+            return new OkObjectResult(await _blizzardService.GetGuildAchievementsAsync());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error in {nameof(GuildAchievements)}");
             return new BadRequestObjectResult(ex.Message);
         }
     }
