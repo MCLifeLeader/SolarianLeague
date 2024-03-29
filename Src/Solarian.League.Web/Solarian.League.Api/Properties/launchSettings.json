@@ -2,7 +2,7 @@
   "profiles": {
     "Solarian.League.Api": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7138",
+      "commandLineArgs": "--port 7138 --verbose",
       "launchBrowser": false
     }
   }
