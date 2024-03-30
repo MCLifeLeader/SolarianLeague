@@ -13,4 +13,10 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models\Wow\Character\Appearance\" />
+      <Folder Include="Models\Wow\Character\ProfileStatus\" />
+      <Folder Include="Models\Wow\Character\Stats\" />
+    </ItemGroup>
+
 </Project>

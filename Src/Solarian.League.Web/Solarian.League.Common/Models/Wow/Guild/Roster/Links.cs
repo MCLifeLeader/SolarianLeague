@@ -7,6 +7,6 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
     {
         [JsonPropertyName("self")]
         [JsonProperty("self")]
-        public Self Self { get; set; }
+        public Self Self { get; set; } = new();
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Character.ProfileSummary;
-
-public class Self
+namespace Solarian.League.Common.Models.Wow.Character.ProfileSummary
 {
-    [JsonProperty("href")]
-    [JsonPropertyName("href")]
-    public string Href { get; set; }
+    public class Self
+    {
+        [JsonPropertyName("href")]
+        [JsonProperty("href")]
+        public string Href { get; set; }
+    }
 }

@@ -7,11 +7,11 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
     {
         [JsonPropertyName("key")]
         [JsonProperty("key")]
-        public Key Key { get; set; }
+        public Key Key { get; set; } = new();
 
         [JsonPropertyName("name")]
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonPropertyName("id")]
         [JsonProperty("id")]
@@ -19,10 +19,10 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
 
         [JsonPropertyName("realm")]
         [JsonProperty("realm")]
-        public Realm Realm { get; set; }
+        public Realm Realm { get; set; } = new();
 
         [JsonPropertyName("faction")]
         [JsonProperty("faction")]
-        public Faction Faction { get; set; }
+        public Faction Faction { get; set; } = new();
     }
 }

@@ -12,21 +12,18 @@ public class BlizzardWrapper
 {
     private readonly ILogger<BlizzardWrapper> _logger;
     private readonly IBlizzardService _blizzardService;
-    private readonly AppSettings _appSettings;
 
     // ReSharper disable once ConvertToPrimaryConstructor
     public BlizzardWrapper(
         ILogger<BlizzardWrapper> logger,
-        IOptions<AppSettings> appSettings,
         IBlizzardService blizzardService)
     {
         _logger = logger;
-        _appSettings = appSettings.Value;
         _blizzardService = blizzardService;
     }
 
     [Function("GuildDetails")]
-    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildDetails")] HttpRequest req)
+    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildDetails")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildDetails));
 
@@ -42,7 +39,7 @@ public class BlizzardWrapper
     }
 
     [Function("GuildRoster")]
-    public async Task<IActionResult> GuildRoster([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildRoster")] HttpRequest req)
+    public async Task<IActionResult> GuildRoster([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildRoster")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildRoster));
 
@@ -59,7 +56,7 @@ public class BlizzardWrapper
 
 
     [Function("GuildActivity")]
-    public async Task<IActionResult> GuildActivity([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildActivity")] HttpRequest req)
+    public async Task<IActionResult> GuildActivity([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildActivity")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildActivity));
 
@@ -75,13 +72,36 @@ public class BlizzardWrapper
     }
 
     [Function("GuildAchievements")]
-    public async Task<IActionResult> GuildAchievements([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildAchievements")] HttpRequest req)
+    public async Task<IActionResult> GuildAchievements([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildAchievements")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
 
         try
         {
             return new OkObjectResult(await _blizzardService.GetGuildAchievementsAsync());
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error in {nameof(GuildAchievements)}");
+            return new BadRequestObjectResult(ex.Message);
+        }
+    }
+
+    [Function("CharacterSummary")]
+    public async Task<IActionResult> CharacterSummary([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/CharacterSummary")] HttpRequest req)
+    {
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
+
+        try
+        {
+            var character = req.Query["name"];
+
+            if (string.IsNullOrEmpty(character))
+            {
+                return new BadRequestObjectResult("Missing 'name' on query string.");
+            }
+
+            return new OkObjectResult(await _blizzardService.GetCharacterSummaryAsync(character));
         }
         catch (Exception ex)
         {

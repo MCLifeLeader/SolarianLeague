@@ -1,16 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using Solarian.League.Api.Constants;
-using Solarian.League.Api.Helpers.Extensions;
 using Solarian.League.Api.Models.ApplicationSettings;
 using Solarian.League.Api.Repository.Http.Blizzard.Interfaces;
 using Solarian.League.Common.Connection.Interfaces;
+using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
 using Solarian.League.Common.Models.Wow.Guild.Detail;
 using Solarian.League.Common.Models.Wow.Guild.Roster;
-using System.Text;
 
 namespace Solarian.League.Api.Repository.Http.Blizzard;
 
@@ -39,7 +37,6 @@ public class BlizzardRepository : IBlizzardRepository
     {
         string route = $"data/wow/guild/{_realm}/{_guildName}?namespace=profile-us";
         var response = await _httpClient.GetObjectAsync<GuildDetails>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
-        _logger.LogInformation($"*** response: |{await response.ToJsonAsync()}|");
 
         return response;
     }
@@ -48,7 +45,6 @@ public class BlizzardRepository : IBlizzardRepository
     {
         string route = $"data/wow/guild/{_realm}/{_guildName}/roster?namespace=profile-us";
         var response = await _httpClient.GetObjectAsync<GuildRoster>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
-        _logger.LogInformation($"*** response: |{await response.ToJsonAsync()}|");
 
         return response;
     }
@@ -57,7 +53,6 @@ public class BlizzardRepository : IBlizzardRepository
     {
         string route = $"data/wow/guild/{_realm}/{_guildName}/activity?namespace=profile-us";
         var response = await _httpClient.GetObjectAsync<GuildActivity>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
-        _logger.LogInformation($"*** response: |{await response.ToJsonAsync()}|");
 
         return response;
     }
@@ -66,6 +61,14 @@ public class BlizzardRepository : IBlizzardRepository
     {
         string route = $"data/wow/guild/{_realm}/{_guildName}/achievements?namespace=profile-us";
         var response = await _httpClient.GetObjectAsync<GuildAchievements>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
+
+        return response;
+    }
+
+    public async Task<CharacterSummary?> GetCharacterSummaryAsync(string characterName)
+    {
+        string route = $"profile/wow/character/{_realm}/{characterName}?namespace=profile-us&locale=en_US";
+        var response = await _httpClient.GetObjectAsync<CharacterSummary>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
 
         return response;
     }

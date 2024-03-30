@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Character.Media;
-
-public class Key
+namespace Solarian.League.Common.Models.Wow.Character.Media
 {
-    [JsonProperty("href")]
-    [JsonPropertyName("href")]
-    public string Href { get; set; }
+    public class Key
+    {
+        [JsonPropertyName("href")]
+        [JsonProperty("href")]
+        public string Href { get; set; }
+    }
 }

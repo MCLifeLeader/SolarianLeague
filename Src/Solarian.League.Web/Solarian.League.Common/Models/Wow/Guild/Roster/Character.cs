@@ -7,7 +7,7 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
     {
         [JsonPropertyName("key")]
         [JsonProperty("key")]
-        public Key Key { get; set; }
+        public Key Key { get; set; } = new();
 
         [JsonPropertyName("name")]
         [JsonProperty("name")]
@@ -19,7 +19,7 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
 
         [JsonPropertyName("realm")]
         [JsonProperty("realm")]
-        public Realm Realm { get; set; }
+        public Realm Realm { get; set; } = new();
 
         [JsonPropertyName("level")]
         [JsonProperty("level")]
@@ -27,10 +27,10 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
 
         [JsonPropertyName("playable_class")]
         [JsonProperty("playable_class")]
-        public PlayableClass PlayableClass { get; set; }
+        public PlayableClass PlayableClass { get; set; } = new();
 
         [JsonPropertyName("playable_race")]
         [JsonProperty("playable_race")]
-        public PlayableRace PlayableRace { get; set; }
+        public PlayableRace PlayableRace { get; set; } = new();
     }
 }

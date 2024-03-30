@@ -11,6 +11,6 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
 
         [JsonPropertyName("name")]
         [JsonProperty("name")]
-        public Name Name { get; set; }
+        public Name Name { get; set; } = new();
     }
 }

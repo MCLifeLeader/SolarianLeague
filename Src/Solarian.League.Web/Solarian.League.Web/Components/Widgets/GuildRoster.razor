@@ -1,2 +1,16 @@
 ﻿<h3>GuildRoster</h3>
 
+<div>
+    <div class="widgetMembersOnline">Members Online</div>
+    <div>
+        @foreach (var member in GuildRosterData?.Members!)
+        {
+            <div class="widgetMember">
+                <div class="widgetMemberAvatar">
+                    <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="@CharacterSummaries[member.Character.Id].Media.Href" />
+                </div>
+                <span class="widgetMemberName">@member.Character.Name</span>
+            </div>
+        }
+    </div>
+</div>

@@ -1,23 +1,24 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Character.Media;
-
-public class Character
+namespace Solarian.League.Common.Models.Wow.Character.Media
 {
-    [JsonProperty("key")]
-    [JsonPropertyName("key")]
-    public Key Key { get; set; }
+    public class Character
+    {
+        [JsonPropertyName("key")]
+        [JsonProperty("key")]
+        public Key Key { get; set; } = new();
 
-    [JsonProperty("name")]
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
+        [JsonPropertyName("name")]
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-    [JsonProperty("id")]
-    [JsonPropertyName("id")]
-    public int? Id { get; set; }
+        [JsonPropertyName("id")]
+        [JsonProperty("id")]
+        public int Id { get; set; }
 
-    [JsonProperty("realm")]
-    [JsonPropertyName("realm")]
-    public Realm Realm { get; set; }
+        [JsonPropertyName("realm")]
+        [JsonProperty("realm")]
+        public Realm Realm { get; set; } = new();
+    }
 }

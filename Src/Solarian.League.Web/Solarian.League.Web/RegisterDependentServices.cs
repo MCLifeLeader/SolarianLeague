@@ -41,7 +41,6 @@ public static class RegisterDependentServices
         builder.Services
             .AddOptions<AppSettings>()
             .Bind(builder.Configuration)
-            //.ValidateDataAnnotations()
             .ValidateFluently()
             .ValidateOnStart();
 
@@ -96,11 +95,11 @@ public static class RegisterDependentServices
 
         builder.Services.AddHttpClient(HttpClientNames.BLIZZARD_SERVER_WRAPPER_DATA, c =>
         {
-            c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardClient!.BaseUrl!);
+            c.BaseAddress = new Uri(appSettings.HttpClients!.BlizzardWrapperClient!.BaseUrl!);
 
             c.DefaultRequestHeaders.Accept.Clear();
             c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            c.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("text/plain"));
+            c.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
             c.Timeout = TimeSpan.FromSeconds(120);
         });
     }

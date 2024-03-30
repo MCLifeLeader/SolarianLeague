@@ -7,6 +7,6 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
     {
         [JsonPropertyName("href")]
         [JsonProperty("href")]
-        public string Href { get; set; }
+        public string? Href { get; set; }
     }
 }

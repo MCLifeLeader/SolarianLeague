@@ -18,15 +18,15 @@ public class AppSettingsOptionsValidator : AbstractValidator<AppSettings>
         RuleFor(x => x.HttpClients.DiscordClient.CacheDurationInSeconds)
             .InclusiveBetween(5, 120);
 
-        RuleFor(x => x.HttpClients.BlizzardClient.BaseUrl)
+        RuleFor(x => x.HttpClients.BlizzardWrapperClient.BaseUrl)
             .NotNull()
             .NotEmpty()
             .Must(e => e.Contains("https://"));
 
-        RuleFor(x => x.HttpClients.BlizzardClient.TimeoutInSeconds)
+        RuleFor(x => x.HttpClients.BlizzardWrapperClient.TimeoutInSeconds)
             .InclusiveBetween(5, 120);
 
-        RuleFor(x => x.HttpClients.BlizzardClient.CacheDurationInSeconds)
+        RuleFor(x => x.HttpClients.BlizzardWrapperClient.CacheDurationInSeconds)
             .InclusiveBetween(5, 120);
     }
 }

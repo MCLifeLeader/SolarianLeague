@@ -7,14 +7,14 @@ namespace Solarian.League.Common.Models.Wow.Guild.Roster
     {
         [JsonPropertyName("_links")]
         [JsonProperty("_links")]
-        public Links Links { get; set; }
+        public Links Links { get; set; } = new();
 
         [JsonPropertyName("guild")]
         [JsonProperty("guild")]
-        public Guild Guild { get; set; }
+        public Guild Guild { get; set; } = new();
 
         [JsonPropertyName("members")]
         [JsonProperty("members")]
-        public Member[] Members { get; set; }
+        public IList<Member> Members { get; set; } = new List<Member>();
     }
 }

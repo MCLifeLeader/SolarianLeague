@@ -1,5 +1,6 @@
 ﻿@page "/roster"
 @page "/roster/{*pageRoute}"
+@using Solarian.League.Web.Components.Widgets
 
 <PageTitle>Roster</PageTitle>
 
@@ -14,24 +15,12 @@
 </div>
 
 <div class="container mt-4 opacity-75">
-    <div class="row fw-bold text-center">
-        <div class="col">Name</div>
-        <div class="col">Class</div>
-        <div class="col">Level</div>
-    </div>
-    <div class="row text-center">
-        <div class="col">Turloren</div>
-        <div class="col">Rogue</div>
-        <div class="col">6</div>
-    </div>
-    <div class="row text-center">
-        <div class="col">Jane Doe</div>
-        <div class="col">Hunter</div>
-        <div class="col">5</div>
-    </div>
-    <div class="row text-center">
-        <div class="col">John Doe</div>
-        <div class="col">Mage</div>
-        <div class="col">4</div>
-    </div>
+    <ErrorBoundary>
+        <ChildContent>
+            <GuildRoster />
+        </ChildContent>
+        <ErrorContent>
+            <p class="blazor-error-boundary"></p>
+        </ErrorContent>
+    </ErrorBoundary>
 </div>

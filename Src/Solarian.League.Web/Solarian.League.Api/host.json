@@ -2,10 +2,10 @@
   "version": "2.0",
   "Logging": {
     "LogLevel": {
-      "Default": "Debug",
-      "Microsoft": "Information",
-      "Microsoft.AspNetCore": "Information",
-      "System": "Information"
+      "Default": "Error",
+      "Microsoft": "Error",
+      "Microsoft.AspNetCore": "Error",
+      "System": "Error"
     },
     "applicationInsights": {
       "samplingSettings": {

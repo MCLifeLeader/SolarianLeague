@@ -1,15 +1,16 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Character.ProfileSummary;
-
-public class Gender
+namespace Solarian.League.Common.Models.Wow.Character.ProfileSummary
 {
-    [JsonProperty("type")]
-    [JsonPropertyName("type")]
-    public string Type { get; set; }
+    public class Gender
+    {
+        [JsonPropertyName("type")]
+        [JsonProperty("type")]
+        public string Type { get; set; }
 
-    [JsonProperty("name")]
-    [JsonPropertyName("name")]
-    public string Name { get; set; }
+        [JsonPropertyName("name")]
+        [JsonProperty("name")]
+        public string Name { get; set; }
+    }
 }
