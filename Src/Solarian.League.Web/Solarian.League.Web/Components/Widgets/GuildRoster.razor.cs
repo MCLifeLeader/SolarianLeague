@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Solarian.League.Common.Models.Wow.Character.Media;
 using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
+using Solarian.League.Web.Helpers.Extensions;
 using Solarian.League.Web.Services.Interfaces;
+using System.Threading.Tasks;
 
 namespace Solarian.League.Web.Components.Widgets;
 
@@ -18,17 +20,23 @@ public partial class GuildRoster
     {
         GuildRosterData = await BlizzardService.GetGuildRosterAsync();
 
+        Dictionary<int, Task<CharacterMedia>> tasks = new();
+
         foreach (var member in GuildRosterData?.Members!)
         {
-            if (!CharacterSummaries.ContainsKey(member.Character.Id))
-            {
-                CharacterSummaries.Add(member.Character.Id, await BlizzardService.GetCharacterSummaryAsync(member.Character.Name)!);
-            }
+            tasks.Add(member.Character.Id, BlizzardService.GetCharacterMediaAsync(member.Character.Name.ToLower())!);
+        }
 
-            if (!CharacterMedias.ContainsKey(member.Character.Id))
-            {
-                CharacterMedias.Add(member.Character.Id, await BlizzardService.GetCharacterMediaAsync(member.Character.Name)!);
-            }
+        await Task.WhenAll(tasks.Values);
+
+        foreach (var task in tasks)
+        {
+            CharacterMedias.Add(task.Key, task.Value.Result);
+        }
+
+        foreach (var characterMedia in CharacterMedias)
+        {
+            Console.WriteLine($"Id:{characterMedia.Key} - Img:{characterMedia.Value?.ToJson()}");
         }
     }
 }

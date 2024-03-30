@@ -21,7 +21,7 @@ public class AppSettingsOptionsValidator : AbstractValidator<AppSettings>
         RuleFor(x => x.HttpClients.BlizzardWrapperClient.BaseUrl)
             .NotNull()
             .NotEmpty()
-            .Must(e => e.Contains("https://"));
+            .Must(e => e.Contains("http://") || e.Contains("https://"));
 
         RuleFor(x => x.HttpClients.BlizzardWrapperClient.TimeoutInSeconds)
             .InclusiveBetween(5, 120);

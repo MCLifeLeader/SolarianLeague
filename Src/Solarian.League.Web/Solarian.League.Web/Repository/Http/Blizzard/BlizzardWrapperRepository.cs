@@ -67,7 +67,7 @@ public class BlizzardWrapperRepository : IBlizzardWrapperRepository
 
     public async Task<CharacterMedia?> GetCharacterMediaAsync(string characterName)
     {
-        string route = $"api/Guild/CharacterSummary?name={characterName}&t={DateTime.UtcNow.Ticks}&code={_appSettings.HttpClients!.BlizzardWrapperClient!.ApiKey}";
+        string route = $"api/Guild/CharacterMedia?name={characterName}&t={DateTime.UtcNow.Ticks}&code={_appSettings.HttpClients!.BlizzardWrapperClient!.ApiKey}";
         var response = await _httpClient.GetObjectAsync<CharacterMedia>(route, HttpClientNames.BLIZZARD_SERVER_WRAPPER_DATA);
 
         return response;

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Solarian.League.Api.Models.ApplicationSettings;
 using Solarian.League.Api.Services.Interfaces;
+using static Grpc.Core.Metadata;
 
 namespace Solarian.League.Api;
 
@@ -113,7 +114,7 @@ public class BlizzardWrapper
     [Function("CharacterMedia")]
     public async Task<IActionResult> CharacterMedia([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/CharacterMedia")] HttpRequest req)
     {
-        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(CharacterMedia));
 
         try
         {
@@ -128,7 +129,7 @@ public class BlizzardWrapper
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, $"Error in {nameof(GuildAchievements)}");
+            _logger.LogError(ex, $"Error in {nameof(CharacterMedia)}");
             return new BadRequestObjectResult(ex.Message);
         }
     }

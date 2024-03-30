@@ -23,7 +23,8 @@ public static class RegisterDependentServices
         builder.Configuration
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", false, true)
-            .AddJsonFile($"appsettings.{builder.HostEnvironment.Environment}.json", true, true);
+            .AddJsonFile($"appsettings.{builder.HostEnvironment.Environment}.json", true, true)
+            .AddUserSecrets<Program>();
 
         builder.Services.Configure<AppSettings>(builder.Configuration);
         AppSettings appSettings = new()
