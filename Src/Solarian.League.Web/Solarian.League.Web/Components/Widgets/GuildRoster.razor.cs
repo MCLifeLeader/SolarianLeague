@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Solarian.League.Common.Models.Wow.Character.Media;
 using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Web.Services.Interfaces;
 
@@ -11,6 +12,7 @@ public partial class GuildRoster
 
     private Common.Models.Wow.Guild.Roster.GuildRoster? GuildRosterData { get; set; } = new();
     private Dictionary<int, CharacterSummary?> CharacterSummaries { get; set; } = new();
+    private Dictionary<int, CharacterMedia?> CharacterMedias { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
@@ -21,6 +23,11 @@ public partial class GuildRoster
             if (!CharacterSummaries.ContainsKey(member.Character.Id))
             {
                 CharacterSummaries.Add(member.Character.Id, await BlizzardService.GetCharacterSummaryAsync(member.Character.Name)!);
+            }
+
+            if (!CharacterMedias.ContainsKey(member.Character.Id))
+            {
+                CharacterMedias.Add(member.Character.Id, await BlizzardService.GetCharacterMediaAsync(member.Character.Name)!);
             }
         }
     }

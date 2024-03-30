@@ -4,6 +4,7 @@ using Solarian.League.Api.Constants;
 using Solarian.League.Api.Models.ApplicationSettings;
 using Solarian.League.Api.Repository.Http.Blizzard.Interfaces;
 using Solarian.League.Common.Connection.Interfaces;
+using Solarian.League.Common.Models.Wow.Character.Media;
 using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
@@ -69,6 +70,14 @@ public class BlizzardRepository : IBlizzardRepository
     {
         string route = $"profile/wow/character/{_realm}/{characterName}?namespace=profile-us&locale=en_US";
         var response = await _httpClient.GetObjectAsync<CharacterSummary>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
+
+        return response;
+    }
+
+    public async Task<CharacterMedia?> GetCharacterMediaAsync(string characterName)
+    {
+        string route = $"profile/wow/character/{_realm}/{characterName}/character-media?namespace=profile-us&locale=en_US";
+        var response = await _httpClient.GetObjectAsync<CharacterMedia>(route, HttpClientNames.BLIZZARD_SERVER_DATA);
 
         return response;
     }

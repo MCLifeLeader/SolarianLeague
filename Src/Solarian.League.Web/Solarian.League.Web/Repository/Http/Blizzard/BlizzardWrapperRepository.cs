@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Solarian.League.Common.Connection.Interfaces;
+using Solarian.League.Common.Models.Wow.Character.Media;
 using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
@@ -60,6 +61,14 @@ public class BlizzardWrapperRepository : IBlizzardWrapperRepository
     {
         string route = $"api/Guild/CharacterSummary?name={characterName}&t={DateTime.UtcNow.Ticks}&code={_appSettings.HttpClients!.BlizzardWrapperClient!.ApiKey}";
         var response = await _httpClient.GetObjectAsync<CharacterSummary>(route, HttpClientNames.BLIZZARD_SERVER_WRAPPER_DATA);
+
+        return response;
+    }
+
+    public async Task<CharacterMedia?> GetCharacterMediaAsync(string characterName)
+    {
+        string route = $"api/Guild/CharacterSummary?name={characterName}&t={DateTime.UtcNow.Ticks}&code={_appSettings.HttpClients!.BlizzardWrapperClient!.ApiKey}";
+        var response = await _httpClient.GetObjectAsync<CharacterMedia>(route, HttpClientNames.BLIZZARD_SERVER_WRAPPER_DATA);
 
         return response;
     }

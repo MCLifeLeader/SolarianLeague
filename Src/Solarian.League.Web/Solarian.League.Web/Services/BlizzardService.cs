@@ -1,4 +1,5 @@
-﻿using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
+﻿using Solarian.League.Common.Models.Wow.Character.Media;
+using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
 using Solarian.League.Common.Models.Wow.Guild.Detail;
@@ -75,6 +76,19 @@ public class BlizzardService : IBlizzardService
         try
         {
             return await _blizzardRepository.GetCharacterSummaryAsync(characterName);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public async Task<CharacterMedia?> GetCharacterMediaAsync(string characterName)
+    {
+        try
+        {
+            return await _blizzardRepository.GetCharacterMediaAsync(characterName);
         }
         catch (Exception e)
         {

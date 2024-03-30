@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Solarian.League.Api.Repository.Http.Blizzard.Interfaces;
 using Solarian.League.Api.Services.Interfaces;
+using Solarian.League.Common.Models.Wow.Character.Media;
 using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Common.Models.Wow.Guild.Achievement;
 using Solarian.League.Common.Models.Wow.Guild.Activity;
@@ -90,6 +91,21 @@ public class BlizzardService : IBlizzardService
         try
         {
             return await _blizzardRepository.GetCharacterSummaryAsync(characterName);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while getting character summary");
+            throw;
+        }
+    }
+
+    public async Task<CharacterMedia?> GetCharacterMediaAsync(string characterName)
+    {
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GetCharacterSummaryAsync));
+
+        try
+        {
+            return await _blizzardRepository.GetCharacterMediaAsync(characterName);
         }
         catch (Exception ex)
         {

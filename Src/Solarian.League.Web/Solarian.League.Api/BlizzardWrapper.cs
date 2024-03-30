@@ -101,7 +101,30 @@ public class BlizzardWrapper
                 return new BadRequestObjectResult("Missing 'name' on query string.");
             }
 
-            return new OkObjectResult(await _blizzardService.GetCharacterSummaryAsync(character));
+            return new OkObjectResult(await _blizzardService.GetCharacterSummaryAsync(character!));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"Error in {nameof(GuildAchievements)}");
+            return new BadRequestObjectResult(ex.Message);
+        }
+    }
+
+    [Function("CharacterMedia")]
+    public async Task<IActionResult> CharacterMedia([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/CharacterMedia")] HttpRequest req)
+    {
+        _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
+
+        try
+        {
+            var character = req.Query["name"];
+
+            if (string.IsNullOrEmpty(character))
+            {
+                return new BadRequestObjectResult("Missing 'name' on query string.");
+            }
+
+            return new OkObjectResult(await _blizzardService.GetCharacterMediaAsync(character!));
         }
         catch (Exception ex)
         {
