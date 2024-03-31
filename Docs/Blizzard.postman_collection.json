@@ -30,17 +30,42 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{SecretId}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{ClientId}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "https://oauth.battle.net/token?grant_type=client_credentials",
+							"raw": "https://us.battle.net/oauth/token?grant_type=client_credentials",
 							"protocol": "https",
 							"host": [
-								"oauth",
+								"us",
 								"battle",
 								"net"
 							],
 							"path": [
+								"oauth",
 								"token"
 							],
 							"query": [
@@ -62,7 +87,8 @@
 								"exec": [
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -70,14 +96,15 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://oauth.battle.net/check_token?token={{BearerToken}}&region=us",
+							"raw": "https://us.battle.net/oauth/check_token?token={{BearerToken}}&region=us",
 							"protocol": "https",
 							"host": [
-								"oauth",
+								"us",
 								"battle",
 								"net"
 							],
 							"path": [
+								"oauth",
 								"check_token"
 							],
 							"query": [
@@ -1572,7 +1599,7 @@
 					"name": "Guild",
 					"item": [
 						{
-							"name": "Guild",
+							"name": "GuildDetails",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -1765,30 +1792,5048 @@
 					"name": "Game Data",
 					"item": [
 						{
-							"name": "Character Races",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{BaseUrl}}/data/wow/playable-race/index?namespace=profile-us",
-									"host": [
-										"{{BaseUrl}}"
-									],
-									"path": [
-										"data",
-										"wow",
-										"playable-race",
-										"index"
-									],
-									"query": [
-										{
-											"key": "namespace",
-											"value": "profile-us"
+							"name": "Achievements",
+							"item": [
+								{
+									"name": "Achievement Categories Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/achievement-category/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"achievement-category",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
 										}
-									]
+									},
+									"response": []
+								},
+								{
+									"name": "Achievement Category",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/achievement-category/:achievementCategoryId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"achievement-category",
+												":achievementCategoryId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "achievementCategoryId",
+													"value": "14803"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Achievements Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/achievement/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"achievement",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Achievement",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/achievement/:achievementId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"achievement",
+												":achievementId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "achievementId",
+													"value": "5501"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Achievement Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/achievement/:achievementId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"achievement",
+												":achievementId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "achievementId",
+													"value": "5501"
+												}
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							]
+						},
+						{
+							"name": "Auction House",
+							"item": [
+								{
+									"name": "Auctions",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/connected-realm/:connectedRealmId/auctions?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"connected-realm",
+												":connectedRealmId",
+												"auctions"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "connectedRealmId",
+													"value": "127"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Commodities",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/auctions/commodities?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"auctions",
+												"commodities"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Azerite Essence",
+							"item": [
+								{
+									"name": "Azerite Essences Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/azerite-essence/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"azerite-essence",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Azerite Essence",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/azerite-essence/:azeriteEssenceId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"azerite-essence",
+												":azeriteEssenceId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "azeriteEssenceId",
+													"value": "16"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Azerite Essence Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/azerite-essence?namespace=static-us&locale=en_US&allowed_specializations.id=65&orderby=name&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"azerite-essence"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												},
+												{
+													"key": "allowed_specializations.id",
+													"value": "65"
+												},
+												{
+													"key": "orderby",
+													"value": "name"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Azerite Essence Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/azerite-essence/:azeriteEssenceId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"azerite-essence",
+												":azeriteEssenceId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "azeriteEssenceId",
+													"value": "16"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Connected Realm",
+							"item": [
+								{
+									"name": "Connected Realms Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/connected-realm/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"connected-realm",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Connected Realm",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/connected-realm/:connectedRealmId?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"connected-realm",
+												":connectedRealmId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "connectedRealmId",
+													"value": "127"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Connected Realms Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/connected-realm?namespace=dynamic-us&timezone=&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"connected-realm"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "timezone",
+													"value": ""
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Covenant",
+							"item": [
+								{
+									"name": "Covenant Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/covenant/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"covenant",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Covenant",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/covenant/:covenantId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"covenant",
+												":covenantId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "covenantId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Covenant Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/covenant/:covenantId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"covenant",
+												":covenantId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "covenantId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Soulbind Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/covenant/soulbind/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"covenant",
+												"soulbind",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Soulbind",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/covenant/soulbind/:soulbindId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"covenant",
+												"soulbind",
+												":soulbindId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "soulbindId",
+													"value": "4"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Conduit Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/covenant/conduit/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"covenant",
+												"conduit",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Conduit",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/covenant/conduit/:conduitId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"covenant",
+												"conduit",
+												":conduitId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "conduitId",
+													"value": "19"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Creature",
+							"item": [
+								{
+									"name": "Creature Families Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/creature-family/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"creature-family",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature Family",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/creature-family/:creatureFamilyId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"creature-family",
+												":creatureFamilyId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "creatureFamilyId",
+													"value": "126"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature Types Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/creature-type/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"creature-type",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature Type",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/creature-type/:creatureTypeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"creature-type",
+												":creatureTypeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "creatureTypeId",
+													"value": "14"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/creature/:creatureId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"creature",
+												":creatureId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "creatureId",
+													"value": "42722"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/creature?namespace=static-us&name.en_US=Dragon&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"creature"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "name.en_US",
+													"value": "Dragon"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature Display Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/creature-display/:creatureDisplayId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"creature-display",
+												":creatureDisplayId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "creatureDisplayId",
+													"value": "30221"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Creature Family Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/creature-family/:creatureFamilyId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"creature-family",
+												":creatureFamilyId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "creatureFamilyId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Guild Crest",
+							"item": [
+								{
+									"name": "Guild Crest Components Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/guild-crest/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"guild-crest",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Guild Crest Border Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/guild-crest/border/:borderId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"guild-crest",
+												"border",
+												":borderId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "borderId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Guild Crest Emblem Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/guild-crest/emblem/:emblemId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"guild-crest",
+												"emblem",
+												":emblemId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "emblemId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Heirloom",
+							"item": [
+								{
+									"name": "Heirloom Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/heirloom/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"heirloom",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Heirloom",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/heirloom/:heirloomId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"heirloom",
+												":heirloomId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "heirloomId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Item",
+							"item": [
+								{
+									"name": "Item Classes Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/item-class/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"item-class",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item Class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/item-class/:itemClassId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"item-class",
+												":itemClassId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemClassId",
+													"value": "17"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item Sets Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/item-set/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"item-set",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item Set",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/item-set/:itemSetId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"item-set",
+												":itemSetId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemSetId",
+													"value": "757"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item Subclass",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/item-class/:itemClassId/item-subclass/:itemSubclassId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"item-class",
+												":itemClassId",
+												"item-subclass",
+												":itemSubclassId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemClassId",
+													"value": "17"
+												},
+												{
+													"key": "itemSubclassId",
+													"value": "0"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/item/:itemId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"item",
+												":itemId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "47548"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/item/:itemId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"item",
+												":itemId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "itemId",
+													"value": "47548"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Item Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/item?namespace=static-us&locale=en_US&name.en_US=Garrosh&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"item"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												},
+												{
+													"key": "name.en_US",
+													"value": "Garrosh"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Journal",
+							"item": [
+								{
+									"name": "Journal Expansions Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/journal-expansion/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"journal-expansion",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Expansion",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/journal-expansion/:journalExpansionId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"journal-expansion",
+												":journalExpansionId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "journalExpansionId",
+													"value": "74"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Encounters Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/journal-encounter/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"journal-encounter",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Encounter",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/journal-encounter/:journalEncounterId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"journal-encounter",
+												":journalEncounterId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "journalEncounterId",
+													"value": "89"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Encounter Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/journal-encounter?namespace=static-us&instance.name.en_US=Deadmines&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"journal-encounter"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "instance.name.en_US",
+													"value": "Deadmines"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Instances Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/journal-instance/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"journal-instance",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Instance",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/journal-instance/:journalInstanceId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"journal-instance",
+												":journalInstanceId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "journalInstanceId",
+													"value": "64"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Journal Instance Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/journal-instance/:journalInstanceId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"journal-instance",
+												":journalInstanceId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "journalInstanceId",
+													"value": "64"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Media Search",
+							"item": [
+								{
+									"name": "Media Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/media?namespace=static-us&locale=en_US&tags=item&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"media"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												},
+												{
+													"key": "tags",
+													"value": "item"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Modified Crafting",
+							"item": [
+								{
+									"name": "Modified Crafting Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/modified-crafting/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"modified-crafting",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modified Crafting Category Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/modified-crafting/category/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"modified-crafting",
+												"category",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modified Crafting Category",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/modified-crafting/category/:categoryId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"modified-crafting",
+												"category",
+												":categoryId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "categoryId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modified Crafting Reagent Slot Type Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/modified-crafting/reagent-slot-type/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"modified-crafting",
+												"reagent-slot-type",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Modified Crafting Reagent Slot Type",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/modified-crafting/reagent-slot-type/:slotTypeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"modified-crafting",
+												"reagent-slot-type",
+												":slotTypeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "slotTypeId",
+													"value": "16"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mount",
+							"item": [
+								{
+									"name": "Mounts Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mount/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mount",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mount",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mount/:mountId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mount",
+												":mountId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "mountId",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mount Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/mount?namespace=static-us&name.en_US=Turtle&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"mount"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "name.en_US",
+													"value": "Turtle"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mythic Keystone Affix",
+							"item": [
+								{
+									"name": "Mythic Keystone Affixes Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/keystone-affix/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"keystone-affix",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Affix",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/keystone-affix/:keystoneAffixId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"keystone-affix",
+												":keystoneAffixId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "keystoneAffixId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Affix Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/keystone-affix/:keystoneAffixId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"keystone-affix",
+												":keystoneAffixId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "keystoneAffixId",
+													"value": "6"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mythic Keystone Dungeon",
+							"item": [
+								{
+									"name": "Mythic Keystone Dungeons Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/dungeon/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"dungeon",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Dungeon",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/dungeon/:dungeonId?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"dungeon",
+												":dungeonId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "dungeonId",
+													"value": "56"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Periods Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/period/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"period",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Period",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/period/:periodId?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"period",
+												":periodId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "periodId",
+													"value": "641"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Seasons Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/season/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"season",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Season",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/mythic-keystone/season/:seasonId?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"mythic-keystone",
+												"season",
+												":seasonId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "seasonId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mythic Keystone Leaderboard",
+							"item": [
+								{
+									"name": "Mythic Keystone Leaderboards Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/connected-realm/:connectedRealmId/mythic-leaderboard/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"connected-realm",
+												":connectedRealmId",
+												"mythic-leaderboard",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "connectedRealmId",
+													"value": "127"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Mythic Keystone Leaderboard",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/connected-realm/:connectedRealmId/mythic-leaderboard/:dungeonId/period/:period?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"connected-realm",
+												":connectedRealmId",
+												"mythic-leaderboard",
+												":dungeonId",
+												"period",
+												":period"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "connectedRealmId",
+													"value": "127"
+												},
+												{
+													"key": "dungeonId",
+													"value": "197"
+												},
+												{
+													"key": "period",
+													"value": "641"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Mythic Raid Leaderboard",
+							"item": [
+								{
+									"name": "Mythic Raid Leaderboard",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/leaderboard/hall-of-fame/:raid/:faction?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"leaderboard",
+												"hall-of-fame",
+												":raid",
+												":faction"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "raid",
+													"value": "uldir"
+												},
+												{
+													"key": "faction",
+													"value": "alliance"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Pet",
+							"item": [
+								{
+									"name": "Pets Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pet/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pet",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Pet",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pet/:petId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pet",
+												":petId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "petId",
+													"value": "283"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Pet Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/pet/:petId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"pet",
+												":petId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "petId",
+													"value": "283"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Pet Abilities Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pet-ability/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pet-ability",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Pet Ability",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pet-ability/:petAbilityId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pet-ability",
+												":petAbilityId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "petAbilityId",
+													"value": "110"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Pet Ability Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/pet-ability/:petAbilityId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"pet-ability",
+												":petAbilityId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "petAbilityId",
+													"value": "110"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Playable Class",
+							"item": [
+								{
+									"name": "Playable Classes Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-class/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-class",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Playable Class",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-class/:classId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-class",
+												":classId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "classId",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Playable Class Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/playable-class/:playableClassId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"playable-class",
+												":playableClassId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "playableClassId",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Talent Slots",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-class/:classId/pvp-talent-slots?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-class",
+												":classId",
+												"pvp-talent-slots"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "classId",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Playable Race",
+							"item": [
+								{
+									"name": "Playable Classes Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-class/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-class",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Playable Race",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-race/:playableRaceId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-race",
+												":playableRaceId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "playableRaceId",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Playable Specialization",
+							"item": [
+								{
+									"name": "Playable Specializations Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-specialization/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-specialization",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Playable Specialization",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/playable-specialization/:specId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"playable-specialization",
+												":specId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "specId",
+													"value": "262"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Playable Specialization Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/playable-specialization/:specId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"playable-specialization",
+												":specId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "specId",
+													"value": "262"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Power Type",
+							"item": [
+								{
+									"name": "Power Types Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/power-type/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"power-type",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Power Type",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/power-type/:powerTypeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"power-type",
+												":powerTypeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "powerTypeId",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Profession",
+							"item": [
+								{
+									"name": "Professions Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/profession/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"profession",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Profession",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/profession/:professionId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"profession",
+												":professionId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "professionId",
+													"value": "164"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Profession Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/profession/:professionId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"profession",
+												":professionId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "professionId",
+													"value": "164"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Profession Skill Tier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/profession/:professionId/skill-tier/:skillTierId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"profession",
+												":professionId",
+												"skill-tier",
+												":skillTierId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "professionId",
+													"value": "164"
+												},
+												{
+													"key": "skillTierId",
+													"value": "2477"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Recipe",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/recipe/:recipeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"recipe",
+												":recipeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "recipeId",
+													"value": "1631"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Recipe Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/recipe/:recipeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"recipe",
+												":recipeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "recipeId",
+													"value": "1631"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PvP Season",
+							"item": [
+								{
+									"name": "PvP Seasons Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-season/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-season",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Season",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-season/:pvpSeasonId?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-season",
+												":pvpSeasonId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpSeasonId",
+													"value": "33"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Leaderboards Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-season/:pvpSeasonId/pvp-leaderboard/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-season",
+												":pvpSeasonId",
+												"pvp-leaderboard",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpSeasonId",
+													"value": "33"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Leaderboard",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-season/:pvpSeasonId/pvp-leaderboard/:pvpBracket?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-season",
+												":pvpSeasonId",
+												"pvp-leaderboard",
+												":pvpBracket"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpSeasonId",
+													"value": "33"
+												},
+												{
+													"key": "pvpBracket",
+													"value": "3v3"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Rewards Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-season/:pvpSeasonId/pvp-reward/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-season",
+												":pvpSeasonId",
+												"pvp-reward",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpSeasonId",
+													"value": "33"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "PvP Tier",
+							"item": [
+								{
+									"name": "PvP Tiers Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-tier/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-tier",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Tier Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/pvp-tier/:pvpTierId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"pvp-tier",
+												":pvpTierId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpTierId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Tier",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-tier/:pvpTierId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-tier",
+												":pvpTierId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpTierId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Quest",
+							"item": [
+								{
+									"name": "Quests Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/:questId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												":questId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "questId",
+													"value": "2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest Categories Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/category/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"category",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest Category",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/category/:questCategoryId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"category",
+												":questCategoryId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "questCategoryId",
+													"value": "21"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest Areas Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/area/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"area",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest Area",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/area/:questAreaId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"area",
+												":questAreaId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "questAreaId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest Types Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/type/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"type",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Quest Type",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/quest/type/:questTypeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"quest",
+												"type",
+												":questTypeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "questTypeId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Realm",
+							"item": [
+								{
+									"name": "Realms Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/realm/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"realm",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realm",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/connected-realm/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"connected-realm",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Realm Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/realm?namespace=dynamic-us&locale=en_US&timezone=&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"realm"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												},
+												{
+													"key": "timezone",
+													"value": ""
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Region",
+							"item": [
+								{
+									"name": "Regions Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/region/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"region",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Region",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/region/:regionId?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"region",
+												":regionId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "regionId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Reputations",
+							"item": [
+								{
+									"name": "Reputation Factions Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/reputation-faction/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"reputation-faction",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reputation Faction",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/reputation-faction/:reputationFactionId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"reputation-faction",
+												":reputationFactionId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "reputationFactionId",
+													"value": "1091"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reputation Tiers Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/reputation-tiers/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"reputation-tiers",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reputation Tiers",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/reputation-tiers/:reputationTiersId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"reputation-tiers",
+												":reputationTiersId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "reputationTiersId",
+													"value": "26"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Spell",
+							"item": [
+								{
+									"name": "Spell",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/spell/:spellId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"spell",
+												":spellId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "spellId",
+													"value": "17"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Spell Search",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/search/spell?namespace=static-us&locale=en_US&name.en_US=Holy Shield&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"search",
+												"spell"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												},
+												{
+													"key": "name.en_US",
+													"value": "Holy Shield"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Spell Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/spell/:spellId?namespace=static-us&locale=en_US&name.en_US=Holy Shield&orderby=id&_page=1",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"spell",
+												":spellId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												},
+												{
+													"key": "name.en_US",
+													"value": "Holy Shield"
+												},
+												{
+													"key": "orderby",
+													"value": "id"
+												},
+												{
+													"key": "_page",
+													"value": "1"
+												}
+											],
+											"variable": [
+												{
+													"key": "spellId",
+													"value": "17"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Talent",
+							"item": [
+								{
+									"name": "Talent Tree Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/talent-tree/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"talent-tree",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Talent Tree",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/talent-tree/:talentTreeId/playable-specialization/:specId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"talent-tree",
+												":talentTreeId",
+												"playable-specialization",
+												":specId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "talentTreeId",
+													"value": "786"
+												},
+												{
+													"key": "specId",
+													"value": "262"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Talent Tree Nodes",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/talent-tree/:talentTreeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"talent-tree",
+												":talentTreeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "talentTreeId",
+													"value": "786"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Talents Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/talent/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"talent",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Talent",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/talent/:talentId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"talent",
+												":talentId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "talentId",
+													"value": "47503"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Talents Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-talent/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-talent",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "PvP Talent",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/pvp-talent/:pvpTalentId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"pvp-talent",
+												":pvpTalentId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "pvpTalentId",
+													"value": "40"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Tech Talent",
+							"item": [
+								{
+									"name": "Tech Talent Tree Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/tech-talent-tree/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"tech-talent-tree",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tech Talent Tree",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/tech-talent-tree/:techTalentTreeId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"tech-talent-tree",
+												":techTalentTreeId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "techTalentTreeId",
+													"value": "275"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tech Talent Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/tech-talent/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"tech-talent",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tech Talent",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/tech-talent/:techTalentId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"tech-talent",
+												":techTalentId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "techTalentId",
+													"value": "40"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Tech Talent Media",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/media/tech-talent/:techTalentId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"media",
+												"tech-talent",
+												":techTalentId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "techTalentId",
+													"value": "40"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Title",
+							"item": [
+								{
+									"name": "Titles Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/title/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"title",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Title",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/title/:titleId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"title",
+												":titleId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "titleId",
+													"value": "140"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Toy",
+							"item": [
+								{
+									"name": "Toy Index",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/toy/index?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"toy",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Toy",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/toy/:toyId?namespace=static-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"toy",
+												":toyId"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "static-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											],
+											"variable": [
+												{
+													"key": "toyId",
+													"value": "30"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "WoW Token",
+							"item": [
+								{
+									"name": "WoW Token Index (US, EU, KR, TW)",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{BaseUrl}}/data/wow/token/index?namespace=dynamic-us&locale=en_US",
+											"host": [
+												"{{BaseUrl}}"
+											],
+											"path": [
+												"data",
+												"wow",
+												"token",
+												"index"
+											],
+											"query": [
+												{
+													"key": "namespace",
+													"value": "dynamic-us"
+												},
+												{
+													"key": "locale",
+													"value": "en_US"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
 						}
 					]
 				}
