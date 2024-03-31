@@ -38,12 +38,12 @@ I am not planning on using any testing frameworks at this time, the focus here i
 https://develop.battle.net/
 
 ## Postman Import
-Coming soon
+[Postman Collection](https://github.com/MCLifeLeader/SolarianLeague/tree/main/Docs)
 
 ## Additional source examples
-- https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league
-- https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league/achievements
-- https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu
+- [Guild Roster](https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league)
+- [Guild Achievments](https://worldofwarcraft.blizzard.com/en-us/guild/us/antonidas/solarian-league/achievements)
+- [Single Character](https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu)
 
 ## Discord
 Sourced the Discord widget from the Discord website and added it to the website from https://discord.com/widget?id=511303656193392652&theme=dark
