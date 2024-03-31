@@ -1,5 +1,5 @@
 # Introduction
-This project is to create a website for my World of Warcraft guild, Solarian League and can be found at [Solarian League](https://www.solarianleague.com)]
+This project is to create a website for my World of Warcraft guild, Solarian League and can be found at [Solarian League](https://www.solarianleague.com)
 The source content for the Website will primarily be pulled from the World of Warcraft website.
 
 # Purpose
@@ -25,7 +25,7 @@ My focus for this project is mostly front-end and I will likely not spend a lot 
 - [.NET 8.0 SDK Language Reference](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/)
 - [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local)
 - [Bootstrap](https://getbootstrap.com/)
-- [Bootstrap Icons](https://icons.getbootstrap.com/) Example usage in NavMenu.razor.css, look for 'bi-plus-square-fill-nav-menu', copy svg code into css style.
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
 - [jQuery](https://jquery.com/)
 
 # Build and Test
@@ -46,4 +46,4 @@ https://develop.battle.net/
 - [Single Character](https://worldofwarcraft.blizzard.com/en-us/character/us/antonidas/Leathlu)
 
 ## Discord
-Sourced the Discord widget from the Discord website and added it to the website from https://discord.com/widget?id=511303656193392652&theme=dark
+Sourced the Discord widget from the [Discord](https://discord.com/widget?id=511303656193392652&theme=dark) website
