@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Guild.Achievement
+namespace Solarian.League.Common.Models.Wow.Guild.Achievement;
+
+public class Links
 {
-    public class Links
-    {
-        [JsonPropertyName("self")]
-        [JsonProperty("self")]
-        public Self Self { get; set; }
-    }
+    [JsonPropertyName("self")]
+    [JsonProperty("self")]
+    public Self Self { get; set; }
 }

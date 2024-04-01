@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Guild.Detail
+namespace Solarian.League.Common.Models.Wow.Guild.Detail;
+
+public class Background
 {
-    public class Background
-    {
-        [JsonPropertyName("color")]
-        [JsonProperty("color")]
-        public Color Color { get; set; }
-    }
+    [JsonPropertyName("color")]
+    [JsonProperty("color")]
+    public Color Color { get; set; }
 }

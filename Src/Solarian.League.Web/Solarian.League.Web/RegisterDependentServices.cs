@@ -8,6 +8,7 @@ using Solarian.League.Web.Models.ApplicationSettings;
 using Solarian.League.Web.Connection.DependencyInjection;
 using Solarian.League.Web.Factories.DependencyInjection;
 using Solarian.League.Web.Helpers.Extensions;
+using Solarian.League.Web.Helpers.State;
 using Solarian.League.Web.Services.DependencyInjection;
 using Solarian.League.Web.Repository.DependencyInjection;
 
@@ -47,6 +48,7 @@ public static class RegisterDependentServices
 
         builder.Services.AddSingleton(builder.Configuration);
         builder.Services.AddSingleton(appSettings);
+        builder.Services.AddSingleton<ApplicationData>();
 
         #endregion
 

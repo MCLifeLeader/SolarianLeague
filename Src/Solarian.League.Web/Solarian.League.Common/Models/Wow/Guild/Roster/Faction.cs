@@ -1,16 +1,15 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Guild.Roster
-{
-    public class Faction
-    {
-        [JsonPropertyName("type")]
-        [JsonProperty("type")]
-        public string Type { get; set; }
+namespace Solarian.League.Common.Models.Wow.Guild.Roster;
 
-        [JsonPropertyName("name")]
-        [JsonProperty("name")]
-        public Name Name { get; set; } = new();
-    }
+public class Faction
+{
+    [JsonPropertyName("type")]
+    [JsonProperty("type")]
+    public string Type { get; set; }
+
+    [JsonPropertyName("name")]
+    [JsonProperty("name")]
+    public Name Name { get; set; } = new();
 }

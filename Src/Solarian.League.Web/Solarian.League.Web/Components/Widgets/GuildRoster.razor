@@ -1,17 +1,72 @@
-﻿<h3>GuildRoster</h3>
+﻿<div class="text-center p-3"><h3>Members</h3></div>
 
-<div>
-    <div class="widgetMembersOnline">Members Online</div>
-    <div>
-        @foreach (var member in GuildRosterData?.Members!)
-        {
-            <div class="widgetMember">
-                <div class="widgetMemberAvatar">
-                    <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" 
-                         src="@CharacterMedias[member.Character.Id]?.Assets[0].Value" />
-                </div>
-                <span class="widgetMemberName">@member.Character.Name</span>
-            </div>
-        }
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Race</th>
+                    <th>Class</th>
+                    <th>Level</th>
+                    <th>ILvl</th>
+                    <th>Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var member in GuildRosterData?.Members!)
+                {
+                    <tr>
+                        <td>
+                            @if (string.IsNullOrEmpty(CharacterMedias[member.Character.Id]?.Assets[0].Value))
+                            {
+                                <img class="img-fluid rounded character_image_max_width"
+                                     crossorigin="anonymous" alt="Character image of @member.Character.Name"
+                                     title="Character image of @member.Character.Name"
+                                     src="/assets/images/race_gender_unknown.jpg" />
+                            }
+                            else
+                            {
+                                <img class="img-fluid rounded character_image_max_width"
+                                     crossorigin="anonymous" alt="Character image of @member.Character.Name"
+                                     title="Character image of @member.Character.Name"
+                                     src="@CharacterMedias[member.Character.Id]?.Assets[0].Value" />
+                            }
+                            <span class="p-2">@member.Character.Name</span>
+
+                        </td>
+                        <td>
+                            <span class="">@member.Character.PlayableRace.Id</span>
+                        </td>
+                        <td>
+                            <span class="">@member.Character.PlayableClass.Id</span>
+                        </td>
+                        <td>
+                            <span>@member.Character.Level</span>
+                        </td>
+                        <td>
+                            @if (@CharacterSummaries.ContainsKey(member.Character.Id))
+                            {
+                                <span>@CharacterSummaries[member.Character.Id]?.AverageItemLevel</span>
+                            }
+                            else
+                            {
+                                <span>?</span>
+                            }
+                        </td>
+                        <td>
+                            @if (@member.Rank == 0)
+                            {
+                                <span>Guild Master</span>
+                            }
+                            else
+                            {
+                                <span>@member.Rank</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>

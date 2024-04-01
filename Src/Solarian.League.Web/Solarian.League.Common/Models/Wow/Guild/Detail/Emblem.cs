@@ -1,20 +1,19 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Guild.Detail
+namespace Solarian.League.Common.Models.Wow.Guild.Detail;
+
+public class Emblem
 {
-    public class Emblem
-    {
-        [JsonPropertyName("id")]
-        [JsonProperty("id")]
-        public int Id { get; set; }
+    [JsonPropertyName("id")]
+    [JsonProperty("id")]
+    public int Id { get; set; }
 
-        [JsonPropertyName("media")]
-        [JsonProperty("media")]
-        public Media Media { get; set; }
+    [JsonPropertyName("media")]
+    [JsonProperty("media")]
+    public Media Media { get; set; }
 
-        [JsonPropertyName("color")]
-        [JsonProperty("color")]
-        public Color Color { get; set; }
-    }
+    [JsonPropertyName("color")]
+    [JsonProperty("color")]
+    public Color Color { get; set; }
 }

@@ -1,2 +1,12 @@
-﻿body {
+﻿.character_image_max_width {
+    max-width: 38px;
+}
+
+.d-table-row {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.d-table-cell {
+    padding: 10px;
 }

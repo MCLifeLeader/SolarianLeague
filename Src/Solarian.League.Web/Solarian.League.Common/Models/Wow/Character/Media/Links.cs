@@ -1,12 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 
-namespace Solarian.League.Common.Models.Wow.Character.Media
+namespace Solarian.League.Common.Models.Wow.Character.Media;
+
+public class Links
 {
-    public class Links
-    {
-        [JsonPropertyName("self")]
-        [JsonProperty("self")]
-        public Self Self { get; set; } = new();
-    }
+    [JsonPropertyName("self")]
+    [JsonProperty("self")]
+    public Self Self { get; set; } = new();
 }
