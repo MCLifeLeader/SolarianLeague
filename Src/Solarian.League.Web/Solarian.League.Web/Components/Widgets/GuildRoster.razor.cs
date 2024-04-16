@@ -56,7 +56,7 @@ public partial class GuildRoster
 
         foreach (var data in CharacterMedias)
         {
-            Console.WriteLine($"Id:{data.Key} - Img:{await data.Value?.ToJsonAsync()}");
+            Console.WriteLine($"Id:{data.Key} - Img:{data.Value?.ToJson()}");
         }
 
         foreach (var data in CharacterSummaries)

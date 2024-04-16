@@ -365,4 +365,5 @@ FodyWeavers.xsd
 **/PublishProfiles/*
 **/wwwroot/appsettings.kb7ppbstatic.json
 **/kb7ppb - Zip Deploy
-**/serviceDependencies.kb7ppb - Zip Deploy.json
+**/serviceDependencies.*.json
+**/compute.function.windows*.json
