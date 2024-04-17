@@ -1,5 +1,8 @@
 ﻿{
   "navigationFallback": {
     "rewrite": "/index.html"
+  },
+  "globalHeaders": {
+    "code": "abc123"
   }
 }
