@@ -84,6 +84,16 @@ public static class RegisterDependentServices
             //    // Turn on resilience by default
             //    http.AddStandardResilienceHandler();
             //});
+            
+            services.AddCors(o =>
+            {
+                o.AddPolicy("CorsAllowAll", build =>
+                {
+                    build.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
 
             services.SetHttpClients(appSettings);
 
