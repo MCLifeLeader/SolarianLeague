@@ -5,8 +5,10 @@ name: Build and deploy dotnet core app to Azure Function App - kb7ppb
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [ "main" ]
   workflow_dispatch:
 
 env:
