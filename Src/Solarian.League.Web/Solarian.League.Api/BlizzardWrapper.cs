@@ -2,10 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Solarian.League.Api.Models.ApplicationSettings;
 using Solarian.League.Api.Services.Interfaces;
-using static Grpc.Core.Metadata;
 
 namespace Solarian.League.Api;
 
@@ -24,7 +21,7 @@ public class BlizzardWrapper
     }
 
     [Function("GuildDetails")]
-    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildDetails")] HttpRequest req)
+    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildDetails")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildDetails));
 
@@ -40,7 +37,7 @@ public class BlizzardWrapper
     }
 
     [Function("GuildRoster")]
-    public async Task<IActionResult> GuildRoster([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildRoster")] HttpRequest req)
+    public async Task<IActionResult> GuildRoster([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildRoster")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildRoster));
 
@@ -57,7 +54,7 @@ public class BlizzardWrapper
 
 
     [Function("GuildActivity")]
-    public async Task<IActionResult> GuildActivity([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildActivity")] HttpRequest req)
+    public async Task<IActionResult> GuildActivity([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildActivity")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildActivity));
 
@@ -73,7 +70,7 @@ public class BlizzardWrapper
     }
 
     [Function("GuildAchievements")]
-    public async Task<IActionResult> GuildAchievements([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildAchievements")] HttpRequest req)
+    public async Task<IActionResult> GuildAchievements([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildAchievements")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
 
@@ -89,7 +86,7 @@ public class BlizzardWrapper
     }
 
     [Function("CharacterSummary")]
-    public async Task<IActionResult> CharacterSummary([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/CharacterSummary")] HttpRequest req)
+    public async Task<IActionResult> CharacterSummary([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/CharacterSummary")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildAchievements));
 
@@ -112,7 +109,7 @@ public class BlizzardWrapper
     }
 
     [Function("CharacterMedia")]
-    public async Task<IActionResult> CharacterMedia([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/CharacterMedia")] HttpRequest req)
+    public async Task<IActionResult> CharacterMedia([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/CharacterMedia")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(CharacterMedia));
 

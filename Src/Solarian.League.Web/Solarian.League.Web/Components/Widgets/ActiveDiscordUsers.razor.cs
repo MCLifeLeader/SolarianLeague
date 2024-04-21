@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Solarian.League.Common.Models.Discord;
 using Solarian.League.Web.Helpers.State;
 using Solarian.League.Web.Models.ApplicationSettings;
-using Solarian.League.Web.Models.Discord;
 using Solarian.League.Web.Services.Interfaces;
 
 namespace Solarian.League.Web.Components.Widgets;
