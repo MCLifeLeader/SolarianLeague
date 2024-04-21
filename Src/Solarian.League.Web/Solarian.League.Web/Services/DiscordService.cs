@@ -1,4 +1,4 @@
-﻿using Solarian.League.Web.Models.Discord;
+﻿using Solarian.League.Common.Models.Discord;
 using Solarian.League.Web.Repository.Http.Discord;
 using Solarian.League.Web.Services.Interfaces;
 

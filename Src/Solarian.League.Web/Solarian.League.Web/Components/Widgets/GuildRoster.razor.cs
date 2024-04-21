@@ -4,6 +4,7 @@ using Solarian.League.Common.Models.Wow.Character.ProfileSummary;
 using Solarian.League.Web.Helpers.Extensions;
 using Solarian.League.Web.Helpers.State;
 using Solarian.League.Web.Models.ApplicationSettings;
+using Solarian.League.Web.Services;
 using Solarian.League.Web.Services.Interfaces;
 
 namespace Solarian.League.Web.Components.Widgets;
@@ -30,53 +31,45 @@ public partial class GuildRoster
 
     private async Task RefreshDataAsync()
     {
-        GuildRosterData = await BlizzardService.GetGuildRosterAsync();
-
-        Dictionary<int, Task<CharacterMedia>> mediaTasks = new();
-        Dictionary<int, Task<CharacterSummary>> summaryTasks = new();
-
-        foreach (var member in GuildRosterData?.Members!)
-        {
-            mediaTasks.Add(member.Character.Id, BlizzardService.GetCharacterMediaAsync(member.Character.Name.ToLower())!);
-            summaryTasks.Add(member.Character.Id, BlizzardService.GetCharacterSummaryAsync(member.Character.Name.ToLower())!);
-        }
-
-        await Task.WhenAll(mediaTasks.Values);
-        await Task.WhenAll(summaryTasks.Values);
-
-        foreach (var task in mediaTasks)
-        {
-            CharacterMedias.Add(task.Key, task.Value.Result);
-        }
-
-        foreach (var task in summaryTasks)
-        {
-            CharacterSummaries.Add(task.Key, task.Value.Result);
-        }
-
-        foreach (var data in CharacterMedias)
-        {
-            Console.WriteLine($"Id:{data.Key} - Img:{data.Value?.ToJson()}");
-        }
-
-        foreach (var data in CharacterSummaries)
-        {
-            Console.WriteLine($"Id:{data.Key} - Img:{data.Value?.ToJson()}");
-        }
-
         try
         {
-            if (ApplicationData!.ActiveDiscordUsers.DiscordWidgetLastUpdated <= DateTime.UtcNow)
+            if (ApplicationData!.ActiveGuildRoster.RosterWidgetLastUpdated <= DateTime.UtcNow)
             {
-                //DiscordData = await DiscordService!.GetDiscordServerDataAsync();
+                GuildRosterData = await BlizzardService.GetGuildRosterAsync();
 
-                //ApplicationData.ActiveDiscordUsers.DiscordWidgetLastUpdated =
-                //    DateTime.UtcNow.AddSeconds(AppSettings!.HttpClients!.DiscordClient!.CacheDurationInSeconds);
-                //ApplicationData.ActiveDiscordUsers.DiscordWidgetData = DiscordData;
+                Dictionary<int, Task<CharacterMedia>> mediaTasks = new();
+                Dictionary<int, Task<CharacterSummary>> summaryTasks = new();
+                foreach (var member in GuildRosterData?.Members!)
+                {
+                    mediaTasks.Add(member.Character.Id, BlizzardService.GetCharacterMediaAsync(member.Character.Name.ToLower())!);
+                    summaryTasks.Add(member.Character.Id, BlizzardService.GetCharacterSummaryAsync(member.Character.Name.ToLower())!);
+                }
+
+                await Task.WhenAll(mediaTasks.Values);
+                await Task.WhenAll(summaryTasks.Values);
+
+                foreach (var task in mediaTasks)
+                {
+                    CharacterMedias.Add(task.Key, task.Value.Result);
+                }
+
+                foreach (var task in summaryTasks)
+                {
+                    CharacterSummaries.Add(task.Key, task.Value.Result);
+                }
+
+                ApplicationData!.ActiveGuildRoster.RosterWidgetLastUpdated =
+                    DateTime.UtcNow.AddSeconds(AppSettings!.HttpClients!.BlizzardWrapperClient!.CacheDurationInSeconds);
+
+                ApplicationData.ActiveGuildRoster.RosterWidgetData = GuildRosterData;
+                ApplicationData.ActiveGuildRoster.CharacterMedias = CharacterMedias;
+                ApplicationData.ActiveGuildRoster.CharacterSummaries = CharacterSummaries;
             }
             else
             {
-                //DiscordData = ApplicationData.ActiveDiscordUsers.DiscordWidgetData;
+                GuildRosterData = ApplicationData.ActiveGuildRoster.RosterWidgetData;
+                CharacterMedias = ApplicationData.ActiveGuildRoster.CharacterMedias;
+                CharacterSummaries = ApplicationData.ActiveGuildRoster.CharacterSummaries;
             }
         }
         catch (Exception ex)
@@ -84,5 +77,4 @@ public partial class GuildRoster
             ErrorMessage = ex.ToString();
         }
     }
-
 }

@@ -15,6 +15,7 @@ public class AppSettingsOptionsValidator : AbstractValidator<AppSettings>
         RuleFor(x => x.HttpClients.DiscordClient.TimeoutInSeconds)
             .InclusiveBetween(5, 120);
 
+        // Discord widget will likely change often, so we can cache it for a shorter period.
         RuleFor(x => x.HttpClients.DiscordClient.CacheDurationInSeconds)
             .InclusiveBetween(5, 120);
 
@@ -26,7 +27,8 @@ public class AppSettingsOptionsValidator : AbstractValidator<AppSettings>
         RuleFor(x => x.HttpClients.BlizzardWrapperClient.TimeoutInSeconds)
             .InclusiveBetween(5, 120);
 
+        // Guild roster will likely not change often, so we can cache it for a longer period.
         RuleFor(x => x.HttpClients.BlizzardWrapperClient.CacheDurationInSeconds)
-            .InclusiveBetween(5, 120);
+            .InclusiveBetween(5, 3600);
     }
 }

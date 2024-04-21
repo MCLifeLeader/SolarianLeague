@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Solarian.League.Web.Models.Discord;
+namespace Solarian.League.Common.Models.Discord;
 
 public class Member
 {

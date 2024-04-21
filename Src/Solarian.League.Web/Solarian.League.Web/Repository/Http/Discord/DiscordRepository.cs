@@ -1,6 +1,6 @@
 ﻿using Solarian.League.Common.Connection.Interfaces;
+using Solarian.League.Common.Models.Discord;
 using Solarian.League.Web.Constants;
-using Solarian.League.Web.Models.Discord;
 
 namespace Solarian.League.Web.Repository.Http.Discord;
 
