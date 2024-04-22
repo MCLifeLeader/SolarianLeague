@@ -28,8 +28,9 @@ public class BlizzardService : IBlizzardService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+
+        return null;
     }
 
     public async Task<GuildRoster?> GetGuildRosterAsync()
@@ -41,8 +42,9 @@ public class BlizzardService : IBlizzardService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+
+        return null;
     }
 
     public async Task<GuildActivity?> GetGuildActivityAsync()
@@ -54,8 +56,9 @@ public class BlizzardService : IBlizzardService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+
+        return null;
     }
 
     public async Task<GuildAchievements?> GetGuildAchievementsAsync()
@@ -67,8 +70,9 @@ public class BlizzardService : IBlizzardService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+
+        return null;
     }
 
     public async Task<CharacterSummary?> GetCharacterSummaryAsync(string characterName)
@@ -80,8 +84,9 @@ public class BlizzardService : IBlizzardService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+
+        return null;
     }
 
     public async Task<CharacterMedia?> GetCharacterMediaAsync(string characterName)
@@ -93,7 +98,8 @@ public class BlizzardService : IBlizzardService
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
+
+        return null;
     }
 }

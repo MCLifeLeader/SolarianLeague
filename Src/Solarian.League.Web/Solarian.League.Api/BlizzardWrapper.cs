@@ -21,7 +21,7 @@ public class BlizzardWrapper
     }
 
     [Function("GuildDetails")]
-    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "Guild/GuildDetails")] HttpRequest req)
+    public async Task<IActionResult> GuildDetails([HttpTrigger(AuthorizationLevel.Function, "get", Route = "Guild/GuildDetails")] HttpRequest req)
     {
         _logger.LogDebug("'{Class}.{Method}' called", GetType().Name, nameof(GuildDetails));
 
