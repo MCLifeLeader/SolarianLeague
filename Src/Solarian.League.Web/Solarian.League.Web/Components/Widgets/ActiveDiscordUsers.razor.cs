@@ -28,7 +28,8 @@ public partial class ActiveDiscordUsers
     {
         try
         {
-            if (ApplicationData!.ActiveDiscordUsers.DiscordWidgetLastUpdated <= DateTime.UtcNow)
+            if (ApplicationData!.ActiveDiscordUsers.DiscordWidgetLastUpdated <= DateTime.UtcNow ||
+                ApplicationData.ActiveDiscordUsers.DiscordWidgetData.Id == 0)
             {
                 DiscordData = await DiscordService!.GetDiscordServerDataAsync();
 
