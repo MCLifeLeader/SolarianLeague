@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="staticwebapp.config.json" />
+    <None Include="wwwroot\staticwebapp.config.json" />
     <None Include="wwwroot\appsettings.Debug.json">
       <IsTransformFile>true</IsTransformFile>
       <DependentUpon>appsettings.json</DependentUpon>
