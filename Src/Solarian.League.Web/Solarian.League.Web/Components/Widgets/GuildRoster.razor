@@ -23,9 +23,9 @@
                                 @if (string.IsNullOrEmpty(CharacterMedias[member.Character.Id]?.Assets[0].Value))
                                 {
                                     <img class="img-fluid rounded character_image_max_width"
-                                         crossorigin="anonymous" alt="Character image of @member.Character.Name"
+                                         alt="Character image of @member.Character.Name"
                                          title="Character image of @member.Character.Name"
-                                         src="./assets/images/race_gender_unknown.jpg"/>
+                                         src="/assets/images/race_gender_unknown.jpg"/>
                                 }
                                 else
                                 {
@@ -38,9 +38,9 @@
                             else
                             {
                                 <img class="img-fluid rounded character_image_max_width"
-                                     crossorigin="anonymous" alt="Character image of @member.Character.Name"
+                                     alt="Character image of @member.Character.Name"
                                      title="Character image of @member.Character.Name"
-                                     src="./assets/images/race_gender_unknown.jpg"/>
+                                     src="/assets/images/race_gender_unknown.jpg"/>
                             }
                             <span class="p-2">@member.Character.Name</span>
 
