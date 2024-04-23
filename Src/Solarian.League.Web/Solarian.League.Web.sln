@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		..\..\Docs\Blizzard.postman_collection.json = ..\..\Docs\Blizzard.postman_collection.json
 		..\..\Docs\Blizzard.postman_environment.json = ..\..\Docs\Blizzard.postman_environment.json
 		..\..\README.md = ..\..\README.md
+		..\..\update_appsettings.ps1 = ..\..\update_appsettings.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solarian.League.Api", "Solarian.League.Api\Solarian.League.Api.csproj", "{1E362920-9DFC-476F-8C0D-CB6AF9B6068E}"
