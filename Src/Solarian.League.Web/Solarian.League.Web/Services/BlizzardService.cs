@@ -12,10 +12,13 @@ namespace Solarian.League.Web.Services;
 public class BlizzardService : IBlizzardService
 {
     private readonly IBlizzardWrapperRepository _blizzardRepository;
+    private readonly ILogger<BlizzardService> _logger;
 
     // ReSharper disable once ConvertToPrimaryConstructor
-    public BlizzardService(IBlizzardWrapperRepository blizzardRepository)
+    public BlizzardService(ILogger<BlizzardService> logger,
+        IBlizzardWrapperRepository blizzardRepository)
     {
+        _logger = logger;
         _blizzardRepository = blizzardRepository;
     }
 
@@ -27,7 +30,7 @@ public class BlizzardService : IBlizzardService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e, e.Message);
         }
 
         return null;
@@ -41,7 +44,7 @@ public class BlizzardService : IBlizzardService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e, e.Message);
         }
 
         return null;
@@ -55,7 +58,7 @@ public class BlizzardService : IBlizzardService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e, e.Message);
         }
 
         return null;
@@ -69,7 +72,7 @@ public class BlizzardService : IBlizzardService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e, e.Message);
         }
 
         return null;
@@ -83,7 +86,7 @@ public class BlizzardService : IBlizzardService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e, e.Message);
         }
 
         return null;
@@ -97,7 +100,7 @@ public class BlizzardService : IBlizzardService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            _logger.LogError(e, e.Message);
         }
 
         return null;

@@ -4,5 +4,5 @@ namespace Solarian.League.Web.Services.Interfaces;
 
 public interface IDiscordService
 {
-    public Task<WidgetData> GetDiscordServerDataAsync();
+    public Task<WidgetData?> GetDiscordServerDataAsync();
 }

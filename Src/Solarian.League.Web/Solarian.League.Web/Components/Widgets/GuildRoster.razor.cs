@@ -13,6 +13,8 @@ namespace Solarian.League.Web.Components.Widgets;
 public partial class GuildRoster
 {
     [Inject]
+    private ILogger<GuildRoster> Logger { get; set; } = default!;
+    [Inject]
     private IBlizzardService BlizzardService { get; set; } = default!;
     [Inject]
     public ApplicationData? ApplicationData { get; set; }
@@ -84,6 +86,7 @@ public partial class GuildRoster
         }
         catch (Exception ex)
         {
+            Logger.LogError(ex, ex.Message);
             ErrorMessage = ex.ToString();
         }
     }

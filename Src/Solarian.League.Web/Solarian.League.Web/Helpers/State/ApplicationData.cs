@@ -13,7 +13,7 @@ public class ApplicationData
     #region Active Discord Users Widget
     public class DiscordWidget
     {
-        public WidgetData DiscordWidgetData { get; set; } = new();
+        public WidgetData? DiscordWidgetData { get; set; } = new();
         public DateTime DiscordWidgetLastUpdated { get; set; } = DateTime.MinValue;
     }
     #endregion

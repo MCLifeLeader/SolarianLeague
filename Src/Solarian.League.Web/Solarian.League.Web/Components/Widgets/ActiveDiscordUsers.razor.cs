@@ -9,13 +9,15 @@ namespace Solarian.League.Web.Components.Widgets;
 public partial class ActiveDiscordUsers
 {
     [Inject]
+    private ILogger<ActiveDiscordUsers> Logger { get; set; } = default!;
+    [Inject]
     public IDiscordService? DiscordService { get; set; }
     [Inject]
     public ApplicationData? ApplicationData { get; set; }
     [Inject]
     public AppSettings? AppSettings { get; set; }
 
-    public WidgetData DiscordData { get; set; } = new WidgetData();
+    public WidgetData? DiscordData { get; set; } = new WidgetData();
     public string ErrorMessage { get; set; } = string.Empty;
 
     protected override async Task OnInitializedAsync()
@@ -29,7 +31,7 @@ public partial class ActiveDiscordUsers
         try
         {
             if (ApplicationData!.ActiveDiscordUsers.DiscordWidgetLastUpdated <= DateTime.UtcNow ||
-                ApplicationData.ActiveDiscordUsers.DiscordWidgetData.Id == 0)
+                ApplicationData?.ActiveDiscordUsers.DiscordWidgetData?.Id == 0)
             {
                 DiscordData = await DiscordService!.GetDiscordServerDataAsync();
 
@@ -39,11 +41,12 @@ public partial class ActiveDiscordUsers
             }
             else
             {
-                DiscordData = ApplicationData.ActiveDiscordUsers.DiscordWidgetData;
+                DiscordData = ApplicationData?.ActiveDiscordUsers.DiscordWidgetData;
             }
         }
         catch (Exception ex)
         {
+            Logger.LogError(ex, ex.Message);
             ErrorMessage = ex.ToString();
         }
     }

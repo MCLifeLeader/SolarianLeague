@@ -14,7 +14,7 @@ public class DiscordRepository : IDiscordRepository
         _httpClient = httpClientWrapper;
     }
 
-    public async Task<WidgetData> GetDiscordServerDataAsync()
+    public async Task<WidgetData?> GetDiscordServerDataAsync()
     {
         string route = $"api/guilds/511303656193392652/widget.json?t={DateTime.UtcNow.Ticks}";
         var response = await _httpClient.GetObjectAsync<WidgetData>(route, HttpClientNames.DISCORD_SERVER_DATA);

@@ -57,6 +57,9 @@ public static class RegisterDependentServices
             // Turn on resilience by default
             http.AddStandardResilienceHandler();
         });
+        
+        builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
+
         builder.SetHttpClients(appSettings);
 
         builder.SetDependencyInjection(appSettings);
