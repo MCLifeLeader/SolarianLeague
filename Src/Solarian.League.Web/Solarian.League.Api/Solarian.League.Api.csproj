@@ -58,8 +58,21 @@
       <DependentUpon>appsettings.json</DependentUpon>
       <IsTransformFile>true</IsTransformFile>
     </None>
+    <None Update="host.Debug.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>host.json</DependentUpon>
+    </None>
+    <None Update="host.Development.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>host.json</DependentUpon>
+    </None>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TransformOnBuild>true</TransformOnBuild>
+    </None>
+    <None Update="host.Release.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>host.json</DependentUpon>
     </None>
     <None Update="local.settings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
