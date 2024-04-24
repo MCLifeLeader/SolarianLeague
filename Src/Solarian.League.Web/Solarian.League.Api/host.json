@@ -2,9 +2,9 @@
   "version": "2.0",
   "Logging": {
     "LogLevel": {
-      "Default": "Warning",
+      "Default": "Error",
       "Microsoft": "Error",
-      "Microsoft.AspNetCore": "Warning",
+      "Microsoft.AspNetCore": "Error",
       "System": "Error"
     },
     "applicationInsights": {
