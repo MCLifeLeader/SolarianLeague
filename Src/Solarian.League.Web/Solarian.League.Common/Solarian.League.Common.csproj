@@ -14,7 +14,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Models\Response\" />
       <Folder Include="Models\Wow\Character\Appearance\" />
       <Folder Include="Models\Wow\Character\ProfileStatus\" />
       <Folder Include="Models\Wow\Character\Stats\" />
