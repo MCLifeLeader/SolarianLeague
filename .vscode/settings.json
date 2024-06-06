@@ -3,6 +3,7 @@
         "Blazor",
         "Solarian"
     ],
+    "azureFunctions.projectSubpath": "Src\\Solarian.League.Web\\Solarian.League.Api",
     "azureFunctions.deploySubpath": "Src\\Solarian.League.Web\\Solarian.League.Api/bin/Release/net8.0/publish",
     "azureFunctions.projectLanguage": "C#",
     "azureFunctions.projectRuntime": "~4",
