@@ -396,3 +396,12 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+Src/BlizzardAuth/BlizzardAuth/Properties/serviceDependencies.kb7ppb - Zip Deploy.json
+Src/BlizzardAuth/BlizzardAuth/Properties/ServiceDependencies/kb7ppb - Zip Deploy/appInsights1.arm.json
+Src/BlizzardAuth/BlizzardAuth/Properties/ServiceDependencies/kb7ppb - Zip Deploy/storage1.arm.json
+Src/Solarian.League.Web/Solarian.League.Api/Properties/serviceDependencies.kb7ppb - Zip Deploy.json
+Src/Solarian.League.Web/Solarian.League.Api/Properties/ServiceDependencies/kb7ppb - Zip Deploy/appInsights1.arm.json
+Src/Solarian.League.Web/Solarian.League.Api/Properties/ServiceDependencies/kb7ppb - Zip Deploy/profile.arm.json
+Src/Solarian.League.Web/Solarian.League.Api/Properties/ServiceDependencies/kb7ppb - Zip Deploy/storage1.arm.json
+Src/Solarian.League.Web/Solarian.League.Web/Properties/serviceDependencies.local.json
+Src/Solarian.League.Web/Solarian.League.Web/Properties/ServiceDependencies/local/compute.function.windows1.arm.json
