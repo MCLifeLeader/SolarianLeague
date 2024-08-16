@@ -16,68 +16,75 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var member in GuildRosterData?.Members!)
+                @if (GuildRosterData == null || GuildRosterData?.Members.Count == 0)
                 {
-                    <tr>
-                        <td>
-                            @if (CharacterMedias.ContainsKey(member.Character.Id))
-                            {
-                                @if (string.IsNullOrEmpty(CharacterMedias[member.Character.Id]?.Assets[0].Value))
+                    <p><em>Loading...</em></p>
+                }
+                else
+                {
+                    @foreach (var member in GuildRosterData?.Members!)
+                    {
+                        <tr>
+                            <td>
+                                @if (CharacterMedias.ContainsKey(member.Character.Id))
+                                {
+                                    @if (string.IsNullOrEmpty(CharacterMedias[member.Character.Id]?.Assets[0].Value))
+                                    {
+                                        <img class="img-fluid rounded character_image_max_width"
+                                             src="/assets/images/race-gender-unknown.jpg"
+                                             alt="Character image of @member.Character.Name"
+                                             title="Character image of @member.Character.Name" />
+                                    }
+                                    else
+                                    {
+                                        <img class="img-fluid rounded character_image_max_width"
+                                             crossorigin="anonymous"
+                                             src="@CharacterMedias[member.Character.Id]?.Assets[0].Value"
+                                             alt="Character image of @member.Character.Name"
+                                             title="Character image of @member.Character.Name" />
+                                    }
+                                }
+                                else
                                 {
                                     <img class="img-fluid rounded character_image_max_width"
                                          src="/assets/images/race-gender-unknown.jpg"
                                          alt="Character image of @member.Character.Name"
                                          title="Character image of @member.Character.Name" />
                                 }
+                                <span class="p-2">@member.Character.Name</span>
+
+                            </td>
+                            <td>
+                                <span class="">@member.Character.PlayableRace.Id</span>
+                            </td>
+                            <td>
+                                <span class="">@member.Character.PlayableClass.Id</span>
+                            </td>
+                            <td>
+                                <span>@member.Character.Level</span>
+                            </td>
+                            <td>
+                                @if (@CharacterSummaries.ContainsKey(member.Character.Id))
+                                {
+                                    <span>@CharacterSummaries[member.Character.Id]?.AverageItemLevel</span>
+                                }
                                 else
                                 {
-                                    <img class="img-fluid rounded character_image_max_width"
-                                         crossorigin="anonymous"
-                                         src="@CharacterMedias[member.Character.Id]?.Assets[0].Value"
-                                         alt="Character image of @member.Character.Name"
-                                         title="Character image of @member.Character.Name" />
+                                    <span>?</span>
                                 }
-                            }
-                            else
-                            {
-                                <img class="img-fluid rounded character_image_max_width"
-                                     src="/assets/images/race-gender-unknown.jpg"
-                                     alt="Character image of @member.Character.Name"
-                                     title="Character image of @member.Character.Name" />
-                            }
-                            <span class="p-2">@member.Character.Name</span>
-
-                        </td>
-                        <td>
-                            <span class="">@member.Character.PlayableRace.Id</span>
-                        </td>
-                        <td>
-                            <span class="">@member.Character.PlayableClass.Id</span>
-                        </td>
-                        <td>
-                            <span>@member.Character.Level</span>
-                        </td>
-                        <td>
-                            @if (@CharacterSummaries.ContainsKey(member.Character.Id))
-                            {
-                                <span>@CharacterSummaries[member.Character.Id]?.AverageItemLevel</span>
-                            }
-                            else
-                            {
-                                <span>?</span>
-                            }
-                        </td>
-                        <td>
-                            @if (@member.Rank == 0)
-                            {
-                                <span>Guild Master</span>
-                            }
-                            else
-                            {
-                                <span>@member.Rank</span>
-                            }
-                        </td>
-                    </tr>
+                            </td>
+                            <td>
+                                @if (@member.Rank == 0)
+                                {
+                                    <span>Guild Master</span>
+                                }
+                                else
+                                {
+                                    <span>@member.Rank</span>
+                                }
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
