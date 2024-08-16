@@ -5,55 +5,69 @@
         <div class="widgetHeader">
             <a class="btn text-light bi bi-discord discord_text" aria-hidden="true" href="https://discord.com" target="_blank"> Discord</a>
             <span class="widgetHeaderCount">
-                <strong>@DiscordData.PresenceCount</strong> Members Online
+                <strong>@DiscordData?.PresenceCount</strong> Members Online
             </span>
         </div>
         <div class="widgetBody">
             <div>
-                @foreach (var channel in DiscordData.Channels)
+                @if (DiscordData == null || DiscordData.Channels.Count == 0)
                 {
-                    <div id="@string.Format($"{channel.Name}_{@channel.Id}")" class="widgetChannel">
-                        <div class="widgetChannelName">@channel.Name</div>
-                        @if (DiscordData.Members.Any(m => m.ChannelId == channel.Id))
-                        {
-                            <div>
-                                @foreach (var member in DiscordData.Members)
-                                {
-                                    @if (member.ChannelId == channel.Id)
+                    <p><em>Loading...</em></p>
+                }
+                else
+                {
+                    @foreach (var channel in DiscordData.Channels)
+                    {
+                        <div id="@string.Format($"{channel.Name}_{@channel.Id}")" class="widgetChannel">
+                            <div class="widgetChannelName">@channel.Name</div>
+                            @if (DiscordData.Members.Any(m => m.ChannelId == channel.Id))
+                            {
+                                <div>
+                                    @foreach (var member in DiscordData.Members)
                                     {
-                                        <div class="widgetMember">
-                                            <div class="widgetMemberAvatar">
-                                                <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="https://cdn.discordapp.com/widget-avatars/kWajk9yLuWFWo2isiPeb-PX29qycB15ZtRyJMZwFdCM/E7HrAN6YCI_uTWx0BmsTcTsRycgTBlx_cxrj7VP_O9fqe2dp-cwfxemy6vtfI-CGzFT2dszwAnK3SfB1ysS3vAjMQ8n1gC5S9QngA5w9AFuzZxRyXotleyh-eb86EK0knW-cWP3UZuFi0g">
-                                            </div><span class="widgetMemberName">Tails - Nithén</span>
-                                            @if (member.Mute || member.SelfMute)
-                                            {
-                                                <span class="widgetIcon widgetIconMute"></span>
-                                            }
-                                            @if (member.Deaf || member.SelfDeaf)
-                                            {
-                                                <span class="widgetIcon widgetIconDeaf"></span>
-                                            }
-                                        </div>
+                                        @if (member.ChannelId == channel.Id)
+                                        {
+                                            <div class="widgetMember">
+                                                <div class="widgetMemberAvatar">
+                                                    <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="https://cdn.discordapp.com/widget-avatars/kWajk9yLuWFWo2isiPeb-PX29qycB15ZtRyJMZwFdCM/E7HrAN6YCI_uTWx0BmsTcTsRycgTBlx_cxrj7VP_O9fqe2dp-cwfxemy6vtfI-CGzFT2dszwAnK3SfB1ysS3vAjMQ8n1gC5S9QngA5w9AFuzZxRyXotleyh-eb86EK0knW-cWP3UZuFi0g">
+                                                </div><span class="widgetMemberName">Tails - Nithén</span>
+                                                @if (member.Mute || member.SelfMute)
+                                                {
+                                                    <span class="widgetIcon widgetIconMute"></span>
+                                                }
+                                                @if (member.Deaf || member.SelfDeaf)
+                                                {
+                                                    <span class="widgetIcon widgetIconDeaf"></span>
+                                                }
+                                            </div>
+                                        }
                                     }
-                                }
-                            </div>
-                        }
-                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
                 }
             </div>
             <div>
                 <div class="widgetMembersOnline">Members Online</div>
                 <div>
-                    @foreach (var member in DiscordData.Members)
+                    @if (DiscordData == null || DiscordData.Members.Count == 0)
                     {
-                        <div class="widgetMember">
-                            <div class="widgetMemberAvatar">
-                                <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="@member.AvatarUrl" />
-                                <span class="widgetMemberStatus @member.Status"></span>
+                        <p><em>Loading...</em></p>
+                    }
+                    else
+                    {
+                        @foreach (var member in DiscordData.Members)
+                        {
+                            <div class="widgetMember">
+                                <div class="widgetMemberAvatar">
+                                    <img class="img-fluid rounded discord_image_max_width" crossorigin="anonymous" alt="" src="@member.AvatarUrl" />
+                                    <span class="widgetMemberStatus @member.Status"></span>
+                                </div>
+                                <span class="widgetMemberName">@member.Username</span>
+                                <span class="widgetMemberGame">@member.Game.Name</span>
                             </div>
-                            <span class="widgetMemberName">@member.Username</span>
-                            <span class="widgetMemberGame">@member.Game.Name</span>
-                        </div>
+                        }
                     }
                 </div>
             </div>
